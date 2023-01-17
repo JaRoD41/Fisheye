@@ -12,17 +12,23 @@ function photographerFactory(data) {
         img.setAttribute("src", picture)
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
-        const home = document.createElement( 'city' );
+        const aside = document.createElement( 'div' );
+        aside.classList.add('details')
+        const home = document.createElement( 'span' );
+        home.classList.add('home')
         home.textContent = cityName
-        const sentence = document.createElement( 'sentence' );
+        const sentence = document.createElement( 'span' );
+        sentence.classList.add('tag')
         sentence.textContent = tag
-        const hourRate = document.createElement( 'hourRate' );
+        const hourRate = document.createElement( 'span' );
+        hourRate.classList.add('rate')
         hourRate.textContent = rate
         article.appendChild(img);
         article.appendChild(h2);
-        article.appendChild(home)
-        article.appendChild(sentence)
-        article.appendChild(hourRate)
+        article.appendChild(aside)
+        aside.appendChild(home)
+        aside.appendChild(sentence)
+        aside.appendChild(hourRate)
         return (article);
     }
     return { name, picture, getUserCardDOM }
