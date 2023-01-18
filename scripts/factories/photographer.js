@@ -7,8 +7,10 @@ function photographerFactory(data) {
 	const rate = `${price}€/jour`
 
 	function getUserCardDOM() {
+		const photographersSection = document.querySelector('.photographer_section')
 		const article = document.createElement('article')
 		const anchor = document.createElement('a')
+		anchor.href = '../../photographer.html'
 		const img = document.createElement('img')
 		img.ariaLabel = 'photo du photographe'
 		img.setAttribute('src', picture)
@@ -25,12 +27,14 @@ function photographerFactory(data) {
 		const hourRate = document.createElement('span')
 		hourRate.classList.add('rate')
 		hourRate.textContent = rate
-		article.appendChild(img)
-		article.appendChild(h2)
+		anchor.appendChild(img)
+		anchor.appendChild(h2)
+		article.appendChild(anchor)
 		article.appendChild(aside)
 		aside.appendChild(home)
 		aside.appendChild(sentence)
 		aside.appendChild(hourRate)
+		
 		return article
 	}
 	return { name, picture, getUserCardDOM }

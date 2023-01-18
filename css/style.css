@@ -50,6 +50,15 @@ h1 {
     font-size: 36px;
     line-height: 47px;
     margin-bottom: 0px;
+    text-align: center;
+}
+
+.photographer_section article a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 .photographer_section article img {
