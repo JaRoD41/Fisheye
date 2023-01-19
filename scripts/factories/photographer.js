@@ -11,7 +11,7 @@ function photographerFactory(data) {
 		const anchor = document.createElement('a')
 		anchor.href = `../../photographer.html?id=${id}`
 		const img = document.createElement('img')
-		img.ariaLabel = 'photo du photographe'
+		img.ariaLabel = `photo du photographe ${name}`
 		img.setAttribute('src', picture)
 		const h2 = document.createElement('h2')
 		h2.textContent = name
