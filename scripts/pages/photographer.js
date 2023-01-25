@@ -14,8 +14,25 @@ async function getPhotographerInfos() {
 		})
 
 	return {
-		photographerInfos: [...photographerInfos],
+		photographerInfos: photographerInfos[0],
 	}
 }
 
-getPhotographerInfos()
+function displayData(photographerInfos) {
+	const section = document.querySelector('.photograph-header')
+
+
+	const photographerSection = photographerFactory(photographerInfos)
+	const PhotographerInfosDOM = photographerSection.getPhotographerHeader()
+	section.appendChild(PhotographerInfosDOM)
+
+	console.log('infos du bon photographe :', photographerInfos)
+}
+
+async function init() {
+	// Récupère les datas du photographe
+	const { photographerInfos } = await getPhotographerInfos()
+	displayData(photographerInfos)
+}
+
+init()

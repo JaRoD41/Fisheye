@@ -7,13 +7,14 @@
     height: 300px;
     margin: 0 100px;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .photograph-header .infos {
     display: flex;
     flex-direction: column;
     width: 375px;
-    border: 1px solid red;
 }
 
 .photograph-header img {

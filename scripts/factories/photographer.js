@@ -33,8 +33,24 @@ function photographerFactory(data) {
 		aside.appendChild(home)
 		aside.appendChild(sentence)
 		aside.appendChild(hourRate)
-		
+
 		return article
 	}
-	return { name, picture, getUserCardDOM }
+
+	function getPhotographerHeader() {
+		const fiche = document.querySelector('.photograph-header')
+		fiche.innerHTML += `
+			<aside class="infos">
+        <h1>${name}</h1>
+        <span>${city}, ${country}</span>
+        <span>${tagline}</span>
+			</aside>	
+      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <img aria-label="portrait du photographe ${name}" src="assets/photographers/Photographers ID Photos/${portrait}">
+		`
+
+		return fiche
+	}
+
+	return { name, picture, getUserCardDOM, getPhotographerHeader }
 }

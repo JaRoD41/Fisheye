@@ -1,6 +1,4 @@
 async function getPhotographers() {
-	// Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet,
-	// mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
 	let photographers = []
 	await fetch('../../data/photographers.json')
 		.then((res) => res.json())
@@ -8,7 +6,7 @@ async function getPhotographers() {
 			photographers = data.photographers
 		})
 
-	// et bien retourner le tableau photographers seulement une fois récupéré
+	// on retourne le tableau photographers une fois récupéré
 	return {
 		photographers: [...photographers],
 	}
