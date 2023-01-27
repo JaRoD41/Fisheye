@@ -21,12 +21,9 @@ async function getPhotographerInfos() {
 function displayData(photographerInfos) {
 	const section = document.querySelector('.photograph-header')
 
-
 	const photographerSection = photographerFactory(photographerInfos)
 	const PhotographerInfosDOM = photographerSection.getPhotographerHeader()
 	section.appendChild(PhotographerInfosDOM)
-
-	console.log('infos du bon photographe :', photographerInfos)
 }
 
 async function init() {
