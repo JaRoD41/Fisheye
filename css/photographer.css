@@ -1,17 +1,26 @@
 #main {
     margin: 0 100px;
+    max-width: 1440px;
 }
 
 #contact_modal {
     display: none;
 }
 
+#gallery-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 100px;
+    max-width: 1440px;
+}
+
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
+    padding: 0 50px;
 }
 
 .photograph-header .infos {
@@ -27,26 +36,57 @@
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    margin-left: 270px;
+}
+
+.infos {
+    width: 425px;
+}
+
+.infos-name {
+    width: 100%;
+}
+
+.infos-name h1 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 83px;
+    color: #D3573C;
+    margin: 0;
+}
+
+.origin {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+    color: #901C1C;
+}
+
+.tagline {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #525252;
+    margin-top: 19px;
 }
 
 .photograph-gallery {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 20px;
+    margin-top: 71px;
+    justify-content: center;
 }
 
-.photograph_gallery .gallery_item {
-    justify-self: center;
+.photograph-gallery .article {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 300px;
-    width: 350px;
 }
 
-.photograph_gallery .gallery_item a {
+.photograph-gallery .article a {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,18 +94,33 @@
     text-decoration: none;
 }
 
-.photograph_gallery img {
+.photograph-gallery article .single_photo {
     height: 300px;
     width: 350px;
+    border-radius: 5px;
     object-fit: cover;
 }
 
 .photo_infos {
     display: flex;
+    width: 350px;
+    justify-content: space-between;
+    align-items: baseline;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+    color: #911C1C;
 }
 
 .photo_likes {
     display: flex;
+    font-weight: 500;
+    justify-content: space-between;
+}
+
+.red-like {
+    margin-left: 7px;
 }
 
 .contact_button {
@@ -79,6 +134,7 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 100px;
 }
 
 .modal {

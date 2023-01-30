@@ -41,9 +41,11 @@ function photographerFactory(data) {
 		const fiche = document.querySelector('.photograph-header')
 		fiche.innerHTML = `
 			<aside class="infos">
-        <h1>${name}</h1>
-        <span>${city}, ${country}</span>
-        <span>${tagline}</span>
+				<div class="infos-name">
+        	<h1>${name}</h1>
+				</div>	
+        <span class="origin">${city}, ${country}</span>
+        <span class="tagline">${tagline}</span>
 			</aside>	
       <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       <img aria-label="portrait du photographe ${name}" src="${picture}">

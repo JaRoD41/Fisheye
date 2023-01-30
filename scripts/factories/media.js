@@ -1,6 +1,5 @@
 function mediaFactory(data) {
-	const {id, photographerId, title, image, likes, date, price } = data
-	
+	const { id, photographerId, title, image, likes, date, price } = data
 
 	function getMediaGallery() {
 		const gallery = document.querySelector('.photograph-gallery')
@@ -8,7 +7,7 @@ function mediaFactory(data) {
 			<article class="gallery_item" id="${id}">
 				<figure>
         	<a href="">
-						<img aria-label="${title}" src="../../assets/photographers/${photographerId}/${image}">
+						<img aria-label="${title}" class="single_photo" src="../../assets/photographers/${photographerId}/${image}">
 					</a>
 					<figcaption class="photo_infos">
 						<p>${title}</p>
@@ -35,5 +34,5 @@ function mediaFactory(data) {
       <span>${price}€/jour</span>
 		`
 	}
-  return { getMediaGallery, getPriceRateTab }
+	return { getMediaGallery, getPriceRateTab }
 }

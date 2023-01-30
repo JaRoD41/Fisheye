@@ -24,7 +24,7 @@ async function getPhotographerInfos() {
 	}
 }
 
-function displayData(photographerInfos, medias) {
+async function displayData(photographerInfos, medias) {
 	medias.forEach((eachMedia) => {
 		const gallerySection = mediaFactory(eachMedia)
 		const PhotographerGalleryDOM = gallerySection.getMediaGallery()
