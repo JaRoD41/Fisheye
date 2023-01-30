@@ -23,16 +23,16 @@ function photographerFactory(data) {
 		const sentence = document.createElement('span')
 		sentence.classList.add('tag')
 		sentence.textContent = tag
-		const hourRate = document.createElement('span')
-		hourRate.classList.add('rate')
-		hourRate.textContent = rate
+		const dayRate = document.createElement('span')
+		dayRate.classList.add('rate')
+		dayRate.textContent = rate
 		anchor.appendChild(img)
 		anchor.appendChild(h2)
 		article.appendChild(anchor)
 		article.appendChild(aside)
 		aside.appendChild(home)
 		aside.appendChild(sentence)
-		aside.appendChild(hourRate)
+		aside.appendChild(dayRate)
 
 		return article
 	}
@@ -46,7 +46,7 @@ function photographerFactory(data) {
         <span>${tagline}</span>
 			</aside>	
       <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      <img aria-label="portrait du photographe ${name}" src="assets/photographers/Photographers ID Photos/${portrait}">
+      <img aria-label="portrait du photographe ${name}" src="${picture}">
 		`
 
 		return fiche

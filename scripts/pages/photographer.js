@@ -25,15 +25,18 @@ async function getPhotographerInfos() {
 }
 
 function displayData(photographerInfos, medias) {
+	medias.forEach((eachMedia) => {
+		const gallerySection = mediaFactory(eachMedia)
+		const PhotographerGalleryDOM = gallerySection.getMediaGallery()
+		console.log('eachMedia :', eachMedia)
+	})
 	const section = document.querySelector('.photograph-header')
 
 	const photographerSection = photographerFactory(photographerInfos)
 	const PhotographerInfosDOM = photographerSection.getPhotographerHeader()
 	const gallery = document.querySelector('.photograph-gallery')
-	const gallerySection = mediaFactory(medias)
-	const PhotographerGalleryDOM = gallerySection.getMediaGallery()
+
 	console.log('medias du photographe :', medias)
-	console.log('gallerySection :', gallerySection)
 }
 
 async function init() {
