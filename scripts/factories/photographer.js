@@ -39,7 +39,7 @@ function photographerFactory(data) {
 
 	function getPhotographerHeader() {
 		const fiche = document.querySelector('.photograph-header')
-		fiche.innerHTML += `
+		fiche.innerHTML = `
 			<aside class="infos">
         <h1>${name}</h1>
         <span>${city}, ${country}</span>

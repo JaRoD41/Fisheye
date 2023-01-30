@@ -4,6 +4,7 @@ let photographerPageId = url.searchParams.get('id') // get the id of the photogr
 async function getPhotographerInfos() {
 	let photographerInfos = []
 	let arrayOfPhotographers = []
+	let arrayOfMedias = []
 	await fetch('../../data/photographers.json')
 		.then((res) => res.json())
 		.then((data) => {
@@ -11,25 +12,34 @@ async function getPhotographerInfos() {
 			photographerInfos = arrayOfPhotographers.filter((person) => {
 				return person.id == photographerPageId
 			})
+			arrayOfMedias = data.media
+			medias = arrayOfMedias.filter((media) => {
+				return media.photographerId == photographerPageId
+			})
 		})
 
 	return {
 		photographerInfos: photographerInfos[0],
+		medias: medias,
 	}
 }
 
-function displayData(photographerInfos) {
+function displayData(photographerInfos, medias) {
 	const section = document.querySelector('.photograph-header')
 
 	const photographerSection = photographerFactory(photographerInfos)
 	const PhotographerInfosDOM = photographerSection.getPhotographerHeader()
-	section.appendChild(PhotographerInfosDOM)
+	const gallery = document.querySelector('.photograph-gallery')
+	const gallerySection = mediaFactory(medias)
+	const PhotographerGalleryDOM = gallerySection.getMediaGallery()
+	console.log('medias du photographe :', medias)
+	console.log('gallerySection :', gallerySection)
 }
 
 async function init() {
 	// Récupère les datas du photographe
-	const { photographerInfos } = await getPhotographerInfos()
-	displayData(photographerInfos)
+	const { photographerInfos, medias } = await getPhotographerInfos()
+	displayData(photographerInfos, medias)
 }
 
 init()

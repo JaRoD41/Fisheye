@@ -1,3 +1,7 @@
+#main {
+    margin: 0 100px;
+}
+
 #contact_modal {
     display: none;
 }
@@ -5,7 +9,6 @@
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
     display: flex;
     justify-content: space-around;
     align-items: center;

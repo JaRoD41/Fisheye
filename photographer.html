@@ -17,6 +17,16 @@
   </header>
   <main id="main">
     <section class="photograph-header"></section>
+    <div class="gallery-filter">
+      <span>Trier par</span>
+      <select name="filtres" id="filter">
+        <option value="popularite">Popularité</option>
+        <option value="date">Date</option>
+        <option value="titre">Titre</option>
+      </select>
+    </div>
+    <section class="photograph-gallery"></section>
+    <aside class="ratePriceLabel"></aside>
   </main>
   <div id="contact_modal">
     <div class="modal">
@@ -34,6 +44,7 @@
     </div>
   </div>
   <script src="scripts/factories/photographer.js"></script>
+  <script src="scripts/factories/media.js"></script>
   <script src="/scripts/pages/photographer.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
 </body>
