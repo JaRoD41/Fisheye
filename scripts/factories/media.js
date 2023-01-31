@@ -34,5 +34,6 @@ function mediaFactory(data) {
       <span>${price}€/jour</span>
 		`
 	}
+
 	return { getMediaGallery, getPriceRateTab }
 }

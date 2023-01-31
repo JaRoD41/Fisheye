@@ -47,12 +47,40 @@ function photographerFactory(data) {
         <span class="origin">${city}, ${country}</span>
         <span class="tagline">${tagline}</span>
 			</aside>	
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <button class="contact_button" onclick='displayModal()'>Contactez-moi</button>
       <img aria-label="portrait du photographe ${name}" src="${picture}">
 		`
 
 		return fiche
 	}
+
+	// function getContactModal() {
+	// 	const modalForm = document.querySelector('.contact_modal')
+	// 	modalForm.innerHTML = `
+	// 	<div class="modal">
+  //     <header>
+  //       <h2>Contactez-moi</h2>
+  //       <img src="assets/icons/close.svg" onclick="closeModal()" />
+  //       <p class="namePhotographForm"></p>
+  //     </header>
+  //     <form>
+  //       <div>
+  //         <label>Prénom</label>
+  //         <input />
+  //         <label>Nom</label>
+  //         <input />
+  //         <label>Email</label>
+  //         <input />
+  //         <label">Votre message</label>
+  //         <input class="messageBox"/>
+  //       </div>
+  //       <button class="contact_button">Envoyer</button>
+  //     </form>
+  //   </div>
+	// 	`
+
+	// 	return modalForm
+	// }
 
 	return { name, picture, getUserCardDOM, getPhotographerHeader }
 }

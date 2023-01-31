@@ -28,15 +28,12 @@ async function displayData(photographerInfos, medias) {
 	medias.forEach((eachMedia) => {
 		const gallerySection = mediaFactory(eachMedia)
 		const PhotographerGalleryDOM = gallerySection.getMediaGallery()
-		console.log('eachMedia :', eachMedia)
 	})
 	const section = document.querySelector('.photograph-header')
 
 	const photographerSection = photographerFactory(photographerInfos)
 	const PhotographerInfosDOM = photographerSection.getPhotographerHeader()
 	const gallery = document.querySelector('.photograph-gallery')
-
-	console.log('medias du photographe :', medias)
 }
 
 async function init() {
