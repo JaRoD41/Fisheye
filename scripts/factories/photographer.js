@@ -58,29 +58,34 @@ function photographerFactory(data) {
 	// 	const modalForm = document.querySelector('.contact_modal')
 	// 	modalForm.innerHTML = `
 	// 	<div class="modal">
-  //     <header>
-  //       <h2>Contactez-moi</h2>
-  //       <img src="assets/icons/close.svg" onclick="closeModal()" />
-  //       <p class="namePhotographForm"></p>
-  //     </header>
-  //     <form>
-  //       <div>
-  //         <label>Prénom</label>
-  //         <input />
-  //         <label>Nom</label>
-  //         <input />
-  //         <label>Email</label>
-  //         <input />
-  //         <label">Votre message</label>
-  //         <input class="messageBox"/>
-  //       </div>
-  //       <button class="contact_button">Envoyer</button>
-  //     </form>
-  //   </div>
+	//     <header>
+	//       <h2>Contactez-moi</h2>
+	//       <img src="assets/icons/close.svg" onclick="closeModal()" />
+	//       <p class="namePhotographForm"></p>
+	//     </header>
+	//     <form>
+	//       <div>
+	//         <label>Prénom</label>
+	//         <input />
+	//         <label>Nom</label>
+	//         <input />
+	//         <label>Email</label>
+	//         <input />
+	//         <label">Votre message</label>
+	//         <input class="messageBox"/>
+	//       </div>
+	//       <button class="contact_button">Envoyer</button>
+	//     </form>
+	//   </div>
 	// 	`
 
 	// 	return modalForm
 	// }
 
-	return { name, picture, getUserCardDOM, getPhotographerHeader }
+	return {
+		name,
+		picture,
+		getUserCardDOM,
+		getPhotographerHeader,
+	}
 }

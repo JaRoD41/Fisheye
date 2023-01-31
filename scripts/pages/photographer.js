@@ -1,6 +1,6 @@
 let url = new URL(location.href) // declare an variable to pick the actual URL
 let photographerPageId = url.searchParams.get('id') // get the id of the photographer from the URL
-
+let medias = []
 async function getPhotographerInfos() {
 	let photographerInfos = []
 	let arrayOfPhotographers = []
@@ -24,21 +24,20 @@ async function getPhotographerInfos() {
 	}
 }
 
-async function displayData(photographerInfos, medias) {
+async function displayData(photographerInfos, medias, likes) {
 	medias.forEach((eachMedia) => {
 		const gallerySection = mediaFactory(eachMedia)
-		const PhotographerGalleryDOM = gallerySection.getMediaGallery()
+		gallerySection.getMediaGallery()
+		gallerySection.getPriceRateTab()
 	})
-	const section = document.querySelector('.photograph-header')
 
 	const photographerSection = photographerFactory(photographerInfos)
-	const PhotographerInfosDOM = photographerSection.getPhotographerHeader()
-	const gallery = document.querySelector('.photograph-gallery')
+	photographerSection.getPhotographerHeader()
 }
 
 async function init() {
 	// Récupère les datas du photographe
-	const { photographerInfos, medias } = await getPhotographerInfos()
+	const { photographerInfos } = await getPhotographerInfos()
 	displayData(photographerInfos, medias)
 }
 

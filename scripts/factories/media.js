@@ -1,5 +1,7 @@
 function mediaFactory(data) {
 	const { id, photographerId, title, image, likes, date, price } = data
+	let likesArray = []
+	
 
 	function getMediaGallery() {
 		const gallery = document.querySelector('.photograph-gallery')
@@ -24,16 +26,23 @@ function mediaFactory(data) {
 		return gallery
 	}
 
+	// function addAllLikes(total, likes) {
+	// 	return total + likes
+	// }
+
 	function getPriceRateTab() {
 		const photographerTab = document.querySelector('.ratePriceLabel')
 		photographerTab.innerHTML = `
 			<div>
-			<span>totalLikes</span>
+			<span>${likes}</span>
 			<img aria-label="nombre total de likes du photographe" src="../../assets/icons/black-heart.svg">
 			</div>
       <span>${price}€/jour</span>
 		`
+
+		return photographerTab
 	}
 
-	return { getMediaGallery, getPriceRateTab }
+	
+	return { likes, getMediaGallery, getPriceRateTab }
 }
