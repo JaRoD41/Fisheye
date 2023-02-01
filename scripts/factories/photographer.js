@@ -42,7 +42,7 @@ function photographerFactory(data) {
 		fiche.innerHTML = `
 			<aside class="infos">
 				<div class="infos-name">
-        	<h1>${name}</h1>
+        <h1>${name}</h1>
 				</div>	
         <span class="origin">${city}, ${country}</span>
         <span class="tagline">${tagline}</span>
