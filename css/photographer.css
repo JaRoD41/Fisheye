@@ -6,6 +6,13 @@
 
 #contact_modal {
     display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 #gallery-container {
@@ -182,12 +189,20 @@
 
 .modal header img {
     cursor: pointer;
+    margin-left: 135px;
 }
 
-.modal header h2 {
+.modal header h2, .namePhotographForm {
     font-size: 64px;
     font-weight: normal;
     text-align: center;
+    margin: 0;
+}
+
+.formTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 form {
@@ -195,6 +210,7 @@ form {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 80px;
 }
 
 form label {
