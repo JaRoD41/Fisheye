@@ -31,6 +31,10 @@ function addAllLikes(total, num) {
 	return total + num
 }
 
+function sortMediaTypes(medium) {
+	
+}
+
 async function displayData(photographerInfos, medias) {
 	const photographerPrice = photographerInfos.price
 	medias.forEach((eachMedia) => {

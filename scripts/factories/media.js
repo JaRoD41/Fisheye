@@ -1,14 +1,21 @@
 function mediaFactory(data, photographerPrice, totalLikes) {
-	const { id, photographerId, title, image, likes, date } = data
-	
+	const { id, photographerId, title, image, video, likes, date } = data
 
 	function getMediaGallery() {
 		const gallery = document.querySelector('.photograph-gallery')
+
+		let media = ''
+		if (video) {
+			media = `<video class="single_media" src="../../assets/photographers/${photographerId}/${video}" controls></video>`
+		} else {
+			media = `<img aria-label="${title}" class="single_media" src="../../assets/photographers/${photographerId}/${image}">`
+		}
+
 		gallery.innerHTML += `
 			<article class="gallery_item" id="${id}">
 				<figure>
         	<a href="">
-						<img aria-label="${title}" class="single_photo" src="../../assets/photographers/${photographerId}/${image}">
+						${media}
 					</a>
 					<figcaption class="photo_infos">
 						<p>${title}</p>
@@ -27,6 +34,7 @@ function mediaFactory(data, photographerPrice, totalLikes) {
 
 	function getPriceRateTab() {
 		const photographerTab = document.querySelector('.ratePriceLabel')
+
 		photographerTab.innerHTML = `
 			<div>
 			<span>${totalLikes}</span>
