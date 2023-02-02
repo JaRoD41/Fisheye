@@ -31,10 +31,6 @@ function addAllLikes(total, num) {
 	return total + num
 }
 
-function sortMediaTypes(medium) {
-	
-}
-
 async function displayData(photographerInfos, medias) {
 	const photographerPrice = photographerInfos.price
 	medias.forEach((eachMedia) => {
@@ -52,8 +48,16 @@ async function displayData(photographerInfos, medias) {
 
 async function init() {
 	// Récupère les datas du photographe
-	const { photographerInfos } = await getPhotographerInfos()
+	const { photographerInfos, medias } = await getPhotographerInfos()
+
+	if (!photographerInfos) {
+		console.error("Pas de photographe trouvé avec l'ID spécifié dans l'URL")
+		return
+	}
+
+	console.log(photographerInfos.price)
 	displayData(photographerInfos, medias)
 }
+
 
 init()

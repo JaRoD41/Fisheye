@@ -1,9 +1,42 @@
+const modal = document.getElementById('contact_modal')
+const mainWrapper = document.getElementById('gallery-container')
+const form = document.querySelector('#contact_modal form')
+const closeBtn = document.querySelector('#contact_modal img')
+const openBtn = document.querySelector('.contact_button')
+
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "flex";
+	modal.style.display = 'flex'
+	mainWrapper.setAttribute('aria-hidden', 'true')
+	modal.setAttribute('aria-hidden', 'false')
+	form.setAttribute('aria-hidden', 'false')
+	document.body.classList.add('no-scroll')
+	closeBtn.focus()
 }
 
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
+	modal.style.display = 'none'
+	mainWrapper.setAttribute('aria-hidden', 'false')
+	modal.setAttribute('aria-hidden', 'true')
+	form.setAttribute('aria-hidden', 'true')
+	document.body.classList.remove('no-scroll')
+	openBtn.focus()
+}
+
+function formSubmit() {
+	const firstNameInput = document.querySelector('input[type=text]:first-child')
+	const lastNameInput = document.querySelector('input[type=text]:nth-child(2)')
+	const emailInput = document.querySelector('input[type=text]:nth-child(3)')
+	const messageInput = document.querySelector('.messageBox')
+	const submitButton = document.querySelector('.contact_button')
+
+	submitButton.addEventListener('click', function (event) {
+		event.preventDefault()
+
+		const firstName = firstNameInput.value
+		const lastName = lastNameInput.value
+		const email = emailInput.value
+		const message = messageInput.value
+
+		console.log({ firstName, lastName, email, message })
+	})
 }

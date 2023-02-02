@@ -11,17 +11,17 @@
 
 <body>
 
-  <header>
+  <header role="banner">
     <a href="./index.html" alt="Fisheye Home page">
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye Logo"/>
     </a>
   </header>
 
-  <main id="gallery-container">
-    <section class="photograph-header"></section>
-    <div class="gallery-filter">
-      <span class="filterSpan">Trier par</span>
-      <select name="filtres" id="filter">
+  <main id="gallery-container" role="main">
+    <section class="photograph-header" aria-labelledby="photographs-header"></section>
+    <div class="gallery-filter" aria-labelledby="filter-label">
+      <span id="filter-label">Trier par</span>
+      <select name="filtres" id="filter" aria-label="Filtres de tri">
         <option value="popularite">Popularité</option>
         <option value="date">Date</option>
         <option value="titre">Titre</option>
@@ -30,27 +30,27 @@
     <section class="photograph-gallery"></section>
     <aside class="ratePriceLabel"></aside>
   </main>
-  <div id="contact_modal">
+  <div id="contact_modal" role="dialog">
     <div class="modal">
       <header>
         <div class="formTitle">
           <h2>Contactez-moi</h2>
           <span class="namePhotographForm"></span>
         </div>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <img src="assets/icons/close.svg" onclick="closeModal()" alt="X pour fermer le formulaire" tabindex="0"/>
       </header>
       <form>
         <div>
-          <label>Prénom</label>
-          <input />
-          <label>Nom</label>
-          <input />
-          <label>Email</label>
-          <input />
-          <label>Votre message</label>
-          <input class="messageBox" />
+          <label for="first-name">Prénom</label>
+          <input id="first-name" type="text" minlength="2" required/>
+          <label for="last-name">Nom</label>
+          <input id="last-name" type="text" minlength="2" required/>
+          <label for="email">Email</label>
+          <input id="email" type="email" required/>
+          <label for="message">Votre message</label>
+          <textarea class="messageBox" required></textarea>
         </div>
-        <button class="contact_button">Envoyer</button>
+        <button class="contact_button" type="submit">Envoyer</button>
       </form>
     </div>
   </div>
