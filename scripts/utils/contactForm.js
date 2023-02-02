@@ -3,6 +3,7 @@ const mainWrapper = document.getElementById('gallery-container')
 const form = document.querySelector('#contact_modal form')
 const closeBtn = document.querySelector('#contact_modal img')
 const openBtn = document.querySelector('.contact_button')
+const submitButton = document.querySelector('.contact_button')
 
 function displayModal() {
 	modal.style.display = 'flex'
@@ -27,7 +28,6 @@ function formSubmit() {
 	const lastNameInput = document.querySelector('input[type=text]:nth-child(2)')
 	const emailInput = document.querySelector('input[type=text]:nth-child(3)')
 	const messageInput = document.querySelector('.messageBox')
-	const submitButton = document.querySelector('.contact_button')
 
 	submitButton.addEventListener('click', function (event) {
 		event.preventDefault()
@@ -38,5 +38,6 @@ function formSubmit() {
 		const message = messageInput.value
 
 		console.log({ firstName, lastName, email, message })
+		init()
 	})
 }

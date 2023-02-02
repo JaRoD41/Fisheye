@@ -49,13 +49,6 @@ async function displayData(photographerInfos, medias) {
 async function init() {
 	// Récupère les datas du photographe
 	const { photographerInfos, medias } = await getPhotographerInfos()
-
-	if (!photographerInfos) {
-		console.error("Pas de photographe trouvé avec l'ID spécifié dans l'URL")
-		return
-	}
-
-	console.log(photographerInfos.price)
 	displayData(photographerInfos, medias)
 }
 
