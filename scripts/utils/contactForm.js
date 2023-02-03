@@ -3,7 +3,9 @@ const mainWrapper = document.getElementById('gallery-container')
 const form = document.querySelector('#contact_modal form')
 const closeBtn = document.querySelector('#contact_modal img')
 const openBtn = document.querySelector('.contact_button')
-const submitButton = document.querySelector('.contact_button')
+const submitButton = document.querySelector('#contact-form')
+
+submitButton.addEventListener('submit', formSubmit)
 
 function displayModal() {
 	modal.style.display = 'flex'
@@ -23,21 +25,19 @@ function closeModal() {
 	openBtn.focus()
 }
 
-function formSubmit() {
-	const firstNameInput = document.querySelector('input[type=text]:first-child')
-	const lastNameInput = document.querySelector('input[type=text]:nth-child(2)')
-	const emailInput = document.querySelector('input[type=text]:nth-child(3)')
+function formSubmit(event) {
+	const firstNameInput = document.querySelector('#first-name')
+	const lastNameInput = document.querySelector('#last-name')
+	const emailInput = document.querySelector('#email')
 	const messageInput = document.querySelector('.messageBox')
 
-	submitButton.addEventListener('click', function (event) {
-		event.preventDefault()
+	event.preventDefault()
 
-		const firstName = firstNameInput.value
-		const lastName = lastNameInput.value
-		const email = emailInput.value
-		const message = messageInput.value
+	const firstName = firstNameInput.value
+	const lastName = lastNameInput.value
+	const email = emailInput.value
+	const message = messageInput.value
 
-		console.log({ firstName, lastName, email, message })
-		init()
-	})
+	console.log({ firstName, lastName, email, message })
+	init()
 }
