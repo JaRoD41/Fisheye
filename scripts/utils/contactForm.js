@@ -23,6 +23,7 @@ function closeModal() {
 	form.setAttribute('aria-hidden', 'true')
 	document.body.classList.remove('no-scroll')
 	openBtn.focus()
+	form.reset()
 }
 
 function formSubmit(event) {
@@ -39,5 +40,5 @@ function formSubmit(event) {
 	const message = messageInput.value
 
 	console.log({ firstName, lastName, email, message })
-	init()
+	
 }
