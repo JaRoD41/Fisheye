@@ -40,5 +40,5 @@ function formSubmit(event) {
 	const message = messageInput.value
 
 	console.log({ firstName, lastName, email, message })
-	
+	closeModal()
 }
