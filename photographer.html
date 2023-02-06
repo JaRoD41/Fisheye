@@ -13,7 +13,7 @@
 
   <header role="banner">
     <a href="./index.html" alt="Fisheye Home page">
-      <img src="assets/images/logo.png" class="logo" alt="Fisheye Logo" />
+      <img src="./assets/images/logo.png" class="logo" alt="Fisheye Logo" />
     </a>
   </header>
 
@@ -30,6 +30,9 @@
     <section class="photograph-gallery"></section>
     <aside class="ratePriceLabel"></aside>
   </main>
+
+  <!-- modale du formulaire de contact  -->
+
   <div id="contact_modal" role="dialog" aria-labelledby="contactMe">
     <div class="modal">
       <header>
@@ -37,7 +40,7 @@
           <h1 id="contactMe">Contactez-moi</h1>
           <span class="namePhotographForm"></span>
         </div>
-        <img src="assets/icons/close.svg" onclick="closeModal()" alt="X pour fermer le formulaire" tabindex="0" />
+        <img src="./assets/icons/close.svg" onclick="closeModal()" alt="X pour fermer le formulaire" tabindex="0" />
       </header>
       <form id="contact-form">
         <div>
@@ -55,11 +58,28 @@
     </div>
   </div>
 
+  <!-- modale de la lightbox d'affichage des médias -->
 
-  <script src="scripts/factories/Media.js"></script>
-  <script src="scripts/factories/photographer.js"></script>
-  <script src="/scripts/pages/photographer.js"></script>
-  <script src="/scripts/utils/contactForm.js"></script>
+  <div id="lightbox_modal" role="dialog" class="lightbox_modal" aria-label="image closeup view">
+    <img id="lightbox-close" src="./assets/icons/closeLightbox.svg" onclick="" alt="X pour fermer la lightbox"
+      tabindex="0" />
+    <section class="media-container">
+      <img id="lightbox-prev" src="./assets/icons/prevLightbox.svg" />
+      <div class="media_name_container">
+        <div id="lightbox-media"></div>
+        <span class="media-name"></span>
+      </div>
+      <img id="lightbox-next" src="./assets/icons/nextLightbox.svg" />
+    </section>
+  </div>
+
+  <!-- déclaration des scripts js -->
+
+  <script src="./scripts/factories/Media.js"></script>
+  <script src="./scripts/utils/lightbox.js"></script>
+  <script src="./scripts/factories/photographer.js"></script>
+  <script src="./scripts/pages/photographer.js"></script>
+  <script src="./scripts/utils/contactForm.js"></script>
 </body>
 
 </html>

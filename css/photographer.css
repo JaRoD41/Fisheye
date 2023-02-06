@@ -246,3 +246,16 @@ form .messageBox {
     font-size: 1.5rem;
     padding: 0 0.5rem;
 }
+
+/* style de la lightbox */
+
+#lightbox_modal {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
