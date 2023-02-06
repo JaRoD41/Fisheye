@@ -3,7 +3,6 @@ let photographerPageId = url.searchParams.get('id') // get the id of the photogr
 let medias = []
 let likesArray = []
 
-
 async function getPhotographerInfos() {
 	let photographerInfos = []
 	let arrayOfPhotographers = []
@@ -37,7 +36,8 @@ async function displayData(photographerInfos, medias) {
 		let eachLike = eachMedia.likes
 		likesArray.push(eachLike)
 		let totalLikes = likesArray.reduce(addAllLikes)
-		const gallerySection = mediaFactory(eachMedia, photographerPrice, totalLikes)
+		// const gallerySection = mediaFactory(eachMedia, photographerPrice, totalLikes)
+		const gallerySection = new Media(eachMedia, photographerPrice, totalLikes)
 		gallerySection.getMediaGallery()
 		gallerySection.getPriceRateTab()
 	})
@@ -51,6 +51,5 @@ async function init() {
 	const { photographerInfos, medias } = await getPhotographerInfos()
 	displayData(photographerInfos, medias)
 }
-
 
 init()

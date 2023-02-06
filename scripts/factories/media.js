@@ -1,50 +1,59 @@
-function mediaFactory(data, photographerPrice, totalLikes) {
-	const { id, photographerId, title, image, video, likes, date } = data
+class Media {
+	constructor(data, photographerPrice, totalLikes) {
+		this.id = data.id
+		this.photographerId = data.photographerId
+		this.title = data.title
+		this.image = data.image
+		this.video = data.video
+		this.likes = data.likes
+		this.date = data.date
+		this.photographerPrice = photographerPrice
+		this.totalLikes = totalLikes
+	}
 
-	function getMediaGallery() {
+	getMediaGallery() {
 		const gallery = document.querySelector('.photograph-gallery')
-
 		let media = ''
-		if (video) {
-			media = `<video class="single_media" src="../../assets/photographers/${photographerId}/${video}" controls></video>`
+
+		if (this.video) {
+			media = `<video class="single_media" src="../../assets/photographers/${this.photographerId}/${this.video}" controls></video>`
 		} else {
-			media = `<img aria-label="${title}" class="single_media" src="../../assets/photographers/${photographerId}/${image}">`
+			media = `<img aria-label="${this.title}" class="single_media" src="../../assets/photographers/${this.photographerId}/${this.image}">`
 		}
 
-		gallery.innerHTML += `
-			<article class="gallery_item" id="${id}">
-				<figure>
-        	<a href="">
-						${media}
-					</a>
-					<figcaption class="photo_infos">
-						<p>${title}</p>
-						<div class="photo_likes"
-							<p class="likes" aria-label="likes">${likes}</p>
-							<a href="">
-							<img aria-label="ajouter ou retirer un like" class="red-like" src="../../assets/icons/red-heart.svg">
-							</a>
-						</div>
-				</figure>
-			</article>	
-		`
-
-		return gallery
+		return (gallery.innerHTML += `
+      <article class="gallery_item" id="${this.id}">
+        <figure>
+          <a href="">
+            ${media}
+          </a>
+          <figcaption class="photo_infos">
+            <p>${this.title}</p>
+            <div class="photo_likes">
+              <p class="likes">${this.likes}</p>
+              <a href="">
+                <img aria-label="ajouter ou retirer un like" class="red-like" src="../../assets/icons/red-heart.svg">
+              </a>
+            </div>
+          </figcaption>
+        </figure>
+      </article>
+    `)
 	}
 
-	function getPriceRateTab() {
+	getPriceRateTab() {
 		const photographerTab = document.querySelector('.ratePriceLabel')
 
-		photographerTab.innerHTML = `
+		return (photographerTab.innerHTML = `
 			<div>
-			<span>${totalLikes}</span>
+			<span>${this.totalLikes}</span>
 			<img aria-label="nombre total de likes du photographe" src="../../assets/icons/black-heart.svg">
 			</div>
-      <span>${photographerPrice}€/jour</span>
-		`
-
-		return photographerTab
+      <span>${this.photographerPrice}€/jour</span>
+		`)
 	}
+}
 
-	return { likes, getMediaGallery, getPriceRateTab }
+function mediaFactory(data, photographerPrice, totalLikes) {
+	return new Media(data, photographerPrice, totalLikes)
 }
