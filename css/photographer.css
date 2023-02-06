@@ -250,12 +250,38 @@ form .messageBox {
 /* style de la lightbox */
 
 #lightbox_modal {
-    display: none;
+    display: flex;
     height: 100%;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.9);
     z-index: 1;
+}
+
+#lightbox-prev,
+#lightbox-next {
+    width: 48px;
+    height: 30px;
+}
+
+#lightbox-prev {
+    position: absolute;
+    left: 13.21%;
+    top: 50%;
+}
+
+#lightbox-next {
+    position: absolute;
+    left: 82.79%;
+    top: 50%;
+}
+
+#lightbox-close {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    left: 82.79%;
+    top: 10%;
 }
