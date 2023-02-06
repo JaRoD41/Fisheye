@@ -30,11 +30,11 @@
     <section class="photograph-gallery"></section>
     <aside class="ratePriceLabel"></aside>
   </main>
-  <div id="contact_modal" role="dialog">
+  <div id="contact_modal" role="dialog" aria-labelledby="contactMe">
     <div class="modal">
       <header>
         <div class="formTitle">
-          <h2>Contactez-moi</h2>
+          <h1 id="contactMe">Contactez-moi</h1>
           <span class="namePhotographForm"></span>
         </div>
         <img src="assets/icons/close.svg" onclick="closeModal()" alt="X pour fermer le formulaire" tabindex="0"/>
@@ -42,15 +42,15 @@
       <form id="contact-form">
         <div>
           <label for="first-name">Prénom</label>
-          <input id="first-name" type="text" minlength="2" required/>
+          <input id="first-name" type="text" minlength="2" aria-labelledby="first-name" required/>
           <label for="last-name">Nom</label>
-          <input id="last-name" type="text" minlength="2" required/>
+          <input id="last-name" type="text" minlength="2" aria-labelledby="last-name" required/>
           <label for="email">Email</label>
-          <input id="email" type="email" required/>
+          <input id="email" type="email" aria-labelledby="email" required/>
           <label for="message">Votre message</label>
-          <textarea class="messageBox" required></textarea>
+          <textarea class="messageBox" aria-labelledby="message" required></textarea>
         </div>
-        <button class="contact_button" type="submit">Envoyer</button>
+        <button class="contact_button" type="submit" aria-label="Send">Envoyer</button>
       </form>
     </div>
   </div>

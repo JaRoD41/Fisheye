@@ -192,8 +192,9 @@
     margin-left: 135px;
 }
 
-.modal header h2,
+.modal header h1,
 .namePhotographForm {
+    color: black;
     font-size: 3.5rem;
     font-weight: normal;
     text-align: center;

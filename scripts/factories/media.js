@@ -20,7 +20,7 @@ function mediaFactory(data, photographerPrice, totalLikes) {
 					<figcaption class="photo_infos">
 						<p>${title}</p>
 						<div class="photo_likes"
-							<p class="likes">${likes}</p>
+							<p class="likes" aria-label="likes">${likes}</p>
 							<a href="">
 							<img aria-label="ajouter ou retirer un like" class="red-like" src="../../assets/icons/red-heart.svg">
 							</a>
