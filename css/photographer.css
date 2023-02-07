@@ -285,3 +285,7 @@ form .messageBox {
     left: 82.79%;
     top: 10%;
 }
+
+#lightbox-close {
+    cursor: pointer;
+}

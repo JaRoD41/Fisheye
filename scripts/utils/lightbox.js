@@ -7,6 +7,8 @@ const nextButton = document.getElementById('lightbox-next')
 prevButton.addEventListener('click', showPreviousMedia)
 nextButton.addEventListener('click', showNextMedia)
 
+// ouverture de la lightbox
+
 function displayLightbox() {
 	lightbox.style.display = 'flex'
 	galleryWrapper.setAttribute('aria-hidden', 'true')
