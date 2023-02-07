@@ -266,8 +266,8 @@ form .messageBox {
 #lightbox-prev,
 #lightbox-next {
     position: absolute;
-    width: 48px;
-    height: 30px;
+    width: 30px;
+    height: 48px;
     cursor: pointer;
     z-index: 10;
 }
@@ -278,7 +278,7 @@ form .messageBox {
 }
 
 #lightbox-next {
-    left: 94%;
+    left: 95%;
     top: 50%;
 }
 
