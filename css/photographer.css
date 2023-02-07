@@ -132,6 +132,7 @@
     display: flex;
     font-weight: 500;
     justify-content: space-between;
+    align-items: baseline;
 }
 
 .red-like {
@@ -251,6 +252,8 @@ form .messageBox {
 
 #lightbox_modal {
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
     position: fixed;
@@ -262,19 +265,20 @@ form .messageBox {
 
 #lightbox-prev,
 #lightbox-next {
+    position: absolute;
     width: 48px;
     height: 30px;
+    cursor: pointer;
+    z-index: 10;
 }
 
 #lightbox-prev {
-    position: absolute;
-    left: 13.21%;
+    left: 3%;
     top: 50%;
 }
 
 #lightbox-next {
-    position: absolute;
-    left: 82.79%;
+    left: 94%;
     top: 50%;
 }
 
@@ -282,10 +286,31 @@ form .messageBox {
     width: 42px;
     height: 42px;
     position: absolute;
-    left: 82.79%;
-    top: 10%;
+    left: 94%;
+    top: 6%;
+    z-index: 10;
+    cursor: pointer;
 }
 
-#lightbox-close {
-    cursor: pointer;
+.media-container {
+    display: flex;
+    position: relative;
+}
+
+.media_name_container {
+    border: 1px solid #000;
+    width: 1253px;
+    height: 984px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#lightbox-media {
+    border: 1px solid red;
+    width: 1050px;
+    height: 900px;
+    border-radius: 5px;
+    object-fit: cover;
 }
