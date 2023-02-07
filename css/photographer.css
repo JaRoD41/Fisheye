@@ -251,7 +251,7 @@ form .messageBox {
 /* style de la lightbox */
 
 #lightbox_modal {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -260,7 +260,7 @@ form .messageBox {
     top: 0;
     left: 0;
     background-color: rgba(255, 255, 255, 0.9);
-    z-index: 1;
+    z-index: 9;
 }
 
 #lightbox-prev,
@@ -313,4 +313,16 @@ form .messageBox {
     height: 900px;
     border-radius: 5px;
     object-fit: cover;
+}
+
+#media-name {
+    border: 1px solid blue;
+    position: absolute;
+    top: 96%;
+    /* height: 31px; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+    color: #911C1C;
 }
