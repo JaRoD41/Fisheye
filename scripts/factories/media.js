@@ -1,5 +1,5 @@
 class Media {
-	constructor(data) {
+	constructor(data, photographerPrice, totalLikes) {
 		this.id = data.id
 		this.photographerId = data.photographerId
 		this.title = data.title
@@ -7,6 +7,8 @@ class Media {
 		this.date = data.date
 		this.video = data.video
 		this.image = data.image
+		this.photographerPrice = photographerPrice
+		this.totalLikes = totalLikes
 	}
 	getMediaGallery() {
 		const gallery = document.querySelector('.photograph-gallery')
@@ -77,18 +79,6 @@ class Media {
 
 		gallery.appendChild(article)
 	}
-
-	getPriceRateTab() {
-		const photographerTab = document.querySelector('.ratePriceLabel')
-
-		return (photographerTab.innerHTML = `
-		<div>
-		<span>${this.totalLikes}</span>
-		<img aria-label="nombre total de likes du photographe" src="../../assets/icons/black-heart.svg">
-		</div>
-		<span>${this.photographerPrice}€/jour</span>
-	`)
-	}
 }
 
 class Image extends Media {
@@ -145,4 +135,27 @@ class MediaFactory {
 	}
 }
 
+class PriceTab {
+	constructor(photographerPrice, totalLikes) {
+		this.photographerPrice = photographerPrice
+		this.totalLikes = totalLikes
+	}
+	getPriceRateTab() {
+		const photographerTab = document.querySelector('.ratePriceLabel')
+		const container = document.createElement('div')
+		const likesSpan = document.createElement('span')
+		const likesImg = document.createElement('img')
+		const priceSpan = document.createElement('span')
 
+		likesSpan.textContent = this.totalLikes
+		likesSpan.classList.add('totalLikes')
+		likesImg.setAttribute('aria-label', 'nombre total de likes du photographe')
+		likesImg.setAttribute('src', '../../assets/icons/black-heart.svg')
+		priceSpan.textContent = `${this.photographerPrice}€/jour`
+
+		container.appendChild(likesSpan)
+		container.appendChild(likesImg)
+		photographerTab.appendChild(container)
+		photographerTab.appendChild(priceSpan)
+	}
+}

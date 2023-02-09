@@ -136,6 +136,10 @@
     align-items: baseline;
 }
 
+.totalLikes {
+    margin-right: 5px;
+}
+
 .red-like {
     margin-left: 7px;
 }
