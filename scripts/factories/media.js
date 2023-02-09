@@ -31,7 +31,7 @@ class Media {
             <p>${this.title}</p>
             <div class="photo_likes">
               <p class="likes">${this.likes}</p>
-              <a href="">
+              <a href="#">
                 <img aria-label="ajouter ou retirer un like" class="red-like" src="../../assets/icons/red-heart.svg">
               </a>
             </div>

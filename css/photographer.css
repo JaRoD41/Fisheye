@@ -326,3 +326,8 @@ form .messageBox {
     line-height: 31px;
     color: #911C1C;
 }
+
+.single_media {
+    width: 1050px;
+    height: 900px;
+}
