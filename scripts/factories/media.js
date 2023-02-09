@@ -135,12 +135,12 @@ class MediaFactory {
 	}
 }
 
-class PriceTab {
+class PriceTabFactory {
 	constructor(photographerPrice, totalLikes) {
 		this.photographerPrice = photographerPrice
 		this.totalLikes = totalLikes
 	}
-	getPriceRateTab() {
+	createPriceRateTab() {
 		const photographerTab = document.querySelector('.ratePriceLabel')
 		const container = document.createElement('div')
 		const likesSpan = document.createElement('span')
