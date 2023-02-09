@@ -10,15 +10,8 @@ const mediaToShow = document.getElementsByClassName('mediaItem')
 const mediaUrls = []
 let currentMediaIndex = 0
 
-const collection = document.getElementsByClassName('gallery_item')
-for (let i = 0; i < collection.length; i++) {
-	console.log(collection[i])
-}
-
-// const arrayToTest = Array.of(collection)
-// for(let i = 0; i < arrayToTest.length; i++) {
-// 	console.log(arrayToTest[i])
-// }
+const collection = document.querySelectorAll('.gallery_item')
+collection.addEventListener('click', () => console.log('test clic OK'))
 
 for (let i = 0; i < mediaToShow.length; i++) {
 	const media = mediaToShow[i]

@@ -1,59 +1,148 @@
 class Media {
-	constructor(data, photographerPrice, totalLikes) {
+	constructor(data) {
 		this.id = data.id
 		this.photographerId = data.photographerId
 		this.title = data.title
-		this.image = data.image
-		this.video = data.video
 		this.likes = data.likes
 		this.date = data.date
-		this.photographerPrice = photographerPrice
-		this.totalLikes = totalLikes
+		this.video = data.video
+		this.image = data.image
 	}
-
 	getMediaGallery() {
 		const gallery = document.querySelector('.photograph-gallery')
-		let media = ''
+		let media
 
 		if (this.video) {
-			media = `<video class="single_media" data-full-media="${this.video}" src="../../assets/photographers/${this.photographerId}/${this.video}" controls></video>`
+			media = document.createElement('video')
+			media.classList.add('single_media')
+			media.setAttribute('data-full-media', this.video)
+			media.setAttribute(
+				'src',
+				`../../assets/photographers/${this.photographerId}/${this.video}`
+			)
+			media.setAttribute('controls', true)
 		} else {
-			media = `<img aria-label="${this.title}" class="single_media" data-full-media="${this.image}" src="../../assets/photographers/${this.photographerId}/${this.image}">`
+			media = document.createElement('img')
+			media.classList.add('single_media')
+			media.setAttribute('aria-label', this.title)
+			media.setAttribute('data-full-media', this.image)
+			media.setAttribute(
+				'src',
+				`../../assets/photographers/${this.photographerId}/${this.image}`
+			)
 		}
 
-		return (gallery.innerHTML += `
-      <article class="gallery_item" id="${this.id}">
-        <figure>
-          <a href="#">
-            ${media}
-          </a>
-          <figcaption class="photo_infos">
-            <p>${this.title}</p>
-            <div class="photo_likes">
-              <p class="likes">${this.likes}</p>
-              <a href="#">
-                <img aria-label="ajouter ou retirer un like" class="red-like" src="../../assets/icons/red-heart.svg">
-              </a>
-            </div>
-          </figcaption>
-        </figure>
-      </article>
-    `)
+		const article = document.createElement('article')
+		article.classList.add('gallery_item')
+		article.setAttribute('id', this.id)
+
+		const figure = document.createElement('figure')
+
+		const a = document.createElement('a')
+		a.setAttribute('href', '#')
+		a.appendChild(media)
+
+		const figcaption = document.createElement('figcaption')
+		figcaption.classList.add('photo_infos')
+
+		const p1 = document.createElement('p')
+		p1.textContent = this.title
+
+		const photo_likes = document.createElement('div')
+		photo_likes.classList.add('photo_likes')
+
+		const p2 = document.createElement('p')
+		p2.classList.add('likes')
+		p2.textContent = this.likes
+
+		const a2 = document.createElement('a')
+		a2.setAttribute('href', '#')
+
+		const img = document.createElement('img')
+		img.setAttribute('aria-label', 'ajouter ou retirer un like')
+		img.classList.add('red-like')
+		img.setAttribute('src', '../../assets/icons/red-heart.svg')
+
+		a2.appendChild(img)
+		photo_likes.appendChild(p2)
+		photo_likes.appendChild(a2)
+
+		figcaption.appendChild(p1)
+		figcaption.appendChild(photo_likes)
+
+		figure.appendChild(a)
+		figure.appendChild(figcaption)
+
+		article.appendChild(figure)
+
+		gallery.appendChild(article)
 	}
 
 	getPriceRateTab() {
 		const photographerTab = document.querySelector('.ratePriceLabel')
 
 		return (photographerTab.innerHTML = `
-			<div>
-			<span>${this.totalLikes}</span>
-			<img aria-label="nombre total de likes du photographe" src="../../assets/icons/black-heart.svg">
-			</div>
-      <span>${this.photographerPrice}€/jour</span>
-		`)
+		<div>
+		<span>${this.totalLikes}</span>
+		<img aria-label="nombre total de likes du photographe" src="../../assets/icons/black-heart.svg">
+		</div>
+		<span>${this.photographerPrice}€/jour</span>
+	`)
 	}
 }
 
-function mediaFactory(data, photographerPrice, totalLikes) {
-	return new Media(data, photographerPrice, totalLikes)
+class Image extends Media {
+	constructor(data, photographerPrice, totalLikes) {
+		super(data)
+		this.image = data.image
+		this.photographerPrice = photographerPrice
+		this.totalLikes = totalLikes
+	}
+
+	getMedia() {
+		const image = document.createElement('img')
+		image.setAttribute('aria-label', this.title)
+		image.classList.add('single_media')
+		image.setAttribute('data-full-media', this.image)
+		image.src = `../../assets/photographers/${this.photographerId}/${this.image}`
+		return image
+	}
 }
+
+class Video extends Media {
+	constructor(data, photographerPrice, totalLikes) {
+		super(data)
+		this.video = data.video
+		this.photographerPrice = photographerPrice
+		this.totalLikes = totalLikes
+	}
+
+	getMedia() {
+		const video = document.createElement('video')
+		video.classList.add('single_media')
+		video.setAttribute('data-full-media', this.video)
+		video.src = `../../assets/photographers/${this.photographerId}/${this.video}`
+		video.controls = true
+		return video
+	}
+}
+
+class MediaFactory {
+	constructor(data, photographerPrice, totalLikes) {
+		this.data = data
+		this.photographerPrice = photographerPrice
+		this.totalLikes = totalLikes
+	}
+
+	createMedia() {
+		let media
+		if (this.data.video) {
+			media = new Video(this.data, this.photographerPrice, this.totalLikes)
+		} else {
+			media = new Image(this.data, this.photographerPrice, this.totalLikes)
+		}
+		return media
+	}
+}
+
+

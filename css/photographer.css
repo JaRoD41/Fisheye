@@ -93,6 +93,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 71px;
     justify-content: center;
+    margin-bottom: 35px;
 }
 
 .photograph-gallery .article {
