@@ -10,17 +10,15 @@ const mediaToShow = document.getElementsByClassName('mediaItem')
 const mediaUrls = []
 let currentMediaIndex = 0
 
-const collection = document.querySelectorAll('.gallery_item')
-collection.addEventListener('click', () => console.log('test clic OK'))
-
-for (let i = 0; i < mediaToShow.length; i++) {
-	const media = mediaToShow[i]
-	const fullMediaUrl = media.getAttribute('data-full-media')
-	mediaUrls.push(fullMediaUrl)
-	media.addEventListener('click', () => {
-		displayLightbox(fullMediaUrl, mediaUrls, i)
-	})
-}
+// for (let i = 0; i < mediaToShow.length; i++) {
+// 	const media = mediaToShow[i]
+// 	const fullMediaUrl = media.getAttribute('data-full-media')
+// 	mediaUrls.push(fullMediaUrl)
+// 	media.addEventListener('click', () => {
+// 		// displayLightbox(fullMediaUrl, mediaUrls, i)
+// 		console.log('test clic OK')
+// 	})
+// }
 
 prevButton.addEventListener('click', () =>
 	showPreviousMedia(mediaUrls, displayZone, currentMediaIndex)
