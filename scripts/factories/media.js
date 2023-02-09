@@ -16,9 +16,9 @@ class Media {
 		let media = ''
 
 		if (this.video) {
-			media = `<video class="single_media" onclick='displayLightbox()' src="../../assets/photographers/${this.photographerId}/${this.video}" controls></video>`
+			media = `<video class="single_media" data-full-media="${this.video}" src="../../assets/photographers/${this.photographerId}/${this.video}" controls></video>`
 		} else {
-			media = `<img aria-label="${this.title}" class="single_media" onclick='displayLightbox()' src="../../assets/photographers/${this.photographerId}/${this.image}">`
+			media = `<img aria-label="${this.title}" class="single_media" data-full-media="${this.image}" src="../../assets/photographers/${this.photographerId}/${this.image}">`
 		}
 
 		return (gallery.innerHTML += `
