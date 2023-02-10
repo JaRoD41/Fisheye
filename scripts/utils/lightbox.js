@@ -4,26 +4,16 @@ const displayZone = document.getElementById('lightbox-media')
 const lightboxCloseBtn = document.getElementById('lightbox-close')
 const prevButton = document.getElementById('lightbox-prev')
 const nextButton = document.getElementById('lightbox-next')
-// const mediaToShow = document.getElementsByClassName('mediaItem')
-
-const mediaToShow = document.querySelectorAll('img[src]')
-console.log(mediaToShow)
-	// .forEach(link => link.addEventListener('click', e => {
-	// 	e.preventDefault();
-	// 	console.log('mediaToShow :', link)
-	// }))
-
+const galleryItems = document.querySelectorAll(
+	'img.single_media',
+	'video.single_media'
+)
 
 // Tableau pour stocker les URL des médias
 const mediaUrls = []
+let mediaId
+let mediaToShow
 let currentMediaIndex = 0
-
-// for (let i = 0; i < mediaToShow.length; i++) {
-// 	const media = mediaToShow[i]
-// 	const fullMediaUrl = media.getAttribute('data-full-media')
-// 	mediaUrls.push(fullMediaUrl)
-	
-// }
 
 prevButton.addEventListener('click', () =>
 	showPreviousMedia(mediaUrls, displayZone, currentMediaIndex)
@@ -32,9 +22,30 @@ nextButton.addEventListener('click', () =>
 	showNextMedia(mediaUrls, displayZone, currentMediaIndex)
 )
 
+async function getMediasInfos() {
+	await fetch('../../data/photographers.json')
+		.then((res) => res.json())
+		.then((data) => {
+			mediaUrls = data.media
+			medias = mediaUrls.filter((media) => {
+				return media.photographerId == photographerPageId
+			})
+		})
+		
+	return {
+		medias: medias,
+	}
+}
+
+function showMedia(id) {
+	let lightboxMedia = medias.filter((m) => m.id == id)
+	return lightboxMedia
+}
 // ouverture de la lightbox
 
-function displayLightbox(media, index) {
+function displayLightbox(mediaId) {
+	let pickedMedia = showMedia(mediaId)
+	mediaToShow = pickedMedia[0].image
 	lightbox.style.display = 'flex'
 	galleryWrapper.setAttribute('aria-hidden', 'true')
 	lightbox.setAttribute('aria-hidden', 'false')
@@ -44,10 +55,12 @@ function displayLightbox(media, index) {
 		console.error("La source d'affichage n'est pas définie.")
 		return
 	}
-	displayZone.src = media
+	console.log('test fonction lightbox OK / id du média cliqué :', mediaId)
+	console.log('media to show :', mediaToShow)
+	displayZone.innerHTML = `${mediaToShow}`
 	lightboxCloseBtn.focus()
 	// Sauvegarde de l'index courant pour la navigation
-	currentMediaIndex = index
+	// currentMediaIndex = index
 }
 
 // fermeture de la lightbox

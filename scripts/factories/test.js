@@ -15,23 +15,9 @@ class Media {
 		let media
 
 		if (this.video) {
-			media = document.createElement('video')
-			media.classList.add('single_media')
-			media.setAttribute('data-full-media', this.video)
-			media.setAttribute(
-				'src',
-				`../../assets/photographers/${this.photographerId}/${this.video}`
-			)
-			media.setAttribute('controls', true)
+			media = new Image.getMedia()
 		} else {
-			media = document.createElement('img')
-			media.classList.add('single_media')
-			media.setAttribute('aria-label', this.title)
-			media.setAttribute('data-full-media', this.image)
-			media.setAttribute(
-				'src',
-				`../../assets/photographers/${this.photographerId}/${this.image}`
-			)
+			media = new Video.getMedia()
 		}
 
 		const article = document.createElement('article')
@@ -39,7 +25,7 @@ class Media {
 		article.setAttribute('id', this.id)
 
 		const figure = document.createElement('figure')
-		figure.setAttribute('onclick', `displayLightbox(${this.id})`)
+		figure.setAttribute('onclick', 'displayLightbox()')
 
 		const a = document.createElement('a')
 		a.setAttribute('href', '#')
