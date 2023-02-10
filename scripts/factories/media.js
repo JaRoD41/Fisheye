@@ -39,6 +39,7 @@ class Media {
 		article.setAttribute('id', this.id)
 
 		const figure = document.createElement('figure')
+		figure.setAttribute('onclick', 'displayLightbox()')
 
 		const a = document.createElement('a')
 		a.setAttribute('href', '#')

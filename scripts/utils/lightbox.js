@@ -4,7 +4,15 @@ const displayZone = document.getElementById('lightbox-media')
 const lightboxCloseBtn = document.getElementById('lightbox-close')
 const prevButton = document.getElementById('lightbox-prev')
 const nextButton = document.getElementById('lightbox-next')
-const mediaToShow = document.getElementsByClassName('mediaItem')
+// const mediaToShow = document.getElementsByClassName('mediaItem')
+
+const mediaToShow = document.querySelectorAll('img[src]')
+console.log(mediaToShow)
+	// .forEach(link => link.addEventListener('click', e => {
+	// 	e.preventDefault();
+	// 	console.log('mediaToShow :', link)
+	// }))
+
 
 // Tableau pour stocker les URL des médias
 const mediaUrls = []
@@ -14,10 +22,7 @@ let currentMediaIndex = 0
 // 	const media = mediaToShow[i]
 // 	const fullMediaUrl = media.getAttribute('data-full-media')
 // 	mediaUrls.push(fullMediaUrl)
-// 	media.addEventListener('click', () => {
-// 		// displayLightbox(fullMediaUrl, mediaUrls, i)
-// 		console.log('test clic OK')
-// 	})
+	
 // }
 
 prevButton.addEventListener('click', () =>
@@ -29,7 +34,7 @@ nextButton.addEventListener('click', () =>
 
 // ouverture de la lightbox
 
-function displayLightbox(fullMediaUrl, mediaUrls, index) {
+function displayLightbox(media, index) {
 	lightbox.style.display = 'flex'
 	galleryWrapper.setAttribute('aria-hidden', 'true')
 	lightbox.setAttribute('aria-hidden', 'false')
@@ -39,7 +44,7 @@ function displayLightbox(fullMediaUrl, mediaUrls, index) {
 		console.error("La source d'affichage n'est pas définie.")
 		return
 	}
-	displayZone.src = fullMediaUrl
+	displayZone.src = media
 	lightboxCloseBtn.focus()
 	// Sauvegarde de l'index courant pour la navigation
 	currentMediaIndex = index
