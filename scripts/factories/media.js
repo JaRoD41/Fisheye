@@ -136,6 +136,34 @@ class MediaFactory {
 	}
 }
 
+class LightboxFactory {
+	constructor(data) {
+		this.data = data
+		this.photographerId = data.photographerId
+		this.title = data.title
+		this.id = data.id
+		this.image = data.image
+		this.video = data.video
+	}
+
+	createLightboxMediaElement() {
+		let mediaSrc
+		let mediaToCreate
+		if (this.data.video) {
+			mediaSrc = `../../assets/photographers/${this.photographerId}/${this.video}`
+			mediaToCreate = document.createElement('video')
+			mediaToCreate.classList.add('lightboxMediaToShow')
+			mediaToCreate.setAttribute('src', mediaSrc)
+		} else {
+			mediaSrc = `../../assets/photographers/${this.photographerId}/${this.image}`
+			mediaToCreate = document.createElement('img')
+			mediaToCreate.classList.add('lightboxMediaToShow')
+			mediaToCreate.setAttribute('src', mediaSrc)
+		}
+		return mediaToCreate
+	}
+}
+
 class PriceTabFactory {
 	constructor(photographerPrice, totalLikes) {
 		this.photographerPrice = photographerPrice

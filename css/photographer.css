@@ -309,7 +309,6 @@ form .messageBox {
 }
 
 .media_name_container {
-    border: 1px solid #000;
     width: 1253px;
     height: 984px;
     display: flex;
@@ -319,15 +318,10 @@ form .messageBox {
 }
 
 #lightbox-media {
-    border: 1px solid red;
-    width: 1050px;
-    height: 900px;
-    border-radius: 5px;
-    object-fit: cover;
+    display: flex;
 }
 
 #media-name {
-    border: 1px solid blue;
     position: absolute;
     top: 96%;
     /* height: 31px; */
@@ -338,7 +332,9 @@ form .messageBox {
     color: #911C1C;
 }
 
-.single_media {
+.lightboxMediaToShow {
     width: 1050px;
     height: 900px;
+    border-radius: 5px;
+    object-fit: cover;
 }
