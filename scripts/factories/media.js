@@ -29,6 +29,7 @@ class Media {
 			a.setAttribute('href', '#')
 			a.classList.add('video_link')
 			a.append(playLogo, media)
+			// a.appendChild(media)
 		} else {
 			media = document.createElement('img')
 			media.classList.add('single_media')
@@ -157,7 +158,7 @@ class LightboxFactory {
 			mediaToCreate = document.createElement('iframe')
 			mediaToCreate.classList.add('lightboxMediaToShow')
 			mediaToCreate.setAttribute('src', mediaSrc)
-			media.setAttribute('controls', true)
+			mediaToCreate.setAttribute('controls', true)
 		} else {
 			mediaSrc = `../../assets/photographers/${this.photographerId}/${this.image}`
 			mediaToCreate = document.createElement('img')

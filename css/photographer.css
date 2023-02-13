@@ -124,7 +124,7 @@
     display: flex;
     position: absolute;
     width: 5rem;
-    z-index: 2;
+    z-index: 3;
     object-fit: cover;
 }
 
