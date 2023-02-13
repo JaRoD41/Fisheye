@@ -12,26 +12,34 @@ class Media {
 	}
 	getMediaGallery() {
 		const gallery = document.querySelector('.photograph-gallery')
+		const a = document.createElement('a')
 		let media
+		let playLogo
 
 		if (this.video) {
 			media = document.createElement('video')
+			playLogo = document.createElement('img')
 			media.classList.add('single_media')
-			media.setAttribute('data-full-media', this.video)
+			playLogo.classList.add('video_logo')
 			media.setAttribute(
 				'src',
 				`../../assets/photographers/${this.photographerId}/${this.video}`
 			)
-			media.setAttribute('controls', true)
+			playLogo.setAttribute('src', '../../assets/icons/play.png')
+			a.setAttribute('href', '#')
+			a.classList.add('video_link')
+			a.append(playLogo, media)
 		} else {
 			media = document.createElement('img')
 			media.classList.add('single_media')
 			media.setAttribute('aria-label', this.title)
-			media.setAttribute('data-full-media', this.image)
 			media.setAttribute(
 				'src',
 				`../../assets/photographers/${this.photographerId}/${this.image}`
 			)
+			a.setAttribute('href', '#')
+			a.classList.add('image_link')
+			a.appendChild(media)
 		}
 
 		const article = document.createElement('article')
@@ -39,11 +47,8 @@ class Media {
 		article.setAttribute('id', this.id)
 
 		const figure = document.createElement('figure')
+		figure.classList.add('media_figure')
 		figure.setAttribute('onclick', `displayLightbox(${this.id})`)
-
-		const a = document.createElement('a')
-		a.setAttribute('href', '#')
-		a.appendChild(media)
 
 		const figcaption = document.createElement('figcaption')
 		figcaption.classList.add('photo_infos')
@@ -94,7 +99,6 @@ class Image extends Media {
 		const image = document.createElement('img')
 		image.setAttribute('aria-label', this.title)
 		image.classList.add('single_media')
-		image.setAttribute('data-full-media', this.image)
 		image.src = `../../assets/photographers/${this.photographerId}/${this.image}`
 		return image
 	}
@@ -111,7 +115,6 @@ class Video extends Media {
 	getMedia() {
 		const video = document.createElement('video')
 		video.classList.add('single_media')
-		video.setAttribute('data-full-media', this.video)
 		video.src = `../../assets/photographers/${this.photographerId}/${this.video}`
 		video.controls = true
 		return video
@@ -151,9 +154,10 @@ class LightboxFactory {
 		let mediaToCreate
 		if (this.data.video) {
 			mediaSrc = `../../assets/photographers/${this.photographerId}/${this.video}`
-			mediaToCreate = document.createElement('video')
+			mediaToCreate = document.createElement('iframe')
 			mediaToCreate.classList.add('lightboxMediaToShow')
 			mediaToCreate.setAttribute('src', mediaSrc)
+			media.setAttribute('controls', true)
 		} else {
 			mediaSrc = `../../assets/photographers/${this.photographerId}/${this.image}`
 			mediaToCreate = document.createElement('img')

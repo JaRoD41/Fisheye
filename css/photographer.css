@@ -100,10 +100,35 @@
 .photograph-gallery .article {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 
-.photograph-gallery .article a {
+.media_figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.video_link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+}
+
+.video_logo {
+    display: flex;
+    position: absolute;
+    width: 5rem;
+    z-index: 2;
+    object-fit: cover;
+}
+
+.image_link {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,10 +137,12 @@
 }
 
 .photograph-gallery article .single_media {
+    display: flex;
     height: 300px;
     width: 350px;
     border-radius: 5px;
     object-fit: cover;
+    z-index: 2;
 }
 
 .photo_infos {
@@ -167,6 +194,7 @@
     line-height: 31px;
     right: 36px;
     bottom: -11px;
+    z-index: 5;
 }
 
 .contact_button {

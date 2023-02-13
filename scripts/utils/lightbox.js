@@ -5,10 +5,8 @@ const mediaName = document.getElementById('media-name')
 const lightboxCloseBtn = document.getElementById('lightbox-close')
 const prevButton = document.getElementById('lightbox-prev')
 const nextButton = document.getElementById('lightbox-next')
-const galleryItems = document.querySelectorAll(
-	'img.single_media',
-	'video.single_media'
-)
+// const galleryItems = document.querySelectorAll('.single_media')
+// console.log('test array medias affichés :', galleryItems)
 
 // Tableau pour stocker les URL des médias
 let mediaUrls = []
@@ -16,13 +14,13 @@ let mediaUrls = []
 let mediaId
 let mediaToShow
 let mediaSrc
-let currentMediaIndex 
+let currentMediaIndex = 0
 
 prevButton.addEventListener('click', () =>
-	showPreviousMedia(mediaUrls, displayZone, currentMediaIndex)
+	showPreviousMedia(mediaUrls, currentMediaIndex)
 )
 nextButton.addEventListener('click', () =>
-	showNextMedia(mediaUrls, displayZone, currentMediaIndex)
+	showNextMedia(mediaUrls, currentMediaIndex)
 )
 
 async function getMediasInfos() {
@@ -46,8 +44,9 @@ function showMedia(id) {
 	return mediaId
 }
 
+// currentMediaIndex = mediaUrls.indexOf(mediaId)
 function getTheCurrentIndexOfTheMedia() {
-	currentMediaIndex = mediaUrls.filter((elmt) => elmt.id == mediaId)
+	currentMediaIndex = mediaUrls.filter((elmt) => elmt.id === mediaId)
 	return currentMediaIndex
 }
 
@@ -84,7 +83,7 @@ function displayLightbox(mediaId) {
 	// Sauvegarde de l'index courant pour la navigation
 	// currentMediaIndex = mediaUrls.findIndex(isTheIndexOfTheMedia)
 
-	console.log('currentMediaIndex :', mediaUrls.findIndex(getTheCurrentIndexOfTheMedia))
+	console.log('currentMediaIndex :', getTheCurrentIndexOfTheMedia())
 	console.log('liste des médias disponibles :', mediaUrls)
 	console.log('Media affiché :', mediaId)
 }
@@ -103,7 +102,7 @@ function closeLightbox() {
 
 // navigation de la lightbox
 
-function showPreviousMedia(mediaUrls, displayZone, currentMediaIndex) {
+function showPreviousMedia(mediaUrls, currentMediaIndex) {
 	// vérifie que l'index courant n'est pas déjà à 0 (premier média)
 	if (currentMediaIndex > 0) {
 		// décrémente l'index courant
@@ -113,7 +112,7 @@ function showPreviousMedia(mediaUrls, displayZone, currentMediaIndex) {
 	}
 }
 
-function showNextMedia(mediaUrls, displayZone, currentMediaIndex) {
+function showNextMedia(mediaUrls, currentMediaIndex) {
 	if (currentMediaIndex < mediaUrls.length - 1) {
 		currentMediaIndex++
 		displayZone.src = mediaUrls[currentMediaIndex]
