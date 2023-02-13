@@ -29,7 +29,6 @@ class Media {
 			a.setAttribute('href', '#')
 			a.classList.add('video_link')
 			a.append(playLogo, media)
-			// a.appendChild(media)
 		} else {
 			media = document.createElement('img')
 			media.classList.add('single_media')

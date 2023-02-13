@@ -103,18 +103,24 @@ function closeLightbox() {
 // navigation de la lightbox
 
 function showPreviousMedia(mediaUrls, currentMediaIndex) {
-	// vérifie que l'index courant n'est pas déjà à 0 (premier média)
-	if (currentMediaIndex > 0) {
-		// décrémente l'index courant
-		currentMediaIndex--
-		// affiche la média correspondante à l'index courant
-		displayZone.src = mediaUrls[currentMediaIndex]
-	}
+	// // vérifie que l'index courant n'est pas déjà à 0 (premier média)
+	// if (currentMediaIndex > 0) {
+	// 	// décrémente l'index courant
+	// 	currentMediaIndex--
+	// 	// affiche la média correspondante à l'index courant
+	// 	displayZone.src = mediaUrls[currentMediaIndex]
+	// }
+	console.log('test slide précédent OK')
+	currentMediaIndex === 0 ? mediaUrls.length - 1 : currentMediaIndex++
 }
 
 function showNextMedia(mediaUrls, currentMediaIndex) {
-	if (currentMediaIndex < mediaUrls.length - 1) {
-		currentMediaIndex++
-		displayZone.src = mediaUrls[currentMediaIndex]
-	}
+	// if (currentMediaIndex < mediaUrls.length - 1) {
+	// 	currentMediaIndex++
+	// 	displayZone.src = mediaUrls[currentMediaIndex]
+	// }
+	console.log('test prochain slide OK')
+	currentMediaIndex === mediaUrls.length - 1
+		? (currentMediaIndex = 0)
+		: currentMediaIndex++
 }
