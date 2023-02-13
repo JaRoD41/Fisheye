@@ -14,7 +14,7 @@ let mediaUrls = []
 let mediaId
 let mediaToShow
 let mediaSrc
-let currentMediaIndex = 0
+let currentMediaIndex 
 
 prevButton.addEventListener('click', () =>
 	showPreviousMedia(mediaUrls, currentMediaIndex)
@@ -44,14 +44,13 @@ function showMedia(id) {
 	return mediaId
 }
 
-// currentMediaIndex = mediaUrls.indexOf(mediaId)
-function getTheCurrentIndexOfTheMedia() {
-	currentMediaIndex = mediaUrls.filter((elmt) => elmt.id === mediaId)
-	return currentMediaIndex
-}
+currentMediaIndex = mediaUrls.indexOf(mediaId)
+// function getTheCurrentIndexOfTheMedia() {
+// 	currentMediaIndex = mediaUrls.filter((elmt) => elmt.id === mediaId)
+// 	return currentMediaIndex
+// }
 
 function createMediasArray() {
-	mediaUrls = []
 	for (let i = 0; i < medias.length; i++) {
 		mediaUrls.push(medias[i])
 	}
@@ -83,7 +82,7 @@ function displayLightbox(mediaId) {
 	// Sauvegarde de l'index courant pour la navigation
 	// currentMediaIndex = mediaUrls.findIndex(isTheIndexOfTheMedia)
 
-	console.log('currentMediaIndex :', getTheCurrentIndexOfTheMedia())
+	console.log('currentMediaIndex :', currentMediaIndex)
 	console.log('liste des médias disponibles :', mediaUrls)
 	console.log('Media affiché :', mediaId)
 }
