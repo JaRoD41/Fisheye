@@ -34,12 +34,12 @@ function addAllLikes(total, num) {
 async function displayData(photographerInfos, medias) {
 	const photographerPrice = photographerInfos.price
 	let totalLikes = []
-	medias.forEach((eachMedia) => {
+	medias.forEach((eachMedia, currentMediaIndex) => {
 		let eachLike = eachMedia.likes
 		likesArray.push(eachLike)
 		totalLikes = likesArray.reduce(addAllLikes)
 		// const gallerySection = mediaFactory(eachMedia, photographerPrice, totalLikes)
-		const gallerySection = new Media(eachMedia, photographerPrice, totalLikes)
+		const gallerySection = new Media(eachMedia, photographerPrice, totalLikes, currentMediaIndex)
 		gallerySection.getMediaGallery()
 	})
 	const priceTab = new PriceTabFactory(photographerPrice, totalLikes)

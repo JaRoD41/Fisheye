@@ -1,5 +1,5 @@
 class Media {
-	constructor(data, photographerPrice, totalLikes) {
+	constructor(data, photographerPrice, totalLikes, currentMediaIndex) {
 		this.id = data.id
 		this.photographerId = data.photographerId
 		this.title = data.title
@@ -9,6 +9,7 @@ class Media {
 		this.image = data.image
 		this.photographerPrice = photographerPrice
 		this.totalLikes = totalLikes
+		this.currentMediaIndex = currentMediaIndex
 	}
 	getMediaGallery() {
 		const gallery = document.querySelector('.photograph-gallery')
@@ -48,7 +49,7 @@ class Media {
 
 		const figure = document.createElement('figure')
 		figure.classList.add('media_figure')
-		figure.setAttribute('onclick', `displayLightbox(${this.id})`)
+		figure.setAttribute('onclick', `displayLightbox(${this.currentMediaIndex})`)
 
 		const figcaption = document.createElement('figcaption')
 		figcaption.classList.add('photo_infos')

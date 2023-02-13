@@ -51,6 +51,7 @@ currentMediaIndex = mediaUrls.indexOf(mediaId)
 // }
 
 function createMediasArray() {
+	mediaUrls =[]
 	for (let i = 0; i < medias.length; i++) {
 		mediaUrls.push(medias[i])
 	}
@@ -61,10 +62,11 @@ function createMediasArray() {
 
 function displayLightbox(mediaId) {
 	//choix du media grace à l'id passé en paramètre
-	let pickedMedia = showMedia(mediaId)
+	currentMediaIndex = mediaId
+	let pickedMedia = medias[mediaId];
 
 	//création du média à afficher grace à la méthode createLightboxMediaElement()
-	mediaToShow = new LightboxFactory(pickedMedia[0])
+	mediaToShow = new LightboxFactory(pickedMedia)
 	mediaSrc = mediaToShow.createLightboxMediaElement()
 	// mediaId = mediaToShow.id
 
@@ -84,7 +86,7 @@ function displayLightbox(mediaId) {
 
 	console.log('currentMediaIndex :', currentMediaIndex)
 	console.log('liste des médias disponibles :', mediaUrls)
-	console.log('Media affiché :', mediaId)
+	
 }
 
 // fermeture de la lightbox
