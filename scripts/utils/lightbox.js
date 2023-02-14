@@ -14,14 +14,28 @@ let mediaUrls = []
 let mediaId
 let mediaToShow
 let mediaSrc
-let currentMediaIndex 
+let currentMediaIndex
+let pickedMedia
+let length
 
 prevButton.addEventListener('click', () =>
-	showPreviousMedia(mediaUrls, currentMediaIndex)
+	showPreviousMedia(medias, currentMediaIndex)
 )
+
 nextButton.addEventListener('click', () =>
-	showNextMedia(mediaUrls, currentMediaIndex)
+	showNextMedia(medias, currentMediaIndex)
 )
+
+// --- ecoute des fleches gauche et droite à tester ---
+
+// document.addEventListener('keydown', function (e) {
+// 		if (e.code === 'ArrowLeft') {
+// 			showPreviousMedia()
+// 		}
+// 		if (e.code === 'ArrowRight') {
+// 			showNextMedia()
+// 		}
+// 	})
 
 async function getMediasInfos() {
 	await fetch('../../data/photographers.json')
@@ -29,8 +43,9 @@ async function getMediasInfos() {
 		.then((data) => {
 			mediasToFilter = data.media
 			medias = mediasToFilter.filter((media) => {
-				return media.photographerId == photographerPageId
+				media.photographerId == photographerPageId
 			})
+			currentMediaIndex = medias.indexOf(mediaId)
 		})
 
 	return {
@@ -44,14 +59,14 @@ function showMedia(id) {
 	return mediaId
 }
 
-currentMediaIndex = mediaUrls.indexOf(mediaId)
+// currentMediaIndex = medias.indexOf(mediaId)
 // function getTheCurrentIndexOfTheMedia() {
 // 	currentMediaIndex = mediaUrls.filter((elmt) => elmt.id === mediaId)
 // 	return currentMediaIndex
 // }
 
 function createMediasArray() {
-	mediaUrls =[]
+	mediaUrls = []
 	for (let i = 0; i < medias.length; i++) {
 		mediaUrls.push(medias[i])
 	}
@@ -63,7 +78,7 @@ function createMediasArray() {
 function displayLightbox(mediaId) {
 	//choix du media grace à l'id passé en paramètre
 	currentMediaIndex = mediaId
-	let pickedMedia = medias[mediaId];
+	pickedMedia = medias[mediaId]
 
 	//création du média à afficher grace à la méthode createLightboxMediaElement()
 	mediaToShow = new LightboxFactory(pickedMedia)
@@ -85,8 +100,10 @@ function displayLightbox(mediaId) {
 	// currentMediaIndex = mediaUrls.findIndex(isTheIndexOfTheMedia)
 
 	console.log('currentMediaIndex :', currentMediaIndex)
-	console.log('liste des médias disponibles :', mediaUrls)
-	
+	console.log('liste des médias disponibles :', medias)
+	console.log('media affiché (pickedMedia) :', pickedMedia)
+	console.log('media précédent :', medias[currentMediaIndex - 1])
+	console.log('media suivant :', medias[currentMediaIndex + 1])
 }
 
 // fermeture de la lightbox
@@ -98,12 +115,12 @@ function closeLightbox() {
 	document.body.classList.remove('no-scroll')
 	mediaName.textContent = ''
 	mediaSrc.remove()
-	// clearLightboxElement()
 }
 
 // navigation de la lightbox
 
 function showPreviousMedia(mediaUrls, currentMediaIndex) {
+	length = medias.length
 	// // vérifie que l'index courant n'est pas déjà à 0 (premier média)
 	// if (currentMediaIndex > 0) {
 	// 	// décrémente l'index courant
@@ -111,17 +128,32 @@ function showPreviousMedia(mediaUrls, currentMediaIndex) {
 	// 	// affiche la média correspondante à l'index courant
 	// 	displayZone.src = mediaUrls[currentMediaIndex]
 	// }
-	console.log('test slide précédent OK')
-	currentMediaIndex === 0 ? mediaUrls.length - 1 : currentMediaIndex++
+	console.log('currentMediaIndex :', currentMediaIndex)
+
+	console.log('medias dispos :', mediaUrls)
+	// console.log('nouveau currentMediaIndex', currentMediaIndex)
+
+	if (currentMediaIndex === 0) {
+		currentMediaIndex === mediaUrls.length - 1
+	} else {
+		currentMediaIndex = currentMediaIndex - 1
+	}
+	return currentMediaIndex
 }
 
 function showNextMedia(mediaUrls, currentMediaIndex) {
+	length = medias.length
 	// if (currentMediaIndex < mediaUrls.length - 1) {
 	// 	currentMediaIndex++
 	// 	displayZone.src = mediaUrls[currentMediaIndex]
 	// }
-	console.log('test prochain slide OK')
-	currentMediaIndex === mediaUrls.length - 1
+	console.log('currentMediaIndex :', currentMediaIndex)
+
+	console.log('medias dispos :', mediaUrls)
+
+	currentMediaIndex == mediaUrls.length - 1
 		? (currentMediaIndex = 0)
-		: currentMediaIndex++
+		: (currentMediaIndex = currentMediaIndex + 1)
+	return currentMediaIndex
+	// displayLightbox()
 }
