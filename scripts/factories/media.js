@@ -141,18 +141,21 @@ class MediaFactory {
 }
 
 class LightboxFactory {
-	constructor(data) {
-		this.data = data
-		this.photographerId = data.photographerId
-		this.title = data.title
-		this.id = data.id
-		this.image = data.image
-		this.video = data.video
+	constructor(data, currentMediaIndex) {
+		this.currentMediaIndex = currentMediaIndex
+		this.data = data[currentMediaIndex]
+		this.photographerId = data[currentMediaIndex].photographerId
+		this.title = data[currentMediaIndex].title
+		this.id = data[currentMediaIndex].id
+		this.image = data[currentMediaIndex].image
+		this.video = data[currentMediaIndex].video
 	}
 
 	createLightboxMediaElement() {
 		let mediaSrc
 		let mediaToCreate
+		console.log('this data :', this.data);
+		console.log('this photographerId :', this.photographerId);
 		if (this.data.video) {
 			mediaSrc = `../../assets/photographers/${this.photographerId}/${this.video}`
 			mediaToCreate = document.createElement('iframe')

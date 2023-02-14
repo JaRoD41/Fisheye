@@ -81,7 +81,8 @@ function displayLightbox(mediaId) {
 	pickedMedia = medias[mediaId]
 
 	//création du média à afficher grace à la méthode createLightboxMediaElement()
-	mediaToShow = new LightboxFactory(pickedMedia)
+	// mediaToShow = new LightboxFactory(pickedMedia)
+	mediaToShow = new LightboxFactory(medias, currentMediaIndex)
 	mediaSrc = mediaToShow.createLightboxMediaElement()
 	// mediaId = mediaToShow.id
 
