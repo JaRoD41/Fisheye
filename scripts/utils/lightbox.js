@@ -45,7 +45,7 @@ async function getMediasInfos() {
 			medias = mediasToFilter.filter((media) => {
 				media.photographerId == photographerPageId
 			})
-			currentMediaIndex = medias.indexOf(mediaId)
+			// currentMediaIndex = medias.indexOf(mediaId)
 		})
 
 	return {
@@ -119,7 +119,7 @@ function closeLightbox() {
 
 // navigation de la lightbox
 
-function showPreviousMedia(mediaUrls, currentMediaIndex) {
+function showPreviousMedia(medias, currentMediaIndex) {
 	length = medias.length
 	// // vérifie que l'index courant n'est pas déjà à 0 (premier média)
 	// if (currentMediaIndex > 0) {
@@ -130,18 +130,17 @@ function showPreviousMedia(mediaUrls, currentMediaIndex) {
 	// }
 	console.log('currentMediaIndex :', currentMediaIndex)
 
-	console.log('medias dispos :', mediaUrls)
 	// console.log('nouveau currentMediaIndex', currentMediaIndex)
 
 	if (currentMediaIndex === 0) {
-		currentMediaIndex === mediaUrls.length - 1
+		currentMediaIndex === length - 1
 	} else {
-		currentMediaIndex = currentMediaIndex - 1
+		currentMediaIndex--
 	}
 	return currentMediaIndex
 }
 
-function showNextMedia(mediaUrls, currentMediaIndex) {
+function showNextMedia(medias, currentMediaIndex) {
 	length = medias.length
 	// if (currentMediaIndex < mediaUrls.length - 1) {
 	// 	currentMediaIndex++
@@ -149,11 +148,9 @@ function showNextMedia(mediaUrls, currentMediaIndex) {
 	// }
 	console.log('currentMediaIndex :', currentMediaIndex)
 
-	console.log('medias dispos :', mediaUrls)
-
-	currentMediaIndex == mediaUrls.length - 1
+	currentMediaIndex == length - 1
 		? (currentMediaIndex = 0)
-		: (currentMediaIndex = currentMediaIndex + 1)
+		: currentMediaIndex++
 	return currentMediaIndex
 	// displayLightbox()
 }
