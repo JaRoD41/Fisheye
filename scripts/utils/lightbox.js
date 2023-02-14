@@ -20,11 +20,11 @@ let pickedMedia
 let length
 
 prevButton.addEventListener('click', () =>
-	showPreviousMedia(medias, currentMediaIndex)
+	showPreviousMedia(medias)
 )
 
 nextButton.addEventListener('click', () =>
-	showNextMedia(medias, currentMediaIndex)
+	showNextMedia(medias)
 )
 
 // --- ecoute des fleches gauche et droite à tester ---
