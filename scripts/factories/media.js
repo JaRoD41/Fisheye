@@ -149,27 +149,44 @@ class LightboxFactory {
 		this.id = data[currentMediaIndex].id
 		this.image = data[currentMediaIndex].image
 		this.video = data[currentMediaIndex].video
-	}
 
-	createLightboxMediaElement() {
-		let mediaSrc
-		let mediaToCreate
-		console.log('this data :', this.data);
-		console.log('this photographerId :', this.photographerId);
 		if (this.data.video) {
 			mediaSrc = `../../assets/photographers/${this.photographerId}/${this.video}`
 			mediaToCreate = document.createElement('iframe')
-			mediaToCreate.classList.add('lightboxMediaToShow')
-			mediaToCreate.setAttribute('src', mediaSrc)
 			mediaToCreate.setAttribute('controls', true)
 		} else {
 			mediaSrc = `../../assets/photographers/${this.photographerId}/${this.image}`
 			mediaToCreate = document.createElement('img')
-			mediaToCreate.classList.add('lightboxMediaToShow')
-			mediaToCreate.setAttribute('src', mediaSrc)
 		}
+	}
+
+	createLightboxMediaElement() {
+		console.log('this data :', this.data)
+		console.log('this photographerId :', this.photographerId)
+		mediaToCreate.classList.add('lightboxMediaToShow')
+		mediaToCreate.setAttribute('src', mediaSrc)
 		return mediaToCreate
 	}
+
+	// prevMedia(length, currentMediaIndex) {
+	// 	if ((this.currentMediaIndex = 0)) {
+	// 		this.currentMediaIndex = length - 1
+	// 	} else {
+	// 		this.currentMediaIndex -= 1
+	// 	}
+	// 	mediaToCreate.classList.add('lightboxMediaToShow')
+	// 	mediaToCreate.setAttribute('src', mediaSrc)
+	// }
+
+	// nextMedia(length) {
+	// 	if ((this.currentMediaIndex = length - 1)) {
+	// 		this.currentMediaIndex = 0
+	// 	} else {
+	// 		this.currentMediaIndex += 1
+	// 	}
+	// 	mediaToCreate.classList.add('lightboxMediaToShow')
+	// 	mediaToCreate.setAttribute('src', mediaSrc)
+	// }
 }
 
 class PriceTabFactory {

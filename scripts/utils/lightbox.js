@@ -14,6 +14,7 @@ let mediaUrls = []
 let mediaId
 let mediaToShow
 let mediaSrc
+let mediaToCreate
 let currentMediaIndex
 let pickedMedia
 let length
@@ -120,8 +121,10 @@ function closeLightbox() {
 
 // navigation de la lightbox
 
-function showPreviousMedia(medias, currentMediaIndex) {
+function showPreviousMedia(medias) {
 	length = medias.length
+	// mediaToShow = new LightboxFactory(medias, currentMediaIndex)
+	// mediaToShow.prevMedia(length)
 	// // vérifie que l'index courant n'est pas déjà à 0 (premier média)
 	// if (currentMediaIndex > 0) {
 	// 	// décrémente l'index courant
@@ -133,16 +136,22 @@ function showPreviousMedia(medias, currentMediaIndex) {
 
 	// console.log('nouveau currentMediaIndex', currentMediaIndex)
 
-	if (currentMediaIndex === 0) {
-		currentMediaIndex === length - 1
-	} else {
-		currentMediaIndex--
-	}
+	// if (currentMediaIndex = 0) {
+	// 	currentMediaIndex == length - 1
+	// } else {
+	// 	currentMediaIndex -= 1
+	// }
+	// return currentMediaIndex
+	currentMediaIndex == 0
+		? (currentMediaIndex = length - 1)
+		: (currentMediaIndex -= 1)
 	return currentMediaIndex
 }
 
-function showNextMedia(medias, currentMediaIndex) {
+function showNextMedia(medias) {
 	length = medias.length
+	// mediaToShow = new LightboxFactory(medias, currentMediaIndex)
+	// mediaToShow.nextMedia(length)
 	// if (currentMediaIndex < mediaUrls.length - 1) {
 	// 	currentMediaIndex++
 	// 	displayZone.src = mediaUrls[currentMediaIndex]
@@ -151,7 +160,7 @@ function showNextMedia(medias, currentMediaIndex) {
 
 	currentMediaIndex == length - 1
 		? (currentMediaIndex = 0)
-		: currentMediaIndex++
+		: (currentMediaIndex += 1)
 	return currentMediaIndex
 	// displayLightbox()
 }
