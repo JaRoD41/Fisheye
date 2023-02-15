@@ -1,87 +1,121 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="assets/favicon.png" />
+		<link
+			href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Fisheye - photographe</title>
+	</head>
 
-<head>
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-  <meta charset="utf-8">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-  <title>Fisheye - photographe</title>
-</head>
+	<body>
+		<header role="banner">
+			<a href="./index.html" alt="Fisheye Home page">
+				<img src="./assets/images/logo.png" class="logo" alt="Fisheye Logo" />
+			</a>
+		</header>
 
-<body>
+		<main id="gallery-container" role="main">
+			<section
+				class="photograph-header"
+				aria-labelledby="photographs-header"
+			></section>
+			<div class="gallery-filter" aria-labelledby="filter-label">
+				<span id="filter-label">Trier par</span>
+				<select name="filtres" id="filter" aria-label="Filtres de tri">
+					<option value="popularite">Popularité</option>
+					<option value="date">Date</option>
+					<option value="titre">Titre</option>
+				</select>
+			</div>
+			<section class="photograph-gallery"></section>
+			<aside class="ratePriceLabel"></aside>
+		</main>
 
-  <header role="banner">
-    <a href="./index.html" alt="Fisheye Home page">
-      <img src="./assets/images/logo.png" class="logo" alt="Fisheye Logo" />
-    </a>
-  </header>
+		<!-- modale du formulaire de contact  -->
 
-  <main id="gallery-container" role="main">
-    <section class="photograph-header" aria-labelledby="photographs-header"></section>
-    <div class="gallery-filter" aria-labelledby="filter-label">
-      <span id="filter-label">Trier par</span>
-      <select name="filtres" id="filter" aria-label="Filtres de tri">
-        <option value="popularite">Popularité</option>
-        <option value="date">Date</option>
-        <option value="titre">Titre</option>
-      </select>
-    </div>
-    <section class="photograph-gallery"></section>
-    <aside class="ratePriceLabel"></aside>
-  </main>
+		<div id="contact_modal" role="dialog" aria-labelledby="contactMe">
+			<div class="modal">
+				<header>
+					<div class="formTitle">
+						<h1 id="contactMe">Contactez-moi</h1>
+						<span class="namePhotographForm"></span>
+					</div>
+					<img
+						src="./assets/icons/close.svg"
+						onclick="closeModal()"
+						alt="X pour fermer le formulaire"
+						tabindex="0"
+					/>
+				</header>
+				<form id="contact-form">
+					<div>
+						<label for="first-name">Prénom</label>
+						<input
+							id="first-name"
+							type="text"
+							minlength="2"
+							aria-labelledby="first-name"
+							required
+						/>
+						<label for="last-name">Nom</label>
+						<input
+							id="last-name"
+							type="text"
+							minlength="2"
+							aria-labelledby="last-name"
+							required
+						/>
+						<label for="email">Email</label>
+						<input id="email" type="email" aria-labelledby="email" required />
+						<label for="message">Votre message</label>
+						<textarea
+							class="messageBox"
+							aria-labelledby="message"
+							required
+						></textarea>
+					</div>
+					<button class="contact_button" type="submit" aria-label="Send">
+						Envoyer
+					</button>
+				</form>
+			</div>
+		</div>
 
-  <!-- modale du formulaire de contact  -->
+		<!-- modale de la lightbox d'affichage des médias -->
 
-  <div id="contact_modal" role="dialog" aria-labelledby="contactMe">
-    <div class="modal">
-      <header>
-        <div class="formTitle">
-          <h1 id="contactMe">Contactez-moi</h1>
-          <span class="namePhotographForm"></span>
-        </div>
-        <img src="./assets/icons/close.svg" onclick="closeModal()" alt="X pour fermer le formulaire" tabindex="0" />
-      </header>
-      <form id="contact-form">
-        <div>
-          <label for="first-name">Prénom</label>
-          <input id="first-name" type="text" minlength="2" aria-labelledby="first-name" required />
-          <label for="last-name">Nom</label>
-          <input id="last-name" type="text" minlength="2" aria-labelledby="last-name" required />
-          <label for="email">Email</label>
-          <input id="email" type="email" aria-labelledby="email" required />
-          <label for="message">Votre message</label>
-          <textarea class="messageBox" aria-labelledby="message" required></textarea>
-        </div>
-        <button class="contact_button" type="submit" aria-label="Send">Envoyer</button>
-      </form>
-    </div>
-  </div>
+		<div
+			id="lightbox_modal"
+			role="dialog"
+			class="lightbox_modal"
+			aria-label="image closeup view"
+		>
+			<section class="media-container">
+				<img
+					id="lightbox-close"
+					src="./assets/icons/closeLightbox.svg"
+					onclick="closeLightbox()"
+					alt="X pour fermer la lightbox"
+					tabindex="0"
+				/>
+				<img id="lightbox-prev" src="./assets/icons/prevLightbox.svg" />
+				<div class="media_name_container">
+					<figure id="lightbox-media"></figure>
+				</div>
+				<img id="lightbox-next" src="./assets/icons/nextLightbox.svg" />
+			</section>
+		</div>
 
-  <!-- modale de la lightbox d'affichage des médias -->
+		<!-- déclaration des scripts js -->
 
-  <div id="lightbox_modal" role="dialog" class="lightbox_modal" aria-label="image closeup view">
-    <section class="media-container">
-      <img id="lightbox-close" src="./assets/icons/closeLightbox.svg" onclick="closeLightbox()"
-        alt="X pour fermer la lightbox" tabindex="0" />
-      <img id="lightbox-prev" src="./assets/icons/prevLightbox.svg" />
-      <div class="media_name_container">
-        <figure id="lightbox-media">
-          <figcaption id="media-name"></figcaption>
-        </figure>
-      </div>
-      <img id="lightbox-next" src="./assets/icons/nextLightbox.svg" />
-    </section>
-  </div>
-
-  <!-- déclaration des scripts js -->
-
-  <script src="./scripts/factories/Media.js"></script>
-  <script src="./scripts/utils/lightbox.js"></script>
-  <script src="./scripts/utils/likes.js"></script>
-  <script src="./scripts/factories/photographer.js"></script>
-  <script src="./scripts/pages/photographer.js"></script>
-  <script src="./scripts/utils/contactForm.js"></script>
-</body>
-
+		<script src="./scripts/factories/Media.js"></script>
+		<script src="./scripts/utils/lightbox.js"></script>
+		<script src="./scripts/utils/likes.js"></script>
+		<script src="./scripts/factories/photographer.js"></script>
+		<script src="./scripts/pages/photographer.js"></script>
+		<script src="./scripts/utils/contactForm.js"></script>
+	</body>
 </html>

@@ -1,13 +1,10 @@
 const lightbox = document.getElementById('lightbox_modal')
 const galleryWrapper = document.getElementById('gallery-container')
 const displayZone = document.getElementById('lightbox-media')
-const mediaName = document.getElementById('media-name')
+let mediaName = document.getElementById('media-name')
 const lightboxCloseBtn = document.getElementById('lightbox-close')
 const prevButton = document.getElementById('lightbox-prev')
 const nextButton = document.getElementById('lightbox-next')
-
-// Tableau pour stocker les URL des médias
-let mediaUrls = []
 
 let mediaId
 let mediaToShow
@@ -53,39 +50,31 @@ function showMedia(id) {
 	return mediaId
 }
 
-function createMediasArray() {
-	mediaUrls = []
-	for (let i = 0; i < medias.length; i++) {
-		mediaUrls.push(medias[i])
-	}
-	return mediaUrls
-}
-
 // ouverture de la lightbox
 
 function displayLightbox(mediaId) {
 	//choix du media grace à l'id passé en paramètre
 	currentMediaIndex = mediaId
-	pickedMedia = medias[mediaId]
 
 	//création du média à afficher grace à la méthode createLightboxMediaElement()
 
 	mediaToShow = new LightboxFactory(medias, currentMediaIndex)
 	mediaSrc = mediaToShow.createLightboxMediaElement()
 
-
 	lightbox.style.display = 'flex'
 	galleryWrapper.setAttribute('aria-hidden', 'true')
 	lightbox.setAttribute('aria-hidden', 'false')
 	document.body.classList.add('no-scroll')
-	// affichage du média en cours
-	createMediasArray()
 
 	//ajout du titre du média affiché
-
 	displayZone.innerHTML = ''
-	displayZone.appendChild(mediaSrc)
+
+	mediaName = mediaToShow.createLightboxMediaName()
 	mediaName.textContent = mediaToShow.title
+
+	displayZone.appendChild(mediaSrc)
+	displayZone.appendChild(mediaName)
+
 	lightboxCloseBtn.focus()
 }
 
