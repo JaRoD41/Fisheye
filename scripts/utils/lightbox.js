@@ -27,9 +27,9 @@ nextButton.addEventListener('click', () =>
 	showNextMedia(medias)
 )
 
-// --- ecoute des fleches gauche et droite à tester ---
+// --- écoute des flèches gauche et droite à tester ---
 
-// document.addEventListener('keydown', function (e) {
+// document.addEventListener('keyup', function (e) {
 // 		if (e.code === 'ArrowLeft') {
 // 			showPreviousMedia()
 // 		}
@@ -145,7 +145,7 @@ function showPreviousMedia(medias) {
 	currentMediaIndex == 0
 		? (currentMediaIndex = length - 1)
 		: (currentMediaIndex -= 1)
-	return currentMediaIndex
+	
 }
 
 function showNextMedia(medias) {
@@ -161,6 +161,6 @@ function showNextMedia(medias) {
 	currentMediaIndex == length - 1
 		? (currentMediaIndex = 0)
 		: (currentMediaIndex += 1)
-	return currentMediaIndex
+	
 	// displayLightbox()
 }

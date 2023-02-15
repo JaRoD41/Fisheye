@@ -162,7 +162,7 @@ class LightboxFactory {
 
 	createLightboxMediaElement() {
 		console.log('this data :', this.data)
-		console.log('this photographerId :', this.photographerId)
+		console.log('media suivant :', data[currentMediaIndex+1])
 		mediaToCreate.classList.add('lightboxMediaToShow')
 		mediaToCreate.setAttribute('src', mediaSrc)
 		return mediaToCreate
