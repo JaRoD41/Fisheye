@@ -29,6 +29,7 @@ class Media {
 			playLogo.setAttribute('src', '../../assets/icons/play.png')
 			a.setAttribute('href', '#')
 			a.classList.add('video_link')
+			a.setAttribute('onclick', `displayLightbox(${this.currentMediaIndex})`)
 			a.append(playLogo, media)
 		} else {
 			media = document.createElement('img')
@@ -40,6 +41,7 @@ class Media {
 			)
 			a.setAttribute('href', '#')
 			a.classList.add('image_link')
+			a.setAttribute('onclick', `displayLightbox(${this.currentMediaIndex})`)
 			a.appendChild(media)
 		}
 
@@ -49,7 +51,6 @@ class Media {
 
 		const figure = document.createElement('figure')
 		figure.classList.add('media_figure')
-		figure.setAttribute('onclick', `displayLightbox(${this.currentMediaIndex})`)
 
 		const figcaption = document.createElement('figcaption')
 		figcaption.classList.add('photo_infos')
@@ -142,11 +143,10 @@ class MediaFactory {
 
 class LightboxFactory {
 	constructor(data, currentMediaIndex) {
-		
 		this.data = data[currentMediaIndex]
 		this.currentMediaIndex = currentMediaIndex
 		console.log('data dans LightboxFactory:', data)
-		console.log('suivant dans LightboxFactory:', data[currentMediaIndex+1])
+		console.log('suivant dans LightboxFactory:', data[currentMediaIndex + 1])
 		this.photographerId = data[currentMediaIndex].photographerId
 		this.title = data[currentMediaIndex].title
 		this.id = data[currentMediaIndex].id

@@ -38,7 +38,6 @@ async function displayData(photographerInfos, medias) {
 		let eachLike = eachMedia.likes
 		likesArray.push(eachLike)
 		totalLikes = likesArray.reduce(addAllLikes)
-		// const gallerySection = mediaFactory(eachMedia, photographerPrice, totalLikes)
 		const gallerySection = new Media(eachMedia, photographerPrice, totalLikes, currentMediaIndex)
 		gallerySection.getMediaGallery()
 	})
