@@ -92,6 +92,7 @@ function displayLightbox(mediaId) {
 
 	//ajout du titre du média affiché
 	mediaName.textContent = mediaToShow.title
+	displayZone.innerHTML = ""
 	displayZone.appendChild(mediaSrc)
 	lightboxCloseBtn.focus()
 	// Sauvegarde de l'index courant pour la navigation
@@ -139,8 +140,9 @@ function showPreviousMedia(medias) {
 	currentMediaIndex == 0
 		? (currentMediaIndex = length - 1)
 		: (currentMediaIndex -= 1)
-	mediaId = currentMediaIndex - 1
+	mediaId = currentMediaIndex 
 	console.log('mediaId :', mediaId)
+	displayLightbox(mediaId)
 }
 
 function showNextMedia(medias) {
@@ -156,7 +158,7 @@ function showNextMedia(medias) {
 	currentMediaIndex == length - 1
 		? (currentMediaIndex = 0)
 		: (currentMediaIndex += 1)
-	mediaId = currentMediaIndex + 1
+	mediaId = currentMediaIndex 
 	console.log('mediaId :', mediaId)
-	// displayLightbox()
+	displayLightbox(mediaId)
 }

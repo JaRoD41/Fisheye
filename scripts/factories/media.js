@@ -64,6 +64,9 @@ class Media {
 		const p2 = document.createElement('p')
 		p2.classList.add('likes')
 		p2.textContent = this.likes
+		p2.addEventListener('click', () => {
+			p2.textContent = Number(p2.textContent) + 1
+		})
 
 		const a2 = document.createElement('a')
 		a2.setAttribute('href', '#')
