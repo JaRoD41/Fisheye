@@ -5,8 +5,6 @@ const mediaName = document.getElementById('media-name')
 const lightboxCloseBtn = document.getElementById('lightbox-close')
 const prevButton = document.getElementById('lightbox-prev')
 const nextButton = document.getElementById('lightbox-next')
-// const galleryItems = document.querySelectorAll('.single_media')
-// console.log('test array medias affichés :', galleryItems)
 
 // Tableau pour stocker les URL des médias
 let mediaUrls = []
@@ -42,7 +40,6 @@ async function getMediasInfos() {
 			medias = mediasToFilter.filter((media) => {
 				media.photographerId == photographerPageId
 			})
-			// currentMediaIndex = medias.indexOf(mediaId)
 		})
 
 	return {
@@ -55,12 +52,6 @@ function showMedia(id) {
 	mediaId = medias.filter((m) => m.id == id)
 	return mediaId
 }
-
-// currentMediaIndex = medias.indexOf(mediaId)
-// function getTheCurrentIndexOfTheMedia() {
-// 	currentMediaIndex = mediaUrls.filter((elmt) => elmt.id === mediaId)
-// 	return currentMediaIndex
-// }
 
 function createMediasArray() {
 	mediaUrls = []
@@ -78,10 +69,10 @@ function displayLightbox(mediaId) {
 	pickedMedia = medias[mediaId]
 
 	//création du média à afficher grace à la méthode createLightboxMediaElement()
-	// mediaToShow = new LightboxFactory(pickedMedia)
+
 	mediaToShow = new LightboxFactory(medias, currentMediaIndex)
 	mediaSrc = mediaToShow.createLightboxMediaElement()
-	// mediaId = mediaToShow.id
+
 
 	lightbox.style.display = 'flex'
 	galleryWrapper.setAttribute('aria-hidden', 'true')
@@ -91,16 +82,11 @@ function displayLightbox(mediaId) {
 	createMediasArray()
 
 	//ajout du titre du média affiché
-	mediaName.textContent = mediaToShow.title
-	displayZone.innerHTML = ""
-	displayZone.appendChild(mediaSrc)
-	lightboxCloseBtn.focus()
-	// Sauvegarde de l'index courant pour la navigation
-	// currentMediaIndex = mediaUrls.findIndex(isTheIndexOfTheMedia)
 
-	// console.log('liste des médias disponibles :', medias)
-	console.log('media précédent :', medias[currentMediaIndex - 1])
-	console.log('media suivant :', medias[currentMediaIndex + 1])
+	displayZone.innerHTML = ''
+	displayZone.appendChild(mediaSrc)
+	mediaName.textContent = mediaToShow.title
+	lightboxCloseBtn.focus()
 }
 
 // fermeture de la lightbox
@@ -118,47 +104,28 @@ function closeLightbox() {
 
 function showPreviousMedia(medias) {
 	length = medias.length
-	// mediaToShow = new LightboxFactory(medias, currentMediaIndex)
-	// mediaToShow.prevMedia(length)
-	// // vérifie que l'index courant n'est pas déjà à 0 (premier média)
-	// if (currentMediaIndex > 0) {
-	// 	// décrémente l'index courant
-	// 	currentMediaIndex--
-	// 	// affiche la média correspondante à l'index courant
-	// 	displayZone.src = mediaUrls[currentMediaIndex]
-	// }
-	console.log('currentMediaIndex :', currentMediaIndex)
 
-	// console.log('nouveau currentMediaIndex', currentMediaIndex)
+	if (currentMediaIndex == 0) {
+		currentMediaIndex = length - 1
+	} else {
+		currentMediaIndex -= 1
+	}
 
-	// if (currentMediaIndex = 0) {
-	// 	currentMediaIndex == length - 1
-	// } else {
-	// 	currentMediaIndex -= 1
-	// }
-	// return currentMediaIndex
-	currentMediaIndex == 0
-		? (currentMediaIndex = length - 1)
-		: (currentMediaIndex -= 1)
-	mediaId = currentMediaIndex 
-	console.log('mediaId :', mediaId)
+	mediaId = currentMediaIndex
+
 	displayLightbox(mediaId)
 }
 
 function showNextMedia(medias) {
 	length = medias.length
-	// mediaToShow = new LightboxFactory(medias, currentMediaIndex)
-	// mediaToShow.nextMedia(length)
-	// if (currentMediaIndex < mediaUrls.length - 1) {
-	// 	currentMediaIndex++
-	// 	displayZone.src = mediaUrls[currentMediaIndex]
-	// }
-	console.log('currentMediaIndex :', currentMediaIndex)
 
-	currentMediaIndex == length - 1
-		? (currentMediaIndex = 0)
-		: (currentMediaIndex += 1)
-	mediaId = currentMediaIndex 
-	console.log('mediaId :', mediaId)
+	if (currentMediaIndex == length - 1) {
+		currentMediaIndex = 0
+	} else {
+		currentMediaIndex += 1
+	}
+
+	mediaId = currentMediaIndex
+
 	displayLightbox(mediaId)
 }

@@ -167,8 +167,7 @@ class LightboxFactory {
 	}
 
 	createLightboxMediaElement() {
-		console.log('this data dans LightboxFactory:', this.data)
-		// console.log('media suivant :', this.data[this.currentMediaIndex+1])
+		console.log('titre dans LightboxFactory:', this.title)
 		mediaToCreate.classList.add('lightboxMediaToShow')
 		mediaToCreate.setAttribute('src', mediaSrc)
 		return mediaToCreate
