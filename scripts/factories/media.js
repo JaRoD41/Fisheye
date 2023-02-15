@@ -142,8 +142,11 @@ class MediaFactory {
 
 class LightboxFactory {
 	constructor(data, currentMediaIndex) {
-		this.currentMediaIndex = currentMediaIndex
+		
 		this.data = data[currentMediaIndex]
+		this.currentMediaIndex = currentMediaIndex
+		console.log('data dans LightboxFactory:', data)
+		console.log('suivant dans LightboxFactory:', data[currentMediaIndex+1])
 		this.photographerId = data[currentMediaIndex].photographerId
 		this.title = data[currentMediaIndex].title
 		this.id = data[currentMediaIndex].id
@@ -161,8 +164,8 @@ class LightboxFactory {
 	}
 
 	createLightboxMediaElement() {
-		console.log('this data :', this.data)
-		console.log('media suivant :', data[currentMediaIndex+1])
+		console.log('this data dans LightboxFactory:', this.data)
+		// console.log('media suivant :', this.data[this.currentMediaIndex+1])
 		mediaToCreate.classList.add('lightboxMediaToShow')
 		mediaToCreate.setAttribute('src', mediaSrc)
 		return mediaToCreate

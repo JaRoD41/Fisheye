@@ -19,13 +19,9 @@ let currentMediaIndex
 let pickedMedia
 let length
 
-prevButton.addEventListener('click', () =>
-	showPreviousMedia(medias)
-)
+prevButton.addEventListener('click', () => showPreviousMedia(medias))
 
-nextButton.addEventListener('click', () =>
-	showNextMedia(medias)
-)
+nextButton.addEventListener('click', () => showNextMedia(medias))
 
 // --- écoute des flèches gauche et droite à tester ---
 
@@ -101,9 +97,7 @@ function displayLightbox(mediaId) {
 	// Sauvegarde de l'index courant pour la navigation
 	// currentMediaIndex = mediaUrls.findIndex(isTheIndexOfTheMedia)
 
-	console.log('currentMediaIndex :', currentMediaIndex)
-	console.log('liste des médias disponibles :', medias)
-	console.log('media affiché (pickedMedia) :', pickedMedia)
+	// console.log('liste des médias disponibles :', medias)
 	console.log('media précédent :', medias[currentMediaIndex - 1])
 	console.log('media suivant :', medias[currentMediaIndex + 1])
 }
@@ -145,7 +139,8 @@ function showPreviousMedia(medias) {
 	currentMediaIndex == 0
 		? (currentMediaIndex = length - 1)
 		: (currentMediaIndex -= 1)
-	
+	mediaId = currentMediaIndex - 1
+	console.log('mediaId :', mediaId)
 }
 
 function showNextMedia(medias) {
@@ -161,6 +156,7 @@ function showNextMedia(medias) {
 	currentMediaIndex == length - 1
 		? (currentMediaIndex = 0)
 		: (currentMediaIndex += 1)
-	
+	mediaId = currentMediaIndex + 1
+	console.log('mediaId :', mediaId)
 	// displayLightbox()
 }
