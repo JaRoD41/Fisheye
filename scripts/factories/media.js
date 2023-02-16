@@ -13,7 +13,7 @@ class Media {
 	}
 	getMediaGallery() {
 		const gallery = document.querySelector('.photograph-gallery')
-		const a = document.createElement('a')
+
 		let media
 		let playLogo
 
@@ -26,11 +26,11 @@ class Media {
 				'src',
 				`../../assets/photographers/${this.photographerId}/${this.video}`
 			)
+			media.setAttribute(
+				'onclick',
+				`displayLightbox(${this.currentMediaIndex})`
+			)
 			playLogo.setAttribute('src', '../../assets/icons/play.png')
-			a.setAttribute('href', '#')
-			a.classList.add('video_link')
-			a.setAttribute('onclick', `displayLightbox(${this.currentMediaIndex})`)
-			a.append(playLogo, media)
 		} else {
 			media = document.createElement('img')
 			media.classList.add('single_media')
@@ -39,10 +39,10 @@ class Media {
 				'src',
 				`../../assets/photographers/${this.photographerId}/${this.image}`
 			)
-			a.setAttribute('href', '#')
-			a.classList.add('image_link')
-			a.setAttribute('onclick', `displayLightbox(${this.currentMediaIndex})`)
-			a.appendChild(media)
+			media.setAttribute(
+				'onclick',
+				`displayLightbox(${this.currentMediaIndex})`
+			)
 		}
 
 		const article = document.createElement('article')
@@ -51,6 +51,7 @@ class Media {
 
 		const figure = document.createElement('figure')
 		figure.classList.add('media_figure')
+		figure.appendChild(media)
 
 		const figcaption = document.createElement('figcaption')
 		figcaption.classList.add('photo_infos')
@@ -79,7 +80,6 @@ class Media {
 		figcaption.appendChild(p1)
 		figcaption.appendChild(photo_likes)
 
-		figure.appendChild(a)
 		figure.appendChild(figcaption)
 
 		article.appendChild(figure)
