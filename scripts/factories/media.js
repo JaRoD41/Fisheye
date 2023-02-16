@@ -62,23 +62,19 @@ class Media {
 		photo_likes.classList.add('photo_likes')
 
 		const p2 = document.createElement('p')
-		p2.classList.add('likes')
+		p2.classList.add('likes-counter')
 		p2.textContent = this.likes
-
-		const a2 = document.createElement('a')
-		a2.setAttribute('href', '#')
-		a2.addEventListener('click', () => {
-			p2.textContent = Number(p2.textContent) + 1
-		})
 
 		const img = document.createElement('img')
 		img.setAttribute('aria-label', 'ajouter ou retirer un like')
 		img.classList.add('red-like')
 		img.setAttribute('src', '../../assets/icons/red-heart.svg')
+		img.addEventListener('click', () => {
+			p2.textContent = Number(p2.textContent) + 1
+		})
 
-		a2.appendChild(img)
 		photo_likes.appendChild(p2)
-		photo_likes.appendChild(a2)
+		photo_likes.appendChild(img)
 
 		figcaption.appendChild(p1)
 		figcaption.appendChild(photo_likes)

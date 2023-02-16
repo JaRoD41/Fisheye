@@ -161,6 +161,8 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    font-size: 22px;
+    margin-top: 10px;
 }
 
 .photo_likes {
