@@ -175,26 +175,6 @@ class LightboxFactory {
 		mediaName.setAttribute('id', 'media-name')
 		return mediaName
 	}
-
-	// prevMedia(length, currentMediaIndex) {
-	// 	if ((this.currentMediaIndex = 0)) {
-	// 		this.currentMediaIndex = length - 1
-	// 	} else {
-	// 		this.currentMediaIndex -= 1
-	// 	}
-	// 	mediaToCreate.classList.add('lightboxMediaToShow')
-	// 	mediaToCreate.setAttribute('src', mediaSrc)
-	// }
-
-	// nextMedia(length) {
-	// 	if ((this.currentMediaIndex = length - 1)) {
-	// 		this.currentMediaIndex = 0
-	// 	} else {
-	// 		this.currentMediaIndex += 1
-	// 	}
-	// 	mediaToCreate.classList.add('lightboxMediaToShow')
-	// 	mediaToCreate.setAttribute('src', mediaSrc)
-	// }
 }
 
 class PriceTabFactory {
