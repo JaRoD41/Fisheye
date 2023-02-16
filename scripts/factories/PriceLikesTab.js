@@ -1,4 +1,4 @@
-class PriceTabFactory {
+class PriceLikesTabFactory {
 	constructor(photographerPrice, totalLikes) {
 		this.photographerPrice = photographerPrice
 		this.totalLikes = totalLikes

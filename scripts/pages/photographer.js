@@ -41,7 +41,7 @@ async function displayData(photographerInfos, medias) {
 		const gallerySection = new Media(eachMedia, photographerPrice, totalLikes, currentMediaIndex)
 		gallerySection.getMediaGallery()
 	})
-	const priceTab = new PriceTabFactory(photographerPrice, totalLikes)
+	const priceTab = new PriceLikesTabFactory(photographerPrice, totalLikes)
 	priceTab.createPriceRateTab()
 	const photographerSection = photographerFactory(photographerInfos)
 	photographerSection.getPhotographerHeader()
