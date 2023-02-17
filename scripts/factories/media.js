@@ -72,6 +72,7 @@ class Media {
 
 		const img = document.createElement('img')
 		img.setAttribute('aria-label', 'ajouter ou retirer un like')
+		img.setAttribute('id', this.id)
 		img.classList.add('red-like')
 		img.setAttribute('src', '../../assets/icons/red-heart.svg')
 		img.addEventListener('click', () => {
