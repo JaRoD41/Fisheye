@@ -111,29 +111,12 @@
     align-items: center;
 }
 
-.video_link {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    position: relative;
-}
-
 .video_logo {
     display: flex;
     position: absolute;
     width: 5rem;
     z-index: 3;
     object-fit: cover;
-}
-
-.image_link {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
 }
 
 .photograph-gallery article .single_media {
@@ -143,6 +126,7 @@
     border-radius: 5px;
     object-fit: cover;
     z-index: 2;
+    cursor: pointer;
 }
 
 .photo_infos {
@@ -178,6 +162,7 @@
 
 .red-like {
     margin-left: 7px;
+    cursor: pointer;
 }
 
 .ratePriceLabel {
@@ -330,6 +315,7 @@ form .messageBox {
     left: 94%;
     top: 6%;
     z-index: 10;
+    text-decoration: none;
     cursor: pointer;
 }
 
