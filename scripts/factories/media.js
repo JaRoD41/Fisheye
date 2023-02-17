@@ -26,6 +26,8 @@ class Media {
 				'src',
 				`../../assets/photographers/${this.photographerId}/${this.video}`
 			)
+			media.setAttribute('width', 350)
+			media.setAttribute('height', 300)
 			media.setAttribute(
 				'onclick',
 				`displayLightbox(${this.currentMediaIndex})`
@@ -35,6 +37,8 @@ class Media {
 			media = document.createElement('img')
 			media.classList.add('single_media')
 			media.setAttribute('aria-label', this.title)
+			media.setAttribute('width', 350)
+			media.setAttribute('height', 300)
 			media.setAttribute(
 				'src',
 				`../../assets/photographers/${this.photographerId}/${this.image}`
