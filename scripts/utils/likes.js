@@ -1,13 +1,18 @@
 class Likes {
-	constructor(id, amountOfLikes) {
+	constructor(id, amountOfLikes, totalAmountOfLikes) {
 		this.id = id
 		this.amountOfLikes = amountOfLikes
+		this.totalAmountOfLikes = totalAmountOfLikes
 		this.redLikeIcon = document.querySelector(`.red-like[id="${this.id}"]`)
 	}
 
+	getTotalLikes() {
+		let likesSpan = document.getElementById('totalLikes')
+
+		likesSpan.textContent = this.totalAmountOfLikes
+	}
+
 	add() {
-		let totalAmountOfLikes = document.getElementById('totalLikes')
-		console.log('total of likes', this.amountOfLikes)
 		const heartsList = document.querySelectorAll('.red-like')
 		heartsList.forEach((likeIcon) => {
 			const likesContainer = likeIcon.parentElement
@@ -15,7 +20,7 @@ class Likes {
 			likeIcon.addEventListener('click', (e) => {
 				e.preventDefault()
 				// console.log('amountOfLikes', this.amountOfLikes);
-				console.log('total of likes', totalAmountOfLikes);
+
 				// Likes.add(amountOfLikes, redLikeIcon)
 			})
 			// if (redLikeIcon.classList.contains('isLiked')) {
@@ -31,6 +36,4 @@ class Likes {
 			// }
 		})
 	}
-
-	
 }

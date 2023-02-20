@@ -1,7 +1,6 @@
 class PriceLikesTabFactory {
-	constructor(photographerPrice, totalLikes) {
+	constructor(photographerPrice) {
 		this.photographerPrice = photographerPrice
-		this.totalLikes = totalLikes
 	}
 	createPriceRateTab() {
 		const photographerTab = document.querySelector('.ratePriceLabel')
@@ -9,6 +8,8 @@ class PriceLikesTabFactory {
 		const likesSpan = document.createElement('span')
 		const likesImg = document.createElement('img')
 		const priceSpan = document.createElement('span')
+
+		container.classList.add('likeTab')
 
 		likesSpan.textContent = this.totalLikes
 		likesSpan.classList.add('totalLikes')

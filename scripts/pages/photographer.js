@@ -2,6 +2,8 @@ let url = new URL(location.href) // declare an variable to pick the actual URL
 let photographerPageId = url.searchParams.get('id') // get the id of the photographer from the URL
 let medias = []
 let likesArray = []
+let eachMedia = []
+let eachLike
 
 
 async function getPhotographerInfos() {
@@ -35,19 +37,25 @@ async function displayData(photographerInfos, medias) {
 	const photographerPrice = photographerInfos.price
 	let totalLikes = []
 	medias.forEach((eachMedia, currentMediaIndex) => {
-		let eachLike = eachMedia.likes
+		eachMedia = eachMedia
+		eachLike = eachMedia.likes
 		likesArray.push(eachLike)
 		totalLikes = likesArray.reduce(addAllLikes)
-		const gallerySection = new Media(eachMedia, photographerPrice, totalLikes, currentMediaIndex)
+		const gallerySection = new Media(
+			eachMedia,
+			photographerPrice,
+			totalLikes,
+			currentMediaIndex
+		)
 		gallerySection.getMediaGallery()
-		const likeCount = new Likes(eachMedia.id, eachLike)
-		likeCount.add()
 	})
-	const priceTab = new PriceLikesTabFactory(photographerPrice, totalLikes)
+	const priceTab = new PriceLikesTabFactory(photographerPrice)
 	priceTab.createPriceRateTab()
 	const photographerSection = photographerFactory(photographerInfos)
 	photographerSection.getPhotographerHeader()
 	
+	const likeCount = new Likes(eachMedia.id, eachLike, totalLikes)
+	likeCount.getTotalLikes(totalLikes)
 }
 
 async function init() {
