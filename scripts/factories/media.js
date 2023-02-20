@@ -51,7 +51,6 @@ class Media {
 
 		const article = document.createElement('article')
 		article.classList.add('gallery_item')
-		// article.setAttribute('id', this.id)
 
 		const figure = document.createElement('figure')
 		figure.classList.add('media_figure')
@@ -75,9 +74,6 @@ class Media {
 		img.setAttribute('id', this.id)
 		img.classList.add('red-like')
 		img.setAttribute('src', '../../assets/icons/red-heart.svg')
-		// img.addEventListener('click', () => {
-		// 	p2.textContent = Number(p2.textContent) + 1
-		// })
 
 		photo_likes.appendChild(p2)
 		photo_likes.appendChild(img)
