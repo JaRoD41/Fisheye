@@ -55,7 +55,7 @@ async function displayData(photographerInfos, medias) {
 	photographerSection.getPhotographerHeader()
 	
 	const likeCount = new Likes(eachMedia.id, eachLike, totalLikes)
-	likeCount.getTotalLikes(totalLikes)
+	likeCount.add()
 }
 
 async function init() {
