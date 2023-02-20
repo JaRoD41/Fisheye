@@ -21,9 +21,9 @@
 		<div class="gallery-filter" aria-labelledby="filter-label">
 			<span id="filter-label">Trier par</span>
 			<select name="filtres" id="filter" aria-label="Filtres de tri">
-				<option value="popularite">Popularité</option>
-				<option value="date">Date</option>
-				<option value="titre">Titre</option>
+				<option class="rateSort" value="popularite">Popularité</option>
+				<option class="dateSort" value="date">Date</option>
+				<option class="nameSort" value="titre">Titre</option>
 			</select>
 		</div>
 		<section class="photograph-gallery"></section>
@@ -76,15 +76,15 @@
 
 	<!-- déclaration des scripts js -->
 
+	<script src="./scripts/utils/lightbox.js"></script>
+	<script src="./scripts/utils/likes.js"></script>
+	<script src="./scripts/utils/contactForm.js"></script>
 	<script src="./scripts/pages/photographer.js"></script>
+	<script src="./scripts/utils/sort.js"></script>
 	<script src="./scripts/factories/Media.js"></script>
 	<script src="./scripts/factories/PriceLikesTab.js"></script>
 	<script src="./scripts/factories/photographer.js"></script>
 	<script src="./scripts/factories/Lightbox.js"></script>
-	<script src="./scripts/utils/lightbox.js"></script>
-	<script src="./scripts/utils/likes.js"></script>
-	<script src="./scripts/utils/contactForm.js"></script>
-	<script src="./scripts/utils/sort.js"></script>
 
 
 </body>

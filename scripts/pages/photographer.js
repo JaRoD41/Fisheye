@@ -1,10 +1,10 @@
 let url = new URL(location.href) // declare an variable to pick the actual URL
 let photographerPageId = url.searchParams.get('id') // get the id of the photographer from the URL
 let medias = []
+let sortedMedias = []
 let likesArray = []
 let eachMedia = []
 let eachLike
-
 
 async function getPhotographerInfos() {
 	let photographerInfos = []
@@ -34,9 +34,32 @@ function addAllLikes(total, num) {
 }
 
 async function displayData(photographerInfos, medias) {
-	const photographerPrice = photographerInfos.price
 	let totalLikes = []
-	medias.forEach((eachMedia, currentMediaIndex) => {
+	const photographerPrice = photographerInfos.price
+	
+	const selectElement = document.getElementById('filter')
+	selectElement.addEventListener('change', () => {
+		const option = selectElement.value
+		// console.log('unsorted medias', medias)
+		sortedMedias = sort(medias, option)
+		// console.log('sortedMedias', sortedMedias);
+		sortedMedias.forEach((eachMedia, currentMediaIndex) => {
+			eachMedia = eachMedia
+			eachLike = eachMedia.likes
+			likesArray.push(eachLike)
+			totalLikes = likesArray.reduce(addAllLikes)
+			const gallerySection = new Media(
+				eachMedia,
+				photographerPrice,
+				totalLikes,
+				currentMediaIndex
+			)
+			gallerySection.getMediaGallery()
+		})
+	})
+	const defaultOption = 'popularite'
+	sortedMedias = sort(medias, defaultOption)
+	sortedMedias.forEach((eachMedia, currentMediaIndex) => {
 		eachMedia = eachMedia
 		eachLike = eachMedia.likes
 		likesArray.push(eachLike)
@@ -49,11 +72,12 @@ async function displayData(photographerInfos, medias) {
 		)
 		gallerySection.getMediaGallery()
 	})
+	
 	const priceTab = new PriceLikesTabFactory(photographerPrice)
 	priceTab.createPriceRateTab()
 	const photographerSection = photographerFactory(photographerInfos)
 	photographerSection.getPhotographerHeader()
-	
+
 	const likeCount = new Likes(eachMedia.id, eachLike, totalLikes)
 	likeCount.add()
 }

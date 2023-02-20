@@ -87,6 +87,40 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 23px;
+
+}
+
+/* .rateSort,
+.dateSort,
+.nameSort {
+    background: #901C1C;
+    color: white;
+} */
+
+select {
+    background: #901C1C;
+    display: inline-block;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    padding: 15px;
+    /* height: 50px; */
+    width: 170px;
+    margin-left: 25px;
+}
+
+option {
+    background: #901C1C;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    padding: 15px;
+    /* height: 50px; */
+    width: 170px;
 }
 
 .photograph-gallery {
