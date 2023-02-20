@@ -40,6 +40,8 @@ async function displayData(photographerInfos, medias) {
 		totalLikes = likesArray.reduce(addAllLikes)
 		const gallerySection = new Media(eachMedia, photographerPrice, totalLikes, currentMediaIndex)
 		gallerySection.getMediaGallery()
+		const likeCount = new Likes(eachMedia.id, eachLike)
+		likeCount.add()
 	})
 	const priceTab = new PriceLikesTabFactory(photographerPrice, totalLikes)
 	priceTab.createPriceRateTab()

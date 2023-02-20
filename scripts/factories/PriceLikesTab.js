@@ -12,6 +12,7 @@ class PriceLikesTabFactory {
 
 		likesSpan.textContent = this.totalLikes
 		likesSpan.classList.add('totalLikes')
+		likesSpan.setAttribute('id', 'totalLikes')
 		likesImg.setAttribute('aria-label', 'nombre total de likes du photographe')
 		likesImg.setAttribute('src', '../../assets/icons/black-heart.svg')
 		priceSpan.textContent = `${this.photographerPrice}€/jour`
