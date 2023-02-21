@@ -13,7 +13,7 @@ class Media {
 	}
 	getMediaGallery() {
 		const gallery = document.querySelector('.photograph-gallery')
-
+		
 		let media
 		let playLogo
 

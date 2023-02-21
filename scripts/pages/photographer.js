@@ -13,7 +13,7 @@ async function getPhotographerInfos() {
 	await fetch('../../data/photographers.json')
 		.then((res) => res.json())
 		.then((data) => {
-			arrayOfPhotographers = data.photographers // filter apply to select the only object that matches the id found in the URL
+			arrayOfPhotographers = data.photographers // filtre pour récupérer les infos du photographe contenu dans l'id de l'url
 			photographerInfos = arrayOfPhotographers.filter((person) => {
 				return person.id == photographerPageId
 			})
@@ -36,13 +36,15 @@ function addAllLikes(total, num) {
 async function displayData(photographerInfos, medias) {
 	let totalLikes = []
 	const photographerPrice = photographerInfos.price
-	
+	const gallery = document.querySelector('.photograph-gallery')
+
 	const selectElement = document.getElementById('filter')
 	selectElement.addEventListener('change', () => {
+		gallery.innerHTML = ''
 		const option = selectElement.value
-		// console.log('unsorted medias', medias)
+
 		sortedMedias = sort(medias, option)
-		// console.log('sortedMedias', sortedMedias);
+
 		sortedMedias.forEach((eachMedia, currentMediaIndex) => {
 			eachMedia = eachMedia
 			eachLike = eachMedia.likes
@@ -72,7 +74,7 @@ async function displayData(photographerInfos, medias) {
 		)
 		gallerySection.getMediaGallery()
 	})
-	
+
 	const priceTab = new PriceLikesTabFactory(photographerPrice)
 	priceTab.createPriceRateTab()
 	const photographerSection = photographerFactory(photographerInfos)

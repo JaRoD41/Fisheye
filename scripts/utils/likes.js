@@ -1,9 +1,11 @@
 class Likes {
 	constructor(id, amountOfLikes, totalAmountOfLikes) {
+		// 	constructor(url, amountOfLikes, totalAmountOfLikes)
 		this.id = id
 		this.amountOfLikes = amountOfLikes
 		this.totalAmountOfLikes = totalAmountOfLikes
 		this.redLikeIcon = document.querySelector(`.red-like[id="${this.id}"]`)
+		// 		this.redLikeIcon = document.querySelector(`.red-like[href="${this.url}"]`)
 		this.likesSpan = document.getElementById('totalLikes')
 	}
 
@@ -12,6 +14,7 @@ class Likes {
 
 		this.likesSpan.textContent = this.totalAmountOfLikes
 		heartsList.forEach((likeIcon) => {
+			// if (likeIcon.href === this.url) {
 			likeIcon.addEventListener('click', (e) => {
 				e.preventDefault()
 				const likeClick = e.currentTarget
