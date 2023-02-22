@@ -5,9 +5,19 @@ let sortedMedias = []
 let likesArray = []
 let eachMedia = []
 let eachLike
+let likeCount
+let totalLikes = []
 
 function addAllLikes(total, num) {
 	return total + num
+}
+
+function getTotalLikes(medias) {
+	let likesArray = []
+	medias.forEach((eachMedia) => {
+		likesArray.push(eachMedia.likes)
+	})
+	return likesArray.reduce(addAllLikes)
 }
 
 async function displayData(photographerInfos, medias) {
@@ -24,9 +34,7 @@ async function displayData(photographerInfos, medias) {
 
 		sortedMedias.forEach((eachMedia, currentMediaIndex) => {
 			eachMedia = eachMedia
-			eachLike = eachMedia.likes
-			likesArray.push(eachLike)
-			totalLikes = likesArray.reduce(addAllLikes)
+			const totalLikes = getTotalLikes(medias)
 			const gallerySection = new Media(
 				eachMedia,
 				photographerPrice,
@@ -40,9 +48,7 @@ async function displayData(photographerInfos, medias) {
 	sortedMedias = sort(medias, defaultOption)
 	sortedMedias.forEach((eachMedia, currentMediaIndex) => {
 		eachMedia = eachMedia
-		eachLike = eachMedia.likes
-		likesArray.push(eachLike)
-		totalLikes = likesArray.reduce(addAllLikes)
+		totalLikes = getTotalLikes(medias)
 		const gallerySection = new Media(
 			eachMedia,
 			photographerPrice,
@@ -51,8 +57,8 @@ async function displayData(photographerInfos, medias) {
 		)
 		gallerySection.getMediaGallery()
 
-		// const likeCount = new Likes(eachLike, totalLikes)
-		// likeCount.add()
+		// likeCount = new Likes(eachLike, totalLikes)
+		// likeCount.add(totalLikes)
 	})
 
 	const priceTab = new PriceLikesTabFactory(photographerPrice)
@@ -60,8 +66,9 @@ async function displayData(photographerInfos, medias) {
 	const photographerSection = photographerFactory(photographerInfos)
 	photographerSection.getPhotographerHeader()
 
-	const likeCount = new Likes(eachLike, totalLikes)
-	likeCount.add()
+	likeCount = new Likes(eachLike, totalLikes)
+
+	likeCount.add(totalLikes)
 }
 
 async function init() {

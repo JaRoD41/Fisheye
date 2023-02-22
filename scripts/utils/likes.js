@@ -7,7 +7,7 @@ class Likes {
 		this.likesSpan = document.getElementById('totalLikes')
 	}
 
-	add() {
+	add(totalLikes) {
 		const heartsList = document.querySelectorAll('.red-like')
 
 		this.likesSpan.textContent = this.totalLikes
