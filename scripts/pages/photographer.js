@@ -6,29 +6,6 @@ let likesArray = []
 let eachMedia = []
 let eachLike
 
-async function getPhotographerInfos() {
-	let photographerInfos = []
-	let arrayOfPhotographers = []
-	let arrayOfMedias = []
-	await fetch('../../data/photographers.json')
-		.then((res) => res.json())
-		.then((data) => {
-			arrayOfPhotographers = data.photographers // filtre pour récupérer les infos du photographe contenu dans l'id de l'url
-			photographerInfos = arrayOfPhotographers.filter((person) => {
-				return person.id == photographerPageId
-			})
-			arrayOfMedias = data.media
-			medias = arrayOfMedias.filter((media) => {
-				return media.photographerId == photographerPageId
-			})
-		})
-
-	return {
-		photographerInfos: photographerInfos[0],
-		medias: medias,
-	}
-}
-
 function addAllLikes(total, num) {
 	return total + num
 }
@@ -73,7 +50,7 @@ async function displayData(photographerInfos, medias) {
 			currentMediaIndex
 		)
 		gallerySection.getMediaGallery()
-		
+
 		// const likeCount = new Likes(eachLike, totalLikes)
 		// likeCount.add()
 	})
@@ -89,7 +66,7 @@ async function displayData(photographerInfos, medias) {
 
 async function init() {
 	// Récupère les datas du photographe
-	const { photographerInfos, medias } = await getPhotographerInfos()
+	const { photographerInfos, medias } = await getMedias()
 	displayData(photographerInfos, medias)
 }
 
