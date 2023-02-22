@@ -28,6 +28,7 @@ class Media {
 			)
 			media.setAttribute('width', 350)
 			media.setAttribute('height', 300)
+			media.setAttribute('tabindex', '0')
 			media.setAttribute(
 				'onclick',
 				`displayLightbox(${this.currentMediaIndex})`
@@ -39,6 +40,7 @@ class Media {
 			media.setAttribute('aria-label', this.title)
 			media.setAttribute('width', 350)
 			media.setAttribute('height', 300)
+			media.setAttribute('tabindex', '0')
 			media.setAttribute(
 				'src',
 				`../../assets/photographers/${this.photographerId}/${this.image}`
@@ -73,6 +75,7 @@ class Media {
 		img.setAttribute('aria-label', 'ajouter ou retirer un like')
 		img.setAttribute('id', this.id)
 		img.classList.add('red-like')
+		img.setAttribute('tabindex', '0')
 		img.setAttribute('src', '../../assets/icons/red-heart.svg')
 
 		photo_likes.appendChild(p2)
