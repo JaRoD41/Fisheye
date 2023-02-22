@@ -73,6 +73,9 @@ async function displayData(photographerInfos, medias) {
 			currentMediaIndex
 		)
 		gallerySection.getMediaGallery()
+		
+		// const likeCount = new Likes(eachLike, totalLikes)
+		// likeCount.add()
 	})
 
 	const priceTab = new PriceLikesTabFactory(photographerPrice)
@@ -80,7 +83,7 @@ async function displayData(photographerInfos, medias) {
 	const photographerSection = photographerFactory(photographerInfos)
 	photographerSection.getPhotographerHeader()
 
-	const likeCount = new Likes(eachMedia.id, eachLike, totalLikes)
+	const likeCount = new Likes(eachLike, totalLikes)
 	likeCount.add()
 }
 

@@ -1,5 +1,4 @@
 function sort(medias, option) {
-  console.log('option', option);
 	switch (option) {
 		case 'popularite':
 			return medias.sort((a, b) => b.likes - a.likes)
