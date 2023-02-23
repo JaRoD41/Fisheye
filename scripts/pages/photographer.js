@@ -5,19 +5,7 @@ let sortedMedias = []
 let eachMedia = []
 let eachLike
 let likeCount
-let totalLikes = []
-
-// function addAllLikes(total, num) {
-// 	return total + num
-// }
-
-// function getTotalLikes(medias) {
-// 	let likesArray = []
-// 	medias.forEach((eachMedia) => {
-// 		likesArray.push(eachMedia.likes)
-// 	})
-// 	return likesArray.reduce(addAllLikes)
-// }
+// let totalLikes = []
 
 async function displayData(photographerInfos, medias) {
 	let totalLikes = []
@@ -42,6 +30,7 @@ async function displayData(photographerInfos, medias) {
 			)
 			gallerySection.getMediaGallery()
 		})
+		// addLikeListeners()
 	})
 	const defaultOption = 'popularite'
 	sortedMedias = sort(medias, defaultOption)
@@ -55,10 +44,9 @@ async function displayData(photographerInfos, medias) {
 			currentMediaIndex
 		)
 		gallerySection.getMediaGallery()
-
-		// likeCount = new Likes(eachLike, totalLikes)
-		// likeCount.add(totalLikes)
 	})
+
+	// addLikeListeners()
 
 	const priceTab = new PriceLikesTabFactory(photographerPrice)
 	priceTab.createPriceRateTab()
@@ -66,7 +54,6 @@ async function displayData(photographerInfos, medias) {
 	photographerSection.getPhotographerHeader()
 
 	likeCount = new Likes(eachLike, totalLikes)
-
 	likeCount.add(totalLikes)
 }
 
