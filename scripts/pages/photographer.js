@@ -2,23 +2,22 @@ let url = new URL(location.href) // declare an variable to pick the actual URL
 let photographerPageId = url.searchParams.get('id') // get the id of the photographer from the URL
 let medias = []
 let sortedMedias = []
-let likesArray = []
 let eachMedia = []
 let eachLike
 let likeCount
 let totalLikes = []
 
-function addAllLikes(total, num) {
-	return total + num
-}
+// function addAllLikes(total, num) {
+// 	return total + num
+// }
 
-function getTotalLikes(medias) {
-	let likesArray = []
-	medias.forEach((eachMedia) => {
-		likesArray.push(eachMedia.likes)
-	})
-	return likesArray.reduce(addAllLikes)
-}
+// function getTotalLikes(medias) {
+// 	let likesArray = []
+// 	medias.forEach((eachMedia) => {
+// 		likesArray.push(eachMedia.likes)
+// 	})
+// 	return likesArray.reduce(addAllLikes)
+// }
 
 async function displayData(photographerInfos, medias) {
 	let totalLikes = []

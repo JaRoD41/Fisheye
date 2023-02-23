@@ -12,25 +12,35 @@ class Likes {
 
 		this.likesSpan.textContent = this.totalLikes
 		heartsList.forEach((likeIcon) => {
-			if (likeIcon.src == this.url) {
-				likeIcon.addEventListener('click', (e) => {
-					e.preventDefault()
-					const likeClick = e.currentTarget
+			likeIcon.addEventListener('click', (e) => {
+				e.preventDefault()
+				const likeClick = e.currentTarget
 
-					const amountOfLikes =
-						likeClick.closest('.photo_likes').firstElementChild
-					// console.log('redLikeIcon', likeIcon)
-					if (likeIcon.classList.contains('isLiked')) {
-						amountOfLikes.innerHTML = Number(amountOfLikes.innerHTML) - 1
-						this.likesSpan.textContent = Number(this.likesSpan.textContent) - 1
-						likeIcon.classList.remove('isLiked')
-					} else {
-						amountOfLikes.innerHTML = Number(amountOfLikes.innerHTML) + 1
-						this.likesSpan.textContent = Number(this.likesSpan.textContent) + 1
-						likeIcon.classList.add('isLiked')
-					}
-				})
-			}
+				const amountOfLikes =
+					likeClick.closest('.photo_likes').firstElementChild
+				// console.log('redLikeIcon', likeIcon)
+				if (likeIcon.classList.contains('isLiked')) {
+					amountOfLikes.innerHTML = Number(amountOfLikes.innerHTML) - 1
+					this.likesSpan.textContent = Number(this.likesSpan.textContent) - 1
+					likeIcon.classList.remove('isLiked')
+				} else {
+					amountOfLikes.innerHTML = Number(amountOfLikes.innerHTML) + 1
+					this.likesSpan.textContent = Number(this.likesSpan.textContent) + 1
+					likeIcon.classList.add('isLiked')
+				}
+			})
 		})
 	}
+}
+
+function addAllLikes(total, num) {
+	return total + num
+}
+
+function getTotalLikes(medias) {
+	let likesArray = []
+	medias.forEach((eachMedia) => {
+		likesArray.push(eachMedia.likes)
+	})
+	return likesArray.reduce(addAllLikes)
 }
