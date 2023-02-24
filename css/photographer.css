@@ -84,8 +84,9 @@
 
 .gallery-filter {
     display: flex;
+    width: 270px;
     justify-content: flex-start;
-    align-items: center;
+    /* align-items: center; */
     margin-top: 20px;
 }
 
@@ -95,7 +96,7 @@
     font-size: 18px;
     line-height: 23px;
     display: flex;
-    width: 170px;
+    width: 108px;
 }
 
 .dropdown-filter {
@@ -103,7 +104,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 170px;
+    width: 100%;
+    margin-left: 25px;
     /* margin-top: 20px; */
 }
 
@@ -120,29 +122,38 @@
     position: relative;
     width: 170px;
     height: 50px;
-    margin-left: 25px;
+    /* margin-left: 25px; */
     cursor: pointer;
 }
 
 .menu-filtre {
-    display: none;
-    position: absolute;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* display: none; */
+    /* position: absolute;
     top: 100%;
-    left: 0;
-    width: 100%;
+    left: 0; */
+    width: 170px;
     background: #901C1C;
-    border-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    /* margin-left: 25px; */
     z-index: 2;
 }
 
 .rateSort, .dateSort, .nameSort {
+    display: flex;
+    flex-direction: column;
     background: #901C1C;
     color: white;
     font-weight: 700;
     font-size: 18px;
     line-height: 23px;
     padding: 15px;
-    width: 170px;
+    /* width: 170px; */
 }
 
 .photograph-gallery {
