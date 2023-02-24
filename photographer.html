@@ -20,11 +20,20 @@
 		<section class="photograph-header" aria-labelledby="photographs-header"></section>
 		<div class="gallery-filter" aria-labelledby="filter-label">
 			<span id="filter-label">Trier par</span>
-			<select name="filtres" id="filter" aria-label="Filtres de tri" tabindex="0">
+			<div class="dropdown-filter">
+				<button id="filter-button" name="filtres" type="button" role="button" aria-haspopup="listbox" aria-expanded="false"></button>
+				<ul class="menu-filtre" role="listbox" aria-label="Filtres de tri">
+					<li role="option" tabindex="0" class="rateSort" value="popularite">Popularité</li>
+					<li role="option" tabindex="0" class="dateSort" value="date">Date</li>
+					<li role="option" tabindex="0" class="nameSort" value="titre">Titre</li>
+				</ul>
+			</div>
+			
+			<!-- <select name="filtres" id="filter" aria-label="Filtres de tri" tabindex="0">
 				<option class="rateSort" value="popularite">Popularité</option>
 				<option class="dateSort" value="date">Date</option>
 				<option class="nameSort" value="titre">Titre</option>
-			</select>
+			</select> -->
 		</div>
 		<section class="photograph-gallery"></section>
 		<aside class="ratePriceLabel"></aside>

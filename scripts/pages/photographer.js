@@ -11,7 +11,7 @@ async function displayData(photographerInfos, medias) {
 	const photographerPrice = photographerInfos.price
 	const gallery = document.querySelector('.photograph-gallery')
 
-	const selectElement = document.getElementById('filter')
+	const selectElement = document.getElementById('filter-button')
 	selectElement.addEventListener('change', () => {
 		gallery.innerHTML = ''
 		const option = selectElement.value
