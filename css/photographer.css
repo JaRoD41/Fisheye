@@ -193,6 +193,7 @@
     width: 350px;
     border-radius: 5px;
     object-fit: cover;
+    object-position: 50% 20%;
     z-index: 2;
     cursor: pointer;
 }
@@ -425,4 +426,5 @@ form .messageBox {
     height: 900px;
     border-radius: 5px;
     object-fit: cover;
+    object-position: 50% 50%;
 }
