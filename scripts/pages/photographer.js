@@ -13,9 +13,10 @@ async function displayData(photographerInfos, medias) {
 	const dropdown = document.querySelector('.dropdown-filter')
 	const selectElement = document.getElementById('filter-button')
 	const filterMenu = document.getElementById('filter-menu')
+	
 	//event listener pour le filtre
 	selectElement.addEventListener('click', () => {
-		if (selectElement.classList.contains('active')) {
+		if (dropdown.classList.contains('active')) {
 			selectElement.classList.remove('selected')
 			dropdown.classList.remove('active')
 			dropdown.setAttribute('style', '')
