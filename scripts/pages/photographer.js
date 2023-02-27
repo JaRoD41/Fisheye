@@ -17,7 +17,7 @@ async function displayData(photographerInfos, medias) {
 	//event listener pour le filtre
 	selectElement.addEventListener('click', () => {
 		if (dropdown.classList.contains('active')) {
-			selectElement.classList.remove('selected')
+			// selectElement.classList.remove('selected')
 			dropdown.classList.remove('active')
 			dropdown.setAttribute('style', '')
 			selectElement.setAttribute('aria-expanded', false)
