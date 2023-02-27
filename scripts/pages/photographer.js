@@ -12,7 +12,7 @@ async function displayData(photographerInfos, medias) {
 	const gallery = document.querySelector('.photograph-gallery')
 
 	const selectElement = document.getElementById('filter-button')
-	selectElement.addEventListener('change', () => {
+	selectElement.addEventListener('click', () => {
 		gallery.innerHTML = ''
 		const option = selectElement.value
 
