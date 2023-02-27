@@ -12,10 +12,12 @@ async function displayData(photographerInfos, medias) {
 	const gallery = document.querySelector('.photograph-gallery')
 
 	const selectElement = document.getElementById('filter-button')
-	selectElement.addEventListener('click', () => {
+	const filterMenu = document.getElementById('filter-menu')
+	filterMenu.addEventListener('click', (event) => {
 		gallery.innerHTML = ''
-		const option = selectElement.value
-
+		const selectedListItem = event.target.closest('li')
+		const option = selectedListItem.getAttribute('data-filter-value')
+		console.log(option)
 		sortedMedias = sort(medias, option)
 
 		sortedMedias.forEach((eachMedia, currentMediaIndex) => {
