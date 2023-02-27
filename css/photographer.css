@@ -84,7 +84,7 @@
 
 .gallery-filter {
     display: flex;
-    width: 270px;
+    width: 310px;
     justify-content: flex-start;
     /* align-items: center; */
     margin-top: 20px;
@@ -96,7 +96,8 @@
     font-size: 18px;
     line-height: 23px;
     display: flex;
-    width: 108px;
+    width: 140px;
+    white-space: nowrap;
 }
 
 .dropdown-filter {
