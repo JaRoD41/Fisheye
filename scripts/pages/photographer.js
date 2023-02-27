@@ -10,29 +10,46 @@ async function displayData(photographerInfos, medias) {
 	let totalLikes = []
 	const photographerPrice = photographerInfos.price
 	const gallery = document.querySelector('.photograph-gallery')
-
+	const dropdown = document.querySelector('.dropdown-filter')
 	const selectElement = document.getElementById('filter-button')
 	const filterMenu = document.getElementById('filter-menu')
-	filterMenu.addEventListener('click', (event) => {
-		gallery.innerHTML = ''
-		const selectedListItem = event.target.closest('li')
-		const option = selectedListItem.getAttribute('data-filter-value')
-		console.log(option)
-		sortedMedias = sort(medias, option)
+	//event listener pour le filtre
+	selectElement.addEventListener('click', () => {
+		if (selectElement.classList.contains('active')) {
+			selectElement.classList.remove('selected')
+			dropdown.classList.remove('active')
+			dropdown.setAttribute('style', '')
+			selectElement.setAttribute('aria-expanded', false)
+		} else {
+			selectElement.classList.add('selected')
+			selectElement.setAttribute('aria-expanded', true)
+			dropdown.classList.toggle('active')
+			dropdown.setAttribute('style', 'height: 150px;')
+		}
 
-		sortedMedias.forEach((eachMedia, currentMediaIndex) => {
-			eachMedia = eachMedia
-			const totalLikes = getTotalLikes(medias)
-			const gallerySection = new Media(
-				eachMedia,
-				photographerPrice,
-				totalLikes,
-				currentMediaIndex
-			)
-			gallerySection.getMediaGallery()
+		filterMenu.addEventListener('click', (event) => {
+			gallery.innerHTML = ''
+			const selectedListItem = event.target.closest('li')
+
+			const option = selectedListItem.getAttribute('data-filter-value')
+			console.log(option)
+			sortedMedias = sort(medias, option)
+
+			sortedMedias.forEach((eachMedia, currentMediaIndex) => {
+				eachMedia = eachMedia
+				const totalLikes = getTotalLikes(medias)
+				const gallerySection = new Media(
+					eachMedia,
+					photographerPrice,
+					totalLikes,
+					currentMediaIndex
+				)
+				gallerySection.getMediaGallery()
+			})
+			addLikeListeners()
 		})
-		addLikeListeners()
 	})
+	//fin de l'event listener
 	const defaultOption = 'popularite'
 	sortedMedias = sort(medias, defaultOption)
 	sortedMedias.forEach((eachMedia, currentMediaIndex) => {
