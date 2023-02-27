@@ -183,13 +183,21 @@
 
 .sort-selector::after {
     position: absolute;
-    left: 85px;
-    top: 50px;
+    left: 50%;
+    top: 100px;
     content: "";
     width: 150px;
     height: 1px;
     background-color: #fff;
     transform: translateX(-50%);
+}
+
+.sort-1 {
+    border: 0px;
+}
+
+.sort-1::after {
+    content: none;
 }
 
 .photograph-gallery {
