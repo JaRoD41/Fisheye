@@ -18,23 +18,32 @@
 
 	<main id="gallery-container" role="main">
 		<section class="photograph-header" aria-labelledby="photographs-header"></section>
-		<div class="gallery-filter" aria-labelledby="filter-label">
-			<span id="filter-label">Trier par</span>
-			<div class="dropdown-filter">
-				<button id="filter-button" name="filtres" type="button" role="button" aria-haspopup="listbox" aria-expanded="false"></button>
-				<ul class="menu-filtre" role="listbox" aria-label="Filtres de tri">
-					<li role="option" tabindex="0" class="rateSort" value="popularite">Popularité</li>
-					<li role="option" tabindex="0" class="dateSort" value="date">Date</li>
-					<li role="option" tabindex="0" class="nameSort" value="titre">Titre</li>
-				</ul>
+		<section id="gallery-filter" class="gallery-filter" aria-labelledby="filter-label">
+			<div class="filter-container">
+				<h3 id="filter-label" tabindex="0">Trier par</h3>
+				<div class="dropdown-filter" aria-haspopup="listbox">
+					<button id="filter-button" name="filtres" type="button" role="button" aria-expanded="false"
+						aria-controls="filter-menu"></button>
+					<ul id="filter-menu" class="menu-filtre" role="listbox" aria-label="Filtres de tri">
+						<li id="filter-option1" class="rateSort selected" role="option" tabindex="0"
+							aria-selected="true" aria-labelledby="filter-label filter-option1"
+							data-filter-value="popularite">Popularité</li>
+						<li id="filter-option2" class="dateSort" role="option" tabindex="0" aria-selected="false"
+							aria-labelledby="filter-label filter-option2" data-filter-value="date">Date</li>
+						<li id="filter-option3" class="nameSort" role="option" tabindex="0" aria-selected="false"
+							aria-labelledby="filter-label filter-option3" data-filter-value="titre">Titre</li>
+					</ul>
+				</div>
 			</div>
-			
-			<!-- <select name="filtres" id="filter" aria-label="Filtres de tri" tabindex="0">
+		</section>
+
+
+		<!-- <select name="filtres" id="filter" aria-label="Filtres de tri" tabindex="0">
 				<option class="rateSort" value="popularite">Popularité</option>
 				<option class="dateSort" value="date">Date</option>
 				<option class="nameSort" value="titre">Titre</option>
 			</select> -->
-		</div>
+
 		<section class="photograph-gallery"></section>
 		<aside class="ratePriceLabel"></aside>
 	</main>
@@ -87,11 +96,11 @@
 
 	<script src="./scripts/API/Api.js"></script>
 	<script src="./scripts/utils/sort.js"></script>
-	
+
 	<script src="./scripts/utils/lightbox.js"></script>
 	<script src="./scripts/utils/likes.js"></script>
 	<script src="./scripts/utils/contactForm.js"></script>
-	
+
 	<script src="./scripts/factories/Media.js"></script>
 	<script src="./scripts/factories/PriceLikesTab.js"></script>
 	<script src="./scripts/factories/photographer.js"></script>

@@ -46,6 +46,7 @@
     object-fit: cover;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
     margin-left: 270px;
+    overflow-clip-margin: unset;
 }
 
 .infos {
@@ -82,13 +83,12 @@
     margin-top: 19px;
 }
 
-.gallery-filter {
+/* .gallery-filter {
     display: flex;
     width: 310px;
     justify-content: flex-start;
-    /* align-items: center; */
     margin-top: 20px;
-}
+} */
 
 #filter-label {
     font-style: normal;
@@ -98,6 +98,16 @@
     display: flex;
     width: 140px;
     white-space: nowrap;
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 60px;
 }
 
 .dropdown-filter {
@@ -110,7 +120,7 @@
     /* margin-top: 20px; */
 }
 
-#filter-button{
+#filter-button {
     background: #901C1C;
     display: flex;
     color: white;
@@ -134,6 +144,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    list-style-type: none;
     /* display: none; */
     /* position: absolute;
     top: 100%;
@@ -146,7 +157,9 @@
     z-index: 2;
 }
 
-.rateSort, .dateSort, .nameSort {
+.rateSort,
+.dateSort,
+.nameSort {
     display: flex;
     flex-direction: column;
     background: #901C1C;
@@ -192,6 +205,7 @@
     display: flex;
     height: 300px;
     width: 350px;
+    overflow-clip-margin: unset;
     border-radius: 5px;
     object-fit: cover;
     object-position: 50% 20%;
