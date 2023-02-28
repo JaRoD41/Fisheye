@@ -154,7 +154,7 @@
     z-index: 2;
 }
 
-#filter-button span {
+#filter-button .arrowSort {
     position: absolute;
     right: 0;
     top: 5px;
@@ -164,7 +164,7 @@
     transition: transform .3s ease-in-out;
 }
 
-#filter-button svg .selected {
+#filter-button .arrowSort.active {
     transform: rotate(180deg);
 }
 
@@ -220,13 +220,13 @@
     transform: translateX(-50%);
 }
 
+.sort-1::after {
+    content: none;
+}
+
 .sort-1 {
     border: 0px;
     top: 0;
-}
-
-.sort-1::after {
-    content: none;
 }
 
 .sort-2 {
