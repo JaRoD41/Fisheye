@@ -15,13 +15,13 @@ async function displayData(photographerInfos, medias) {
 
 	//event listener pour le filtre
 	selectElement.addEventListener('click', () => {
-		if (dropdown.classList.contains('active')) {
+		if (dropdown.classList.contains('active') && dropdown.getAttribute('style') === 'height: 150px;') {
 			// selectElement.classList.remove('selected')
 			dropdown.classList.remove('active')
 			dropdown.setAttribute('style', '')
 			selectElement.setAttribute('aria-expanded', false)
 		} else {
-			selectElement.classList.add('selected')
+			// selectElement.classList.add('selected')
 			selectElement.setAttribute('aria-expanded', true)
 			dropdown.classList.toggle('active')
 			dropdown.setAttribute('style', 'height: 150px;')
@@ -30,15 +30,16 @@ async function displayData(photographerInfos, medias) {
 		filterMenu.addEventListener('click', (event) => {
 			gallery.innerHTML = ''
 			const selectedListItem = event.target.closest('li')
-
+			dropdown.setAttribute('style', '')
 			const option = selectedListItem.getAttribute('data-filter-value')
 			const selectorsArray = Array.from(selectorsList)
 			const choice = selectorsArray.find(selector => selector.getAttribute('data-filter-value') === option)
-			if (selectedListItem.classList.contains('selected')) {
+			if (selectedListItem.classList.contains('selected') && dropdown.classList.contains('active')) {
 				selectedListItem.classList.remove('selected')
 			} else {
 				selectorsArray.forEach(selector => selector.classList.remove('selected'))
 				selectedListItem.classList.add('selected')
+				dropdown.classList.remove('active')
 			}
 			console.log("option choisie :", option)
 			console.log("selectors :", selectorsList);
