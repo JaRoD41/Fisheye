@@ -37,9 +37,11 @@ async function displayData(photographerInfos, medias) {
 
 		//event listener pour clic sur un des choix de tri
 		filterMenu.addEventListener('click', (event) => {
+			event.preventDefault()
+			event.stopPropagation()
 			gallery.innerHTML = ''
 			dropdown.setAttribute('style', '')
-
+			arrow.classList.remove('active')
 			//récupération de la valeur de l'option choisie
 			const selectedListItem = event.target.closest('li')
 			const option = selectedListItem.getAttribute('data-filter-value')
