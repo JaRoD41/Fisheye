@@ -11,6 +11,7 @@ async function displayData(photographerInfos, medias) {
 	const dropdown = document.querySelector('.dropdown-filter')
 	const selectElement = document.getElementById('filter-button')
 	const filterMenu = document.getElementById('filter-menu')
+	const selectorsList = document.querySelectorAll('.dropdown-filter li')
 
 	//event listener pour le filtre
 	selectElement.addEventListener('click', () => {
@@ -31,7 +32,18 @@ async function displayData(photographerInfos, medias) {
 			const selectedListItem = event.target.closest('li')
 
 			const option = selectedListItem.getAttribute('data-filter-value')
-			console.log(option)
+			const selectorsArray = Array.from(selectorsList)
+			const choice = selectorsArray.find(selector => selector.getAttribute('data-filter-value') === option)
+			if (selectedListItem.classList.contains('selected')) {
+				selectedListItem.classList.remove('selected')
+			} else {
+				selectorsArray.forEach(selector => selector.classList.remove('selected'))
+				selectedListItem.classList.add('selected')
+			}
+			console.log("option choisie :", option)
+			console.log("selectors :", selectorsList);
+			console.log("choice :", choice);
+
 			sortedMedias = sort(medias, option)
 
 			sortedMedias.forEach((eachMedia, currentMediaIndex) => {
