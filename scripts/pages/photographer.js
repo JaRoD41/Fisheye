@@ -3,8 +3,6 @@ let photographerPageId = url.searchParams.get('id') // get the id of the photogr
 let medias = []
 let sortedMedias = []
 let eachMedia = []
-let eachLike
-let likeCount
 
 async function displayData(photographerInfos, medias) {
 	let totalLikes = []
@@ -13,7 +11,7 @@ async function displayData(photographerInfos, medias) {
 	const dropdown = document.querySelector('.dropdown-filter')
 	const selectElement = document.getElementById('filter-button')
 	const filterMenu = document.getElementById('filter-menu')
-	
+
 	//event listener pour le filtre
 	selectElement.addEventListener('click', () => {
 		if (dropdown.classList.contains('active')) {
