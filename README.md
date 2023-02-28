@@ -1,8 +1,6 @@
 # Projet n°6 - Développeur Applications Javascript React 
 
-<p align="center">
 ![logo-du-projet](https://user.oc-static.com/upload/2020/08/18/15977566540758_15975854296086_image1%20%281%29.png)
-</p>
 
 
 # Fisheye
