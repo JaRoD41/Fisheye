@@ -1,9 +1,10 @@
-let url = new URL(location.href) // declare an variable to pick the actual URL
-let photographerPageId = url.searchParams.get('id') // get the id of the photographer from the URL
+let url = new URL(location.href) // création d'un nouvel objet URL à partir de l'URL de la page
+let photographerPageId = url.searchParams.get('id') // récupération de l'id du photographe dans l'URL
 let medias = []
 let sortedMedias = []
 let eachMedia = []
 
+//récupération des données du photographe pour affichage
 async function displayData(photographerInfos, medias) {
 	let totalLikes = []
 	const photographerPrice = photographerInfos.price
@@ -13,25 +14,28 @@ async function displayData(photographerInfos, medias) {
 	const filterMenu = document.getElementById('filter-menu')
 	const selectorsList = document.querySelectorAll('.dropdown-filter li')
 
-	//event listener pour le filtre
+	//event listener pour clic sur le bouton de tri
 	selectElement.addEventListener('click', () => {
 		if (dropdown.classList.contains('active') && dropdown.getAttribute('style') === 'height: 150px;') {
-			// selectElement.classList.remove('selected')
 			dropdown.classList.remove('active')
 			dropdown.setAttribute('style', '')
 			selectElement.setAttribute('aria-expanded', false)
 		} else {
-			// selectElement.classList.add('selected')
 			selectElement.setAttribute('aria-expanded', true)
 			dropdown.classList.toggle('active')
 			dropdown.setAttribute('style', 'height: 150px;')
 		}
 
+		//event listener pour clic sur un des choix de tri
 		filterMenu.addEventListener('click', (event) => {
 			gallery.innerHTML = ''
-			const selectedListItem = event.target.closest('li')
 			dropdown.setAttribute('style', '')
+
+			//récupération de la valeur de l'option choisie
+			const selectedListItem = event.target.closest('li')
 			const option = selectedListItem.getAttribute('data-filter-value')
+
+			//ajout de la classe selected sur l'option choisie
 			const selectorsArray = Array.from(selectorsList)
 			const choice = selectorsArray.find(selector => selector.getAttribute('data-filter-value') === option)
 			if (selectedListItem.classList.contains('selected') && dropdown.classList.contains('active')) {
@@ -44,9 +48,10 @@ async function displayData(photographerInfos, medias) {
 			console.log("option choisie :", option)
 			console.log("selectors :", selectorsList);
 			console.log("choice :", choice);
-
+			//tri des médias
 			sortedMedias = sort(medias, option)
 
+			//affichage des médias triés
 			sortedMedias.forEach((eachMedia, currentMediaIndex) => {
 				eachMedia = eachMedia
 				const totalLikes = getTotalLikes(medias)
@@ -62,6 +67,8 @@ async function displayData(photographerInfos, medias) {
 		})
 	})
 	//fin de l'event listener
+
+	//tri par défaut -> popularité
 	const defaultOption = 'popularite'
 	sortedMedias = sort(medias, defaultOption)
 	sortedMedias.forEach((eachMedia, currentMediaIndex) => {
@@ -76,8 +83,11 @@ async function displayData(photographerInfos, medias) {
 		gallerySection.getMediaGallery()
 	})
 
+	//affichage de l'encart avec les likes et le tarif du photographe
 	const priceTab = new PriceLikesTabFactory(photographerPrice)
 	priceTab.createPriceRateTab()
+
+	//affichage de l'encart avec les infos du photographe
 	const photographerSection = photographerFactory(photographerInfos)
 	photographerSection.getPhotographerHeader()
 	addLikeListeners()
