@@ -47,8 +47,8 @@ async function displayData(photographerInfos, medias) {
 			const selectedListItem = event.target.closest('li')
 			const option = selectedListItem.getAttribute('data-filter-value')
 			const rank = selectedListItem.getAttribute('data-rank')
-			// selectElement.textContent = ""
-			// selectElement.textContent = option
+			option1.textContent = ""
+			option1.textContent = option
 			//ajout de la classe selected sur l'option choisie
 			const selectorsArray = Array.from(selectorsList)
 			const choice = selectorsArray.find(
