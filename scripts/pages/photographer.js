@@ -15,15 +15,10 @@ async function displayData(photographerInfos, medias) {
 
 	const filterMenu = document.getElementById('filter-menu')
 	const selectorsList = document.querySelectorAll('.dropdown-filter li')
-	const option1 = document
-		.getElementById('filter-option1')
-
-		//essai d'event listener clic et touche clavier pour le bouton de tri
-		// [('click', 'ontouchstart')].forEach((evt) =>
-		// 	element.addEventListener(evt, dosomething, false)
-		// )
+	const option1 = document.getElementById('filter-option1')
 
 	//event listener pour clic sur le bouton de tri
+
 	selectElement.addEventListener('click', () => {
 		if (
 			dropdown.classList.contains('active') &&
@@ -126,6 +121,17 @@ async function displayData(photographerInfos, medias) {
 	photographerSection.getPhotographerHeader()
 	addLikeListeners()
 }
+
+// function eventHandler(event) {
+// 	if (event.type === 'click') {
+// 		sortToggle()
+// 		sortChoice(event)
+// 	} else if (event.type === 'keydown' && event.code === 'Space') {
+// 		console.log('espace')
+// 	} else if (event.type === 'keydown' && event.code === 'Enter') {
+// 		console.log('entrée')
+// 	}
+// }
 
 async function init() {
 	// Récupère les datas du photographe
