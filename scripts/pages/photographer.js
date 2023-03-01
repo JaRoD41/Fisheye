@@ -16,6 +16,30 @@ async function displayData(photographerInfos, medias) {
 	const filterMenu = document.getElementById('filter-menu')
 	const selectorsList = document.querySelectorAll('.dropdown-filter li')
 	const option1 = document.getElementById('filter-option1')
+	let choiceIndex = 0
+
+	// TEST D'UNE FONCTION DE GESTION DE L'OPTION DE TRI CHOISIE
+	function handleSortSelection(event) {
+		// Remove the 'sort-1', 'sort-2', and 'sort-3' classes from all options
+		selectorsList.forEach((selector) => {
+			selector.classList.remove('sort-1', 'sort-2', 'sort-3')
+		})
+
+		// Add the appropriate class to the selected option
+		const selectedOption = event.target
+		if (selectedOption.classList.contains('sort-selector')) {
+			selectedOption.classList.add('sort-1')
+		}
+
+		// Add the 'sort-2' and 'sort-3' classes to the other options
+		selectorsList.forEach((selector) => {
+			if (selector !== selectedOption) {
+				const classToAdd = selector === selectorsList[0] ? 'sort-2' : 'sort-3'
+				selector.classList.add(classToAdd)
+			}
+		})
+	}
+	// FIN DU TEST
 
 	//event listener pour clic sur le bouton de tri
 
@@ -37,20 +61,29 @@ async function displayData(photographerInfos, medias) {
 		}
 
 		//event listener pour clic sur un des choix de tri
+		
 		filterMenu.addEventListener('click', (event) => {
 			event.preventDefault()
 			event.stopPropagation()
 			gallery.innerHTML = ''
 			dropdown.setAttribute('style', '')
 			arrow.classList.remove('active')
+
 			//récupération de la valeur de l'option choisie
+			const selectorsArray = Array.from(selectorsList)
 			const selectedListItem = event.target.closest('li')
 			const option = selectedListItem.getAttribute('data-filter-value')
-			const rank = selectedListItem.getAttribute('data-rank')
-			option1.textContent = ""
-			option1.textContent = option
+			// const rank = selectedListItem.getAttribute('data-rank')
+
+			//modification de l'option affichée dans le bouton de tri
+			choiceIndex = selectorsArray.indexOf(selectedListItem)
+			let rank = choiceIndex + 1
+			// option1.classList.remove('sort-1')
+			// option1.classList.add(`sort-${rank}`)
+			// selectedListItem.classList.remove(`sort-${rank}`)
+			// selectedListItem.classList.add('sort-1')
 			//ajout de la classe selected sur l'option choisie
-			const selectorsArray = Array.from(selectorsList)
+
 			const choice = selectorsArray.find(
 				(selector) => selector.getAttribute('data-filter-value') === option
 			)
@@ -74,7 +107,7 @@ async function displayData(photographerInfos, medias) {
 				dropdown.classList.remove('active')
 			}
 			console.log('option choisie :', option)
-			console.log('selectors :', selectorsList)
+			console.log('choice Index :', choiceIndex)
 			console.log('rank :', rank)
 
 			//tri des médias

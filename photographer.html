@@ -18,6 +18,7 @@
 
 	<main id="gallery-container" role="main">
 		<section class="photograph-header" aria-labelledby="photographs-header"></section>
+
 		<section id="gallery-filter" class="gallery-filter" aria-labelledby="filter-label">
 			<div class="filter-container">
 				<h3 id="filter-label" tabindex="0">Trier par</h3>
@@ -39,8 +40,8 @@
 							aria-selected="true" aria-labelledby="filter-label filter-option1"
 							data-filter-value="Popularité" data-rank="1">Popularité</li>
 						<li id="filter-option2" class="sort-selector sort-2" role="option" tabindex="-1"
-							aria-selected="false" aria-labelledby="filter-label filter-option2"
-							data-filter-value="Date" data-rank="2">Date</li>
+							aria-selected="false" aria-labelledby="filter-label filter-option2" data-filter-value="Date"
+							data-rank="2">Date</li>
 						<li id="filter-option3" class="sort-selector sort-3" role="option" tabindex="-1"
 							aria-selected="false" aria-labelledby="filter-label filter-option3"
 							data-filter-value="Titre" data-rank="3">Titre</li>
@@ -49,14 +50,8 @@
 			</div>
 		</section>
 
-
-		<!-- <select name="filtres" id="filter" aria-label="Filtres de tri" tabindex="0">
-				<option class="rateSort" value="popularite">Popularité</option>
-				<option class="dateSort" value="date">Date</option>
-				<option class="nameSort" value="titre">Titre</option>
-			</select> -->
-
 		<section class="photograph-gallery"></section>
+
 		<aside class="ratePriceLabel"></aside>
 	</main>
 
