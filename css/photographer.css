@@ -209,10 +209,11 @@
     opacity: 1;
 }
 
+/* lignes blanches de séparation dans le menu déroulant */
 .sort-selector::after {
     position: absolute;
     left: 50%;
-    top: 100px;
+    top: 0;
     content: "";
     width: 150px;
     height: 1px;

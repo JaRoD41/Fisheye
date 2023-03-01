@@ -15,7 +15,13 @@ async function displayData(photographerInfos, medias) {
 
 	const filterMenu = document.getElementById('filter-menu')
 	const selectorsList = document.querySelectorAll('.dropdown-filter li')
-	const option1 = document.getElementById('filter-option1')
+	const option1 = document
+		.getElementById('filter-option1')
+
+		//essai d'event listener clic et touche clavier pour le bouton de tri
+		// [('click', 'ontouchstart')].forEach((evt) =>
+		// 	element.addEventListener(evt, dosomething, false)
+		// )
 
 	//event listener pour clic sur le bouton de tri
 	selectElement.addEventListener('click', () => {
@@ -74,7 +80,7 @@ async function displayData(photographerInfos, medias) {
 			}
 			console.log('option choisie :', option)
 			console.log('selectors :', selectorsList)
-			console.log('rank :', rank);
+			console.log('rank :', rank)
 
 			//tri des médias
 			sortedMedias = sort(medias, option)
@@ -92,7 +98,6 @@ async function displayData(photographerInfos, medias) {
 				gallerySection.getMediaGallery()
 			})
 			addLikeListeners()
-			
 		})
 	})
 	//fin de l'event listener
