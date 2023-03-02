@@ -108,88 +108,113 @@
     height: 60px;
 }
 
+#sort-name {
+    display: flex;
+    color: white;
+    /* font-weight: 700; */
+    font-size: 18px;
+    line-height: 23px;
+}
+
 .dropdown-filter {
     display: flex;
     position: relative;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    background: #901C1C;
     list-style: none;
     border-radius: 5px;
     color: white;
     font-size: 18px;
     width: 170px;
-    height: 56px;
+    height: 150px;
+    /* z-index: 3; */
+}
+
+/* .dropdown-filter.active {
+    overflow: hidden;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.35);
+    opacity: 1;
+} */
+
+/* Permet d'afficher les differents choix dans le menu déroulant */
+/* .dropdown-filter.active .sort-selector {
+    opacity: 1;
+} */
+
+#filter-button {
+    background: #901C1C;
+    display: flex;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    /* font-weight: 700; */
+    font-size: 18px;
+    line-height: 23px;
+    padding: 15px;
+    position: absolute;
+    width: 170px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 4;
+}
+
+#filter-button.active {
+    opacity: 0;
+}
+
+.arrowSort {
+    display: flex;
+    position: absolute;
+    color: yellow;
+    left: 130px;
+    top: 20px;
+    /* width: 45px; */
+    line-height: 45px;
+    transform: rotate(0deg);
+    transition: transform .3s ease-in-out;
+    z-index: 2;
+}
+
+.arrowSort.active {
+    transform: rotate(180deg);
+}
+
+/* .selected {
+    opacity: 1;
+    top: 0;
+} */
+
+#filter-menu {
+    position: absolute;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* background: #901C1C; */
+    background: blue;
+    list-style: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    width: 170px;
+    height: 150px;
+    opacity: 0;
     z-index: 3;
 }
 
-.dropdown-filter.active {
+#filter-menu.active {
     overflow: hidden;
     box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.35);
     opacity: 1;
 }
 
-/* Permet d'afficher les differents choix dans le menu déroulant */
-.dropdown-filter.active .sort-selector {
-    opacity: 1;
-}
-
-.dropdown-filter button {
-    background: none;
-    display: flex;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 23px;
-    padding: 15px;
-    position: relative;
-    width: 170px;
-    height: 50px;
-    cursor: pointer;
-    z-index: 2;
-}
-
-#filter-button .arrowSort {
-    position: absolute;
-    right: 0;
-    top: 5px;
-    width: 45px;
-    line-height: 45px;
-    transform: rotate(0deg);
-    transition: transform .3s ease-in-out;
-}
-
-#filter-button .arrowSort.active {
-    transform: rotate(180deg);
-}
-
-.selected {
-    opacity: 1;
-    top: 0;
-}
-
-.menu-filtre {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    list-style-type: none;
-    /* display: none; */
-    width: 170px;
-    background: #901C1C;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
 .sort-selector {
     display: flex;
-    position: absolute;
+    /* position: absolute; */
     flex-direction: column;
-    background: #901C1C;
+    /* background: #901C1C; */
     color: white;
     font-weight: 700;
     font-size: 18px;
@@ -199,42 +224,40 @@
     border-radius: 5px;
     width: 100%;
     cursor: pointer;
-    opacity: 0;
     z-index: 1;
 }
 
-.sort-selector[aria-selected=true] {
+/* #filter-menu[aria-selected=true] {
     opacity: 1;
-}
+} */
 
 /* lignes blanches de séparation dans le menu déroulant */
 .sort-selector::after {
     position: absolute;
     left: 50%;
-    top: 0;
+    top: -1px;
     content: "";
     width: 150px;
     height: 1px;
-    background-color: #fff;
+    background-color: red;
     transform: translateX(-50%);
 }
 
-.sort-1::after {
+/* .sort-1::after {
     content: none;
-}
+} */
 
-.sort-1 {
-    border: 0px;
+/* #filter-option1 {
     top: 0;
 }
 
-.sort-2 {
+#filter-option2 {
     top: 50px;
 }
 
-.sort-3 {
+#filter-option3 {
     top: 100px;
-}
+} */
 
 .photograph-gallery {
     display: grid;
