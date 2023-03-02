@@ -17,29 +17,7 @@ async function displayData(photographerInfos, medias) {
 	const selectorsList = document.querySelectorAll('.dropdown-filter li')
 	const option1 = document.getElementById('filter-option1')
 	let choiceIndex = 0
-
-	// TEST D'UNE FONCTION DE GESTION DE L'OPTION DE TRI CHOISIE
-	function handleSortSelection(event) {
-		// Remove the 'sort-1', 'sort-2', and 'sort-3' classes from all options
-		selectorsList.forEach((selector) => {
-			selector.classList.remove('sort-1', 'sort-2', 'sort-3')
-		})
-
-		// Add the appropriate class to the selected option
-		const selectedOption = event.target
-		if (selectedOption.classList.contains('sort-selector')) {
-			selectedOption.classList.add('sort-1')
-		}
-
-		// Add the 'sort-2' and 'sort-3' classes to the other options
-		selectorsList.forEach((selector) => {
-			if (selector !== selectedOption) {
-				const classToAdd = selector === selectorsList[0] ? 'sort-2' : 'sort-3'
-				selector.classList.add(classToAdd)
-			}
-		})
-	}
-	// FIN DU TEST
+	const sortSelectors = document.querySelectorAll('.sort-selector')
 
 	//event listener pour clic sur le bouton de tri
 
@@ -52,16 +30,26 @@ async function displayData(photographerInfos, medias) {
 			dropdown.classList.remove('active')
 			arrow.classList.remove('active')
 			dropdown.setAttribute('style', '')
-			selectElement.setAttribute('aria-expanded', false)
+			selectElement.setAttribute('aria-expanded', 'false')
 		} else {
-			selectElement.setAttribute('aria-expanded', true)
+			selectElement.setAttribute('aria-expanded', 'true')
 			dropdown.classList.toggle('active')
 			arrow.classList.toggle('active')
 			dropdown.setAttribute('style', 'height: 150px;')
 		}
+		//test conditions supplementaires pour le focus
+
+		if (selectElement.getAttribute('aria-expanded') === 'false') {
+			selectElement.setAttribute('aria-expanded', 'true')
+			filterMenu.setAttribute('aria-hidden', 'false')
+			filterMenu.focus()
+		} else {
+			selectElement.setAttribute('aria-expanded', 'false')
+			filterMenu.setAttribute('aria-hidden', 'true')
+		}
 
 		//event listener pour clic sur un des choix de tri
-		
+
 		filterMenu.addEventListener('click', (event) => {
 			event.preventDefault()
 			event.stopPropagation()
@@ -73,11 +61,14 @@ async function displayData(photographerInfos, medias) {
 			const selectorsArray = Array.from(selectorsList)
 			const selectedListItem = event.target.closest('li')
 			const option = selectedListItem.getAttribute('data-filter-value')
-			// const rank = selectedListItem.getAttribute('data-rank')
-
-			//modification de l'option affichée dans le bouton de tri
+			const rank = selectedListItem.getAttribute('data-rank')
 			choiceIndex = selectorsArray.indexOf(selectedListItem)
-			let rank = choiceIndex + 1
+			//modification de l'option affichée dans le bouton de tri
+
+			// TEST D'UNE FONCTION DE GESTION DE L'OPTION DE TRI CHOISIE
+			
+			// FIN DU TEST
+
 			// option1.classList.remove('sort-1')
 			// option1.classList.add(`sort-${rank}`)
 			// selectedListItem.classList.remove(`sort-${rank}`)

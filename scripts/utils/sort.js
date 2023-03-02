@@ -1,10 +1,10 @@
 function sort(medias, option) {
 	switch (option) {
-		case 'popularite':
+		case 'Popularité':
 			return medias.sort((a, b) => b.likes - a.likes)
-		case 'date':
+		case 'Date':
 			return medias.sort((a, b) => new Date(a.date) - new Date(b.date))
-		case 'titre':
+		case 'Titre':
 			return medias.sort((a, b) => a.title.localeCompare(b.title))
 		default:
 			return medias
