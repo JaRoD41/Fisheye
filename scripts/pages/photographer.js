@@ -21,14 +21,11 @@ async function displayData(photographerInfos, medias) {
 	const arrow = document.querySelector('.arrowSort')
 
 	const filterMenu = document.getElementById('filter-menu')
-	const selectorsList = document.querySelectorAll('.dropdown-filter li')
-	const option1 = document.getElementById('filter-option1')
-	let choiceIndex = 0
+	const sortSelectors = document.querySelectorAll('.sort-selector')
 
 	//event listener pour clic sur le bouton de tri
 
 	selectElement.addEventListener('click', () => {
-		console.log('clic sur le bouton de tri');
 		if (
 			selectElement.classList.contains('active') &&
 			filterMenu.classList.contains('active') &&
@@ -57,77 +54,57 @@ async function displayData(photographerInfos, medias) {
 			filterMenu.setAttribute('aria-hidden', 'true')
 		}
 
-		// -------------- TEST ---------------
-		// sortSelectors.forEach((selector) => {
-		// 	selector.addEventListener('click', () => {
-		// 		console.log('selector :', selector);
-		// 	})
-		// })
-		// ----------------- FIN TEST -----------------
 		//event listener pour clic sur un des choix de tri
-		//--------------------------------------------
-		filterMenu.addEventListener('click', (event) => {
-			event.preventDefault()
-			event.stopPropagation()
-			gallery.innerHTML = ''
-			dropdown.setAttribute('style', '')
-			arrow.classList.remove('active')
+		sortSelectors.forEach((selector) => {
+			selector.addEventListener('click', () => {
+				gallery.innerHTML = ''
+				dropdown.setAttribute('style', '')
+				arrow.classList.remove('active')
+				const option = selector.getAttribute('data-filter-value')
 
-			//récupération de la valeur de l'option choisie
-			const selectorsArray = Array.from(selectorsList)
-			const selectedListItem = event.target.closest('li')
-			const option = selectedListItem.getAttribute('data-filter-value')
-			const rank = selectedListItem.getAttribute('data-rank')
-			choiceIndex = selectorsArray.indexOf(selectedListItem)
-			//modification de l'option affichée dans le bouton de tri
-
-			// option1.classList.remove('sort-1')
-			// option1.classList.add(`sort-${rank}`)
-			// selectedListItem.classList.remove(`sort-${rank}`)
-			// selectedListItem.classList.add('sort-1')
-			//ajout de la classe selected sur l'option choisie
-
-			// const choice = selectorsArray.find(
-			// 	(selector) => selector.getAttribute('data-filter-value') === option
-			// )
-			// const isAriaSelected = selectorsArray.find(
-			// 	(selector) => selector.getAttribute('aria-selected') === 'true'
-			// )
-			if (
-				selectedListItem.classList.contains('selected') &&
-				dropdown.classList.contains('active')
-			) {
-				selectedListItem.classList.remove('selected')
-				selectedListItem.setAttribute('aria-selected', false)
-			} else {
-				selectorsArray.forEach((selector) =>
+				// Set 'aria-selected' to 'true' for the clicked option and 'false' for the others
+				sortSelectors.forEach((s) => s.setAttribute('aria-selected', 'false'))
+				selector.setAttribute('aria-selected', 'true')
+				if (
+					selector.classList.contains('selected') &&
+					dropdown.classList.contains('active')
+				) {
 					selector.classList.remove('selected')
-				)
-				selectedListItem.classList.add('selected')
-				dropdown.classList.remove('active')
-			}
+					selector.setAttribute('aria-selected', false)
+				} else {
+					sortSelectors.forEach((sel) => sel.classList.remove('selected'))
+					selector.classList.add('selected')
+					dropdown.classList.remove('active')
+				}
+				filterMenu.classList.remove('active')
+				arrow.classList.remove('active')
+				filterMenu.setAttribute('style', '')
+				selectElement.classList.remove('active')
 
-			//tri des médias
-			sortedMedias = sort(medias, option)
+				// Set the button title to the selected option
+				buttonTitle.textContent = option
 
-			//affichage des médias triés
-			sortedMedias.forEach((eachMedia, currentMediaIndex) => {
-				eachMedia = eachMedia
-				const totalLikes = getTotalLikes(medias)
-				const gallerySection = new Media(
-					eachMedia,
-					photographerPrice,
-					totalLikes,
-					currentMediaIndex
-				)
-				gallerySection.getMediaGallery()
+				//tri des médias
+				sortedMedias = sort(medias, option)
+
+				//affichage des médias triés
+				sortedMedias.forEach((eachMedia, currentMediaIndex) => {
+					eachMedia = eachMedia
+					const totalLikes = getTotalLikes(medias)
+					const gallerySection = new Media(
+						eachMedia,
+						photographerPrice,
+						totalLikes,
+						currentMediaIndex
+					)
+					gallerySection.getMediaGallery()
+				})
+				addLikeListeners()
 			})
-			addLikeListeners()
+			//fin du deuxième event listener
 		})
-		//fin du deuxième event listener
+		//fin du premier event listener
 	})
-	//fin du premier event listener
-
 	sortedMedias = sort(medias, defaultOption)
 	sortedMedias.forEach((eachMedia, currentMediaIndex) => {
 		eachMedia = eachMedia
