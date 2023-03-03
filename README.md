@@ -13,9 +13,9 @@
 
 ## Technos
 
-- [![Made-with-HTML](https://img.shields.io/badge/Made%20with-HTML-red)]
-- [![Made-with-CSS](https://img.shields.io/badge/Made%20with-CSS-pink)]
-- [![Made-with-Javascript](https://img.shields.io/badge/Made%20with-Javascript-green)]
+- ![Made-with-HTML](https://img.shields.io/badge/Made%20with-HTML-red)
+- ![Made-with-CSS](https://img.shields.io/badge/Made%20with-CSS-pink)
+- ![Made-with-Javascript](https://img.shields.io/badge/Made%20with-Javascript-green)
 
 
 ## Livrables
