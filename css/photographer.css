@@ -150,7 +150,7 @@
     line-height: 45px;
     transform: rotate(0deg);
     transition: transform .3s ease-in-out;
-    z-index: 15;
+    z-index: 9;
 }
 
 .arrowSort.active {
