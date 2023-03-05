@@ -29,21 +29,6 @@ nextButton.addEventListener('click', () => showNextMedia(medias))
 // 		}
 // 	})
 
-async function getMediasInfos() {
-	await fetch('./data/photographers.json')
-		.then((res) => res.json())
-		.then((data) => {
-			mediasToFilter = data.media
-			medias = mediasToFilter.filter((media) => {
-				media.photographerId == photographerPageId
-			})
-		})
-
-	return {
-		medias: medias,
-	}
-}
-
 //fonction de filtrage des médias par id
 function showMedia(id) {
 	mediaId = medias.filter((m) => m.id == id)
