@@ -3,7 +3,7 @@ async function getMedias() {
 	let photographerInfos = []
 	let arrayOfPhotographers = []
 	let arrayOfMedias = []
-	await fetch('../../data/photographers.json')
+	await fetch('./data/photographers.json')
 		.then((res) => res.json())
 		.then((data) => {
 			arrayOfPhotographers = data.photographers // filtre pour récupérer les infos du photographe contenu dans l'id de l'url
@@ -25,7 +25,7 @@ async function getMedias() {
 // fonction de récupération des différents photographes
 async function getPhotographers() {
 	let photographers = []
-	await fetch('../../data/photographers.json')
+	await fetch('./data/photographers.json')
 		.then((res) => res.json())
 		.then((data) => {
 			photographers = data.photographers
