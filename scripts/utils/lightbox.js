@@ -27,6 +27,9 @@ document.addEventListener('keyup', function (e) {
 		if (e.code === 'ArrowRight') {
 			showNextMedia(medias)
 		}
+		if (e.code === 'Escape') {
+			closeLightbox()
+		}
 	})
 
 //fonction de filtrage des médias par id
