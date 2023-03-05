@@ -30,7 +30,7 @@ function formSubmit(event) {
 	const firstNameInput = document.querySelector('#first-name')
 	const lastNameInput = document.querySelector('#last-name')
 	const emailInput = document.querySelector('#email')
-	const messageInput = document.querySelector('.messageBox')
+	const messageInput = document.querySelector('#messageBox')
 
 	event.preventDefault()
 
