@@ -13,7 +13,7 @@ class Media {
 	}
 	getMediaGallery() {
 		const gallery = document.querySelector('.photograph-gallery')
-		
+
 		let media
 		let playLogo
 
@@ -22,10 +22,12 @@ class Media {
 			playLogo = document.createElement('img')
 			media.classList.add('single_media')
 			playLogo.classList.add('video_logo')
+			playLogo.setAttribute('alt', 'play logo')
 			media.setAttribute(
 				'src',
 				`./assets/photographers/${this.photographerId}/${this.video}`
 			)
+			media.setAttribute('alt', `short video of ${this.title}`)
 			media.setAttribute('width', 350)
 			media.setAttribute('height', 300)
 			media.setAttribute('tabindex', '0')
@@ -34,10 +36,14 @@ class Media {
 				`displayLightbox(${this.currentMediaIndex})`
 			)
 			playLogo.setAttribute('src', './assets/icons/play.png')
+			playLogo.setAttribute(
+				'onclick',
+				`displayLightbox(${this.currentMediaIndex})`
+			)
 		} else {
 			media = document.createElement('img')
 			media.classList.add('single_media')
-			media.setAttribute('aria-label', this.title)
+			media.setAttribute('alt', this.title)
 			media.setAttribute('width', 350)
 			media.setAttribute('height', 300)
 			media.setAttribute('tabindex', '0')
@@ -56,7 +62,7 @@ class Media {
 
 		const figure = document.createElement('figure')
 		figure.classList.add('media_figure')
-		figure.appendChild(media)
+		this.video ? figure.append(media, playLogo) : figure.appendChild(media)
 
 		const figcaption = document.createElement('figcaption')
 		figcaption.classList.add('photo_infos')

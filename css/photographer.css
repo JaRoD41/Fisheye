@@ -215,6 +215,7 @@
 
 .media_figure {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -223,6 +224,8 @@
 .video_logo {
     display: flex;
     position: absolute;
+    top: 32%;
+    left: 40%;
     width: 5rem;
     z-index: 3;
     object-fit: cover;
