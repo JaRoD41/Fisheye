@@ -72,6 +72,7 @@ class Media {
 		p2.textContent = this.likes
 
 		const img = document.createElement('img')
+		img.setAttribute('alt', 'likes')
 		img.setAttribute('aria-label', 'ajouter ou retirer un like')
 		img.setAttribute('id', this.id)
 		img.classList.add('red-like')
