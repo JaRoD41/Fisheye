@@ -24,7 +24,7 @@ class Media {
 			playLogo.classList.add('video_logo')
 			media.setAttribute(
 				'src',
-				`../../assets/photographers/${this.photographerId}/${this.video}`
+				`./assets/photographers/${this.photographerId}/${this.video}`
 			)
 			media.setAttribute('width', 350)
 			media.setAttribute('height', 300)
@@ -33,7 +33,7 @@ class Media {
 				'onclick',
 				`displayLightbox(${this.currentMediaIndex})`
 			)
-			playLogo.setAttribute('src', '../../assets/icons/play.png')
+			playLogo.setAttribute('src', './assets/icons/play.png')
 		} else {
 			media = document.createElement('img')
 			media.classList.add('single_media')
@@ -43,7 +43,7 @@ class Media {
 			media.setAttribute('tabindex', '0')
 			media.setAttribute(
 				'src',
-				`../../assets/photographers/${this.photographerId}/${this.image}`
+				`./assets/photographers/${this.photographerId}/${this.image}`
 			)
 			media.setAttribute(
 				'onclick',
@@ -105,7 +105,7 @@ class Image extends Media {
 		const image = document.createElement('img')
 		image.setAttribute('aria-label', this.title)
 		image.classList.add('single_media')
-		image.src = `../../assets/photographers/${this.photographerId}/${this.image}`
+		image.src = `./assets/photographers/${this.photographerId}/${this.image}`
 		return image
 	}
 }
@@ -121,7 +121,7 @@ class Video extends Media {
 	getMedia() {
 		const video = document.createElement('video')
 		video.classList.add('single_media')
-		video.src = `../../assets/photographers/${this.photographerId}/${this.video}`
+		video.src = `./assets/photographers/${this.photographerId}/${this.video}`
 		video.controls = true
 		return video
 	}
