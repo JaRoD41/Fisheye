@@ -1,7 +1,7 @@
 function photographerFactory(data) {
 	const { name, portrait, id, city, country, tagline, price } = data
 
-	const picture = `assets/photographers/Photographers ID Photos/${portrait}`
+	const picture = `./assets/photographers/Photographers ID Photos/${portrait}`
 	const cityName = `${city}, ${country}`
 	const tag = tagline
 	const rate = `${price}€/jour`
@@ -9,7 +9,7 @@ function photographerFactory(data) {
 	function getUserCardDOM() {
 		const article = document.createElement('article')
 		const anchor = document.createElement('a')
-		anchor.href = `../../photographer.html?id=${id}`
+		anchor.href = `./photographer.html?id=${id}`
 		const img = document.createElement('img')
 		img.ariaLabel = `portrait du photographe ${name}`
 		img.setAttribute('src', picture)

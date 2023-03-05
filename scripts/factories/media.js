@@ -77,7 +77,7 @@ class Media {
 		img.classList.add('red-like')
 		img.setAttribute('tabindex', '0')
 		img.setAttribute('role', 'button')
-		img.setAttribute('src', '../../assets/icons/red-heart.svg')
+		img.setAttribute('src', './assets/icons/red-heart.svg')
 
 		photo_likes.appendChild(p2)
 		photo_likes.appendChild(img)

@@ -30,7 +30,7 @@ nextButton.addEventListener('click', () => showNextMedia(medias))
 // 	})
 
 async function getMediasInfos() {
-	await fetch('../../data/photographers.json')
+	await fetch('./data/photographers.json')
 		.then((res) => res.json())
 		.then((data) => {
 			mediasToFilter = data.media

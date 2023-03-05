@@ -9,11 +9,11 @@ class LightboxFactory {
 		this.video = data[currentMediaIndex].video
 
 		if (this.data.video) {
-			mediaSrc = `../../assets/photographers/${this.photographerId}/${this.video}`
+			mediaSrc = `./assets/photographers/${this.photographerId}/${this.video}`
 			mediaToCreate = document.createElement('iframe')
 			mediaToCreate.setAttribute('controls', true)
 		} else {
-			mediaSrc = `../../assets/photographers/${this.photographerId}/${this.image}`
+			mediaSrc = `./assets/photographers/${this.photographerId}/${this.image}`
 			mediaToCreate = document.createElement('img')
 		}
 	}
