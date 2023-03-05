@@ -251,7 +251,7 @@
     color: #911C1C;
 }
 
-.photo_infos p {
+.photo_infos h3 {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;

@@ -61,7 +61,7 @@ class Media {
 		const figcaption = document.createElement('figcaption')
 		figcaption.classList.add('photo_infos')
 
-		const p1 = document.createElement('p')
+		const p1 = document.createElement('h3')
 		p1.textContent = this.title
 
 		const photo_likes = document.createElement('div')
