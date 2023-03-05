@@ -18,16 +18,16 @@ prevButton.addEventListener('click', () => showPreviousMedia(medias))
 
 nextButton.addEventListener('click', () => showNextMedia(medias))
 
-// --- écoute des flèches gauche et droite à tester ---
+// --- écoute des flèches gauche et droite ---
 
-// document.addEventListener('keyup', function (e) {
-// 		if (e.code === 'ArrowLeft') {
-// 			showPreviousMedia()
-// 		}
-// 		if (e.code === 'ArrowRight') {
-// 			showNextMedia()
-// 		}
-// 	})
+document.addEventListener('keyup', function (e) {
+		if (e.code === 'ArrowLeft') {
+			showPreviousMedia(medias)
+		}
+		if (e.code === 'ArrowRight') {
+			showNextMedia(medias)
+		}
+	})
 
 //fonction de filtrage des médias par id
 function showMedia(id) {
