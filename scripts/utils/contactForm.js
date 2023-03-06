@@ -6,6 +6,11 @@ const openBtn = document.querySelector('.contact_button')
 const submitButton = document.querySelector('#contact-form')
 
 submitButton.addEventListener('submit', formSubmit)
+modal.addEventListener('keyup', function (e) {
+	if (e.code === 'Escape') {
+		closeModal()
+	}
+})
 
 function displayModal() {
 	modal.style.display = 'flex'
