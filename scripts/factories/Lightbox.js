@@ -21,6 +21,7 @@ class LightboxFactory {
 	createLightboxMediaElement() {
 		mediaToCreate.classList.add('lightboxMediaToShow')
 		mediaToCreate.setAttribute('src', mediaSrc)
+		mediaToCreate.setAttribute('alt', this.title)
 		return mediaToCreate
 	}
 

@@ -48,7 +48,7 @@ function photographerFactory(data) {
         <span class="origin">${city}, ${country}</span>
         <span class="tagline">${tagline}</span>
 			</aside>	
-      <button class="contact_button" onclick='displayModal()' aria-label="Contactez-moi">Contactez-moi</button>
+      <button class="contact_button" onclick='displayModal()'>Contactez-moi</button>
       <img alt="portrait du photographe ${name}" src="${picture}">
 		`
 		
