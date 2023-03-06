@@ -10,8 +10,9 @@ function photographerFactory(data) {
 		const article = document.createElement('article')
 		const anchor = document.createElement('a')
 		anchor.href = `./photographer.html?id=${id}`
+		anchor.ariaLabel = `portrait du photographe ${name}`
 		const img = document.createElement('img')
-		img.ariaLabel = `portrait du photographe ${name}`
+		img.setAttribute('alt', '')
 		img.setAttribute('src', picture)
 		const h2 = document.createElement('h2')
 		h2.textContent = name
@@ -40,15 +41,15 @@ function photographerFactory(data) {
 	function getPhotographerHeader() {
 		const fiche = document.querySelector('.photograph-header')
 		fiche.innerHTML = `
-			<aside class="infos">
+			<aside class="infos" aria-labelledby='aside-title'>
 				<div class="infos-name">
-        <h1>${name}</h1>
+        <h1 id='aside-title'>${name}</h1>
 				</div>	
         <span class="origin">${city}, ${country}</span>
         <span class="tagline">${tagline}</span>
 			</aside>	
-      <button class="contact_button" onclick='displayModal()'>Contactez-moi</button>
-      <img aria-label="portrait du photographe ${name}" src="${picture}">
+      <button class="contact_button" onclick='displayModal()' aria-label="Contactez-moi">Contactez-moi</button>
+      <img alt="portrait du photographe ${name}" src="${picture}">
 		`
 		
 		const nameForm = document.querySelector('.namePhotographForm')
