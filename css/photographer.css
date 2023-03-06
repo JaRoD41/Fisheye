@@ -242,7 +242,8 @@
     transition: transform .5s ease-in-out;
 }
 
-.photograph-gallery article .single_media:hover, .photograph-gallery article .single_media:focus {
+.photograph-gallery article .single_media:hover,
+.photograph-gallery article .single_media:focus {
     box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
     transform: scale(1.1, 1.1);
 }
@@ -272,6 +273,7 @@
     font-weight: 500;
     justify-content: space-between;
     align-items: baseline;
+    margin-left: 11px;
 }
 
 #totalLikes {
@@ -391,6 +393,10 @@ form input {
     border-radius: 5px;
     font-size: 1.5rem;
     padding: 0 0.5rem;
+}
+
+form input:focus {
+    border: #911C1C 2px solid;
 }
 
 form #messageBox {

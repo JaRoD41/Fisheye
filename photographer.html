@@ -72,15 +72,17 @@
 			<form id="contact-form">
 				<div>
 					<label for="first-name">Prénom</label>
-					<input id="first-name" type="text" minlength="2" aria-labelledby="first-name" required />
+					<input id="first-name" type="text" minlength="2" name="champ prénom" aria-labelledby="first-name"
+						required />
 					<label for="last-name">Nom</label>
-					<input id="last-name" type="text" minlength="2" aria-labelledby="last-name" required />
+					<input id="last-name" type="text" minlength="2" name="champ nom" aria-labelledby="last-name"
+						required />
 					<label for="email">Email</label>
-					<input id="email" type="email" aria-labelledby="email" required />
+					<input id="email" type="email" name="champ email" aria-labelledby="email" required />
 					<label for="messageBox">Votre message</label>
-					<textarea id="messageBox" aria-labelledby="messageBox" required></textarea>
+					<textarea id="messageBox" name="champ message" aria-labelledby="messageBox" required></textarea>
 				</div>
-				<button class="contact_button" type="submit" aria-label="Send">
+				<button class="contact_button" type="submit">
 					Envoyer
 				</button>
 			</form>
@@ -93,11 +95,11 @@
 		<div class="media-container">
 			<img id="lightbox-close" src="./assets/icons/closeLightbox.svg" onclick="closeLightbox()"
 				alt="X pour fermer la lightbox" tabindex="0" />
-			<img id="lightbox-prev" src="./assets/icons/prevLightbox.svg" alt="flèche vers média précédent"/>
+			<img id="lightbox-prev" src="./assets/icons/prevLightbox.svg" alt="flèche vers média précédent" />
 			<div class="media_name_container">
 				<figure id="lightbox-media"></figure>
 			</div>
-			<img id="lightbox-next" src="./assets/icons/nextLightbox.svg" alt="flèche vers média suivant"/>
+			<img id="lightbox-next" src="./assets/icons/nextLightbox.svg" alt="flèche vers média suivant" />
 		</div>
 	</div>
 
