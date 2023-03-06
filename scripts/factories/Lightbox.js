@@ -22,6 +22,7 @@ class LightboxFactory {
 		mediaToCreate.classList.add('lightboxMediaToShow')
 		mediaToCreate.setAttribute('src', mediaSrc)
 		mediaToCreate.setAttribute('alt', this.title)
+		mediaToCreate.setAttribute('aria-labelledby', 'media-name')
 		return mediaToCreate
 	}
 
