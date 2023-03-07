@@ -7,6 +7,6 @@ function sort(medias, option) {
 		case 'Titre':
 			return medias.sort((a, b) => a.title.localeCompare(b.title))
 		default:
-			return medias
+			return window.medias
 	}
 }
