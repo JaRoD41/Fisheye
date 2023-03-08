@@ -29,8 +29,10 @@ class Media {
       media.setAttribute('height', 300)
       media.setAttribute('tabindex', '0')
       media.setAttribute('onclick', `displayLightbox(${this.currentMediaIndex})`)
+      media.setAttribute('onkeyup', `if(event.keyCode == 13){displayLightbox(${this.currentMediaIndex})}`)
       playLogo.setAttribute('src', './assets/icons/play.png')
       playLogo.setAttribute('onclick', `displayLightbox(${this.currentMediaIndex})`)
+      playLogo.setAttribute('onkeyup', `if(event.keyCode == 13){displayLightbox(${this.currentMediaIndex})}`)
     } else {
       media = document.createElement('img')
       media.classList.add('single_media')
@@ -40,6 +42,7 @@ class Media {
       media.setAttribute('tabindex', '0')
       media.setAttribute('src', `./assets/photographers/${this.photographerId}/${this.image}`)
       media.setAttribute('onclick', `displayLightbox(${this.currentMediaIndex})`)
+      media.setAttribute('onkeyup', `if(event.keyCode == 13){displayLightbox(${this.currentMediaIndex})}`)
     }
 
     const article = document.createElement('article')
@@ -85,54 +88,54 @@ class Media {
   }
 }
 
-class Image extends Media {
-  constructor(data, photographerPrice, totalLikes) {
-    super(data)
-    this.image = data.image
-    this.photographerPrice = photographerPrice
-    this.totalLikes = totalLikes
-  }
+// class Image extends Media {
+//   constructor(data, photographerPrice, totalLikes) {
+//     super(data)
+//     this.image = data.image
+//     this.photographerPrice = photographerPrice
+//     this.totalLikes = totalLikes
+//   }
 
-  getMedia() {
-    const image = document.createElement('img')
-    image.setAttribute('aria-label', this.title)
-    image.classList.add('single_media')
-    image.src = `./assets/photographers/${this.photographerId}/${this.image}`
-    return image
-  }
-}
+//   getMedia() {
+//     const image = document.createElement('img')
+//     image.setAttribute('aria-label', this.title)
+//     image.classList.add('single_media')
+//     image.src = `./assets/photographers/${this.photographerId}/${this.image}`
+//     return image
+//   }
+// }
 
-class Video extends Media {
-  constructor(data, photographerPrice, totalLikes) {
-    super(data)
-    this.video = data.video
-    this.photographerPrice = photographerPrice
-    this.totalLikes = totalLikes
-  }
+// class Video extends Media {
+//   constructor(data, photographerPrice, totalLikes) {
+//     super(data)
+//     this.video = data.video
+//     this.photographerPrice = photographerPrice
+//     this.totalLikes = totalLikes
+//   }
 
-  getMedia() {
-    const video = document.createElement('video')
-    video.classList.add('single_media')
-    video.src = `./assets/photographers/${this.photographerId}/${this.video}`
-    video.controls = true
-    return video
-  }
-}
+//   getMedia() {
+//     const video = document.createElement('video')
+//     video.classList.add('single_media')
+//     video.src = `./assets/photographers/${this.photographerId}/${this.video}`
+//     video.controls = true
+//     return video
+//   }
+// }
 
-class MediaFactory {
-  constructor(data, photographerPrice, totalLikes) {
-    this.data = data
-    this.photographerPrice = photographerPrice
-    this.totalLikes = totalLikes
-  }
+// class MediaFactory {
+//   constructor(data, photographerPrice, totalLikes) {
+//     this.data = data
+//     this.photographerPrice = photographerPrice
+//     this.totalLikes = totalLikes
+//   }
 
-  createMedia() {
-    let media
-    if (this.data.video) {
-      media = new Video(this.data, this.photographerPrice, this.totalLikes)
-    } else {
-      media = new Image(this.data, this.photographerPrice, this.totalLikes)
-    }
-    return media
-  }
-}
+//   createMedia() {
+//     let media
+//     if (this.data.video) {
+//       media = new Video(this.data, this.photographerPrice, this.totalLikes)
+//     } else {
+//       media = new Image(this.data, this.photographerPrice, this.totalLikes)
+//     }
+//     return media
+//   }
+// }
