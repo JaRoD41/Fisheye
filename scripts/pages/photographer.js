@@ -65,10 +65,7 @@ async function displayData(photographerInfos, medias) {
         // Set 'aria-selected' to 'true' for the clicked option and 'false' for the others
         sortSelectors.forEach((s) => s.setAttribute('aria-selected', 'false'))
         selector.setAttribute('aria-selected', 'true')
-        if (
-          selector.classList.contains('selected') &&
-          dropdown.classList.contains('active')
-        ) {
+        if (selector.classList.contains('selected') && dropdown.classList.contains('active')) {
           selector.classList.remove('selected')
           selector.setAttribute('aria-selected', false)
         } else {
@@ -91,12 +88,7 @@ async function displayData(photographerInfos, medias) {
         sortedMedias.forEach((eachMedia, currentMediaIndex) => {
           eachMedia = eachMedia
           const totalLikes = getTotalLikes(medias)
-          const gallerySection = new Media(
-            eachMedia,
-            photographerPrice,
-            totalLikes,
-            currentMediaIndex
-          )
+          const gallerySection = new Media(eachMedia, photographerPrice, totalLikes, currentMediaIndex)
           gallerySection.getMediaGallery()
         })
         addLikeListeners()
@@ -109,12 +101,7 @@ async function displayData(photographerInfos, medias) {
   sortedMedias.forEach((eachMedia, currentMediaIndex) => {
     eachMedia = eachMedia
     totalLikes = getTotalLikes(medias)
-    const gallerySection = new Media(
-      eachMedia,
-      photographerPrice,
-      totalLikes,
-      currentMediaIndex
-    )
+    const gallerySection = new Media(eachMedia, photographerPrice, totalLikes, currentMediaIndex)
     gallerySection.getMediaGallery()
   })
 

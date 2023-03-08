@@ -16,8 +16,9 @@
       "error",
       {
         "singleQuote": true,
-        "indent": ["error", "tab"],
+        "indent": ["error", "space"],
         "tabWidth": 2,
+        "printWidth": 120,
         "semi": false,
         "trailingComma": "es5"
       }
