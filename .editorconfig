@@ -1,5 +1,0 @@
-[*.js]
-indent_style = tab
-indent_size = 1
-
-[*.json]
