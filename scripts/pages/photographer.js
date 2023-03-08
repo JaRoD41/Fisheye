@@ -56,42 +56,46 @@ async function displayData(photographerInfos, medias) {
 
     //event listener pour clic sur un des choix de tri
     sortSelectors.forEach((selector) => {
-      selector.addEventListener('click', () => {
-        gallery.innerHTML = ''
-        dropdown.setAttribute('style', '')
-        arrow.classList.remove('active')
-        const option = selector.getAttribute('data-filter-value')
+      // selector.addEventListener('click', () => {
+      ;['click', 'keyup'].forEach((ev) => {
+        selector.addEventListener(ev, function (e) {
+          if (ev === 'click' || (ev === 'keyup' && e.key === 'Enter')) {
+            gallery.innerHTML = ''
+            dropdown.setAttribute('style', '')
+            arrow.classList.remove('active')
+            const option = selector.getAttribute('data-filter-value')
 
-        // Set 'aria-selected' to 'true' for the clicked option and 'false' for the others
-        sortSelectors.forEach((s) => s.setAttribute('aria-selected', 'false'))
-        selector.setAttribute('aria-selected', 'true')
-        if (selector.classList.contains('selected') && dropdown.classList.contains('active')) {
-          selector.classList.remove('selected')
-          selector.setAttribute('aria-selected', false)
-        } else {
-          sortSelectors.forEach((sel) => sel.classList.remove('selected'))
-          selector.classList.add('selected')
-          dropdown.classList.remove('active')
-        }
-        filterMenu.classList.remove('active')
-        arrow.classList.remove('active')
-        filterMenu.setAttribute('style', '')
-        selectElement.classList.remove('active')
+            // change les attributs aria-selected des boutons de tri pour indiquer le choix sélectionné
+            sortSelectors.forEach((s) => s.setAttribute('aria-selected', 'false'))
+            selector.setAttribute('aria-selected', 'true')
+            if (selector.classList.contains('selected') && dropdown.classList.contains('active')) {
+              selector.classList.remove('selected')
+              selector.setAttribute('aria-selected', false)
+            } else {
+              sortSelectors.forEach((sel) => sel.classList.remove('selected'))
+              selector.classList.add('selected')
+              dropdown.classList.remove('active')
+            }
+            filterMenu.classList.remove('active')
+            arrow.classList.remove('active')
+            filterMenu.setAttribute('style', '')
+            selectElement.classList.remove('active')
 
-        // Set the button title to the selected option
-        buttonTitle.textContent = option
+            // donne la valeur du tri sélectionné au bouton de tri
+            buttonTitle.textContent = option
 
-        //tri des médias
-        sortedMedias = sort(medias, option)
-
-        //affichage des médias triés
-        sortedMedias.forEach((eachMedia, currentMediaIndex) => {
-          eachMedia = eachMedia
-          const totalLikes = getTotalLikes(medias)
-          const gallerySection = new Media(eachMedia, photographerPrice, totalLikes, currentMediaIndex)
-          gallerySection.getMediaGallery()
+            //tri des médias
+            sortedMedias = sort(medias, option)
+          }
+          //affichage des médias triés
+          sortedMedias.forEach((eachMedia, currentMediaIndex) => {
+            eachMedia = eachMedia
+            const totalLikes = getTotalLikes(medias)
+            const gallerySection = new Media(eachMedia, photographerPrice, totalLikes, currentMediaIndex)
+            gallerySection.getMediaGallery()
+          })
+          addLikeListeners()
         })
-        addLikeListeners()
       })
       //fin du deuxième event listener
     })
