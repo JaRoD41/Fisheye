@@ -24,7 +24,7 @@ class Media {
       playLogo.classList.add('video_logo')
       playLogo.setAttribute('alt', 'play logo')
       media.setAttribute('src', `./assets/photographers/${this.photographerId}/${this.video}`)
-      media.setAttribute('alt', `short video of ${this.title}`)
+      media.setAttribute('alt', `courte vidéo de ${this.title}, agrandir l'image`)
       media.setAttribute('width', 350)
       media.setAttribute('height', 300)
       media.setAttribute('tabindex', '0')
@@ -36,7 +36,7 @@ class Media {
     } else {
       media = document.createElement('img')
       media.classList.add('single_media')
-      media.setAttribute('alt', this.title)
+      media.setAttribute('alt', `miniature de ${this.title}, agrandir l'image`)
       media.setAttribute('width', 350)
       media.setAttribute('height', 300)
       media.setAttribute('tabindex', '0')

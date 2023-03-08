@@ -21,8 +21,9 @@ class LightboxFactory {
   createLightboxMediaElement() {
     mediaToCreate.classList.add('lightboxMediaToShow')
     mediaToCreate.setAttribute('src', mediaSrc)
-    mediaToCreate.setAttribute('alt', this.title)
-    mediaToCreate.setAttribute('aria-labelledby', 'media-name')
+    mediaToCreate.setAttribute('alt', `gros plan sur le média nommé ${this.title}`)
+    // mediaToCreate.setAttribute('aria-labelledby', 'media-name')
+    mediaToCreate.setAttribute('aria-label', `gros plan sur le média nommé ${this.title}`)
     return mediaToCreate
   }
 
