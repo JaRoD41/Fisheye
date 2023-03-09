@@ -18,6 +18,8 @@ class LightboxFactory {
     }
   }
 
+  // création du gros plan affiché dans la lightbox
+
   createLightboxMediaElement() {
     const displayZone = document.getElementById('lightbox-media')
     displayZone.setAttribute('aria-labelledby', `media-${this.id}`)
@@ -28,6 +30,8 @@ class LightboxFactory {
     mediaToCreate.setAttribute('alt', `gros plan sur le média nommé ${this.title}`)
     return mediaToCreate
   }
+
+  // création du nom du média affiché dans la lightbox
 
   createLightboxMediaName() {
     const mediaName = document.createElement('figcaption')

@@ -11,6 +11,9 @@ class Media {
     this.totalLikes = totalLikes
     this.currentMediaIndex = currentMediaIndex
   }
+
+  // création de la section contenant les médias
+
   getMediaGallery() {
     const gallery = document.querySelector('.photograph-gallery')
 
@@ -87,55 +90,3 @@ class Media {
     gallery.appendChild(article)
   }
 }
-
-// class Image extends Media {
-//   constructor(data, photographerPrice, totalLikes) {
-//     super(data)
-//     this.image = data.image
-//     this.photographerPrice = photographerPrice
-//     this.totalLikes = totalLikes
-//   }
-
-//   getMedia() {
-//     const image = document.createElement('img')
-//     image.setAttribute('aria-label', this.title)
-//     image.classList.add('single_media')
-//     image.src = `./assets/photographers/${this.photographerId}/${this.image}`
-//     return image
-//   }
-// }
-
-// class Video extends Media {
-//   constructor(data, photographerPrice, totalLikes) {
-//     super(data)
-//     this.video = data.video
-//     this.photographerPrice = photographerPrice
-//     this.totalLikes = totalLikes
-//   }
-
-//   getMedia() {
-//     const video = document.createElement('video')
-//     video.classList.add('single_media')
-//     video.src = `./assets/photographers/${this.photographerId}/${this.video}`
-//     video.controls = true
-//     return video
-//   }
-// }
-
-// class MediaFactory {
-//   constructor(data, photographerPrice, totalLikes) {
-//     this.data = data
-//     this.photographerPrice = photographerPrice
-//     this.totalLikes = totalLikes
-//   }
-
-//   createMedia() {
-//     let media
-//     if (this.data.video) {
-//       media = new Video(this.data, this.photographerPrice, this.totalLikes)
-//     } else {
-//       media = new Image(this.data, this.photographerPrice, this.totalLikes)
-//     }
-//     return media
-//   }
-// }
