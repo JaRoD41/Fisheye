@@ -1,8 +1,9 @@
 let url = new URL(location.href) // création d'un nouvel objet URL à partir de l'URL de la page
 let photographerPageId = url.searchParams.get('id') // récupération de l'id du photographe dans l'URL
-window.medias = []
+let medias = []
 let sortedMedias = []
 let eachMedia = []
+// let likesArray = []
 
 const sortSelectors = document.querySelectorAll('.sort-selector')
 const buttonTitle = document.getElementById('sort-name')
@@ -13,7 +14,7 @@ buttonTitle.textContent = defaultOption
 
 //récupération des données du photographe pour affichage
 async function displayData(photographerInfos, medias) {
-  let totalLikes = []
+  // let totalLikes = []
   const photographerPrice = photographerInfos.price
   const gallery = document.querySelector('.photograph-gallery')
   const dropdown = document.querySelector('.dropdown-filter')

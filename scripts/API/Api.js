@@ -11,14 +11,14 @@ async function getMedias() {
         return person.id == photographerPageId
       })
       arrayOfMedias = data.media
-      window.medias = arrayOfMedias.filter((media) => {
+      medias = arrayOfMedias.filter((media) => {
         return media.photographerId == photographerPageId
       })
     })
 
   return {
     photographerInfos: photographerInfos[0],
-    medias: window.medias,
+    medias: medias,
   }
 }
 

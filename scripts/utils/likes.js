@@ -1,8 +1,12 @@
+let displayedLikes = []
+let heartsList
+let nouveauTotalDeLikes
+
 function addLikeListeners() {
   const likesSpan = document.getElementById('totalLikes')
   const totalLikes = getTotalLikes(medias)
   likesSpan.textContent = totalLikes
-  const heartsList = document.querySelectorAll('.red-like')
+  heartsList = document.querySelectorAll('.red-like')
   heartsList.forEach((likeIcon) => {
     likeIcon.addEventListener('click', (e) => {
       e.preventDefault()
@@ -10,16 +14,26 @@ function addLikeListeners() {
       const amountOfLikes = likeClick.closest('.photo_likes').firstElementChild
       if (likeIcon.classList.contains('isLiked')) {
         amountOfLikes.innerHTML = Number(amountOfLikes.innerHTML) - 1
-        const totalLikes = getTotalLikes(medias)
-        likesSpan.textContent = totalLikes
         likeIcon.classList.remove('isLiked')
       } else {
         amountOfLikes.innerHTML = Number(amountOfLikes.innerHTML) + 1
-        const totalLikes = getTotalLikes(medias)
-        likesSpan.textContent = totalLikes + 1
         likeIcon.classList.add('isLiked')
       }
+      scanActualLikes()
+      likesSpan.textContent = nouveauTotalDeLikes
     })
+  })
+}
+
+function scanActualLikes() {
+  let totalDisplayedLikes = []
+  heartsList = document.querySelectorAll('.red-like')
+  heartsList.forEach((likeIcon) => {
+    const amountOfLikes = likeIcon.closest('.photo_likes').firstElementChild
+    let newRealTimeLikes = Number(amountOfLikes.innerHTML)
+    totalDisplayedLikes.push(newRealTimeLikes)
+    nouveauTotalDeLikes = totalDisplayedLikes.reduce(addAllLikes)
+    return nouveauTotalDeLikes
   })
 }
 
