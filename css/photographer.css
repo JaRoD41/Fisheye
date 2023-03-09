@@ -489,6 +489,11 @@ form #messageBox {
     transition: opacity ease-in-out 0.6s
 }
 
+.no-scroll {
+    overflow: hidden;
+    position: fixed;
+}
+
 /* animation des coeurs */
 
 @keyframes rotate-scale-up-ver {

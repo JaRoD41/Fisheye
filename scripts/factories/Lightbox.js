@@ -19,11 +19,13 @@ class LightboxFactory {
   }
 
   createLightboxMediaElement() {
+    const displayZone = document.getElementById('lightbox-media')
+    displayZone.setAttribute('aria-labelledby', `media-${this.id}`)
     mediaToCreate.classList.add('lightboxMediaToShow')
     mediaToCreate.setAttribute('src', mediaSrc)
+    mediaToCreate.setAttribute('tabindex', '0')
+    mediaToCreate.setAttribute('id', `media-${this.id}`)
     mediaToCreate.setAttribute('alt', `gros plan sur le média nommé ${this.title}`)
-    // mediaToCreate.setAttribute('aria-labelledby', 'media-name')
-    mediaToCreate.setAttribute('aria-label', `gros plan sur le média nommé ${this.title}`)
     return mediaToCreate
   }
 
