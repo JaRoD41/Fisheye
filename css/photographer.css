@@ -22,6 +22,8 @@
     max-width: 1440px;
 }
 
+/* header */
+
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
@@ -81,6 +83,8 @@
     color: #525252;
     margin-top: 19px;
 }
+
+/* filtre */
 
 .gallery-filter {
     margin-top: 35px;
@@ -196,6 +200,8 @@
     border-bottom: 1px solid #fff
 }
 
+/* galerie du photographe */
+
 .photograph-gallery {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -284,9 +290,13 @@
     cursor: pointer;
 }
 
+/* animation du coeur */
+
 .isLiked {
     animation: rotate-scale-up-ver 0.65s linear both;
 }
+
+/* encart de tarif et total des likes */
 
 .ratePriceLabel {
     position: fixed;
@@ -306,6 +316,8 @@
     bottom: -11px;
     z-index: 5;
 }
+
+/* modale de contact */
 
 .contact_button {
     font-size: 20px;

@@ -32,6 +32,8 @@ ul, li {
     margin-top: 15px;
 }
 
+/* zone photographes de la page d'accueil */
+
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
