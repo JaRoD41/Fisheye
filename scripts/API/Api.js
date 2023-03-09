@@ -1,3 +1,6 @@
+let url = new URL(location.href) // création d'un nouvel objet URL à partir de l'URL de la page
+let photographerPageId = url.searchParams.get('id') // récupération de l'id du photographe dans l'URL
+
 //fonction de récupération des données et médias de chaque photographe
 async function getMedias() {
   let photographerInfos = []
