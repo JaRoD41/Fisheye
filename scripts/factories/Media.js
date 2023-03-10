@@ -35,7 +35,6 @@ class Media {
       media.setAttribute('onkeyup', `if(event.keyCode == 13){displayLightbox(${this.currentMediaIndex})}`)
       playLogo.setAttribute('src', './assets/icons/play.png')
       playLogo.setAttribute('onclick', `displayLightbox(${this.currentMediaIndex})`)
-      playLogo.setAttribute('onkeyup', `if(event.keyCode == 13){displayLightbox(${this.currentMediaIndex})}`)
     } else {
       media = document.createElement('img')
       media.classList.add('single_media')
@@ -64,7 +63,7 @@ class Media {
     const photo_likes = document.createElement('div')
     photo_likes.classList.add('photo_likes')
 
-    const p2 = document.createElement('p')
+    const p2 = document.createElement('h4')
     p2.classList.add('likes-counter')
     p2.textContent = this.likes
 

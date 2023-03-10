@@ -12,6 +12,7 @@ class LightboxFactory {
       mediaSrc = `./assets/photographers/${this.photographerId}/${this.video}`
       mediaToCreate = document.createElement('iframe')
       mediaToCreate.setAttribute('controls', true)
+      mediaToCreate.setAttribute('title', 'lecture de la vidéo')
     } else {
       mediaSrc = `./assets/photographers/${this.photographerId}/${this.image}`
       mediaToCreate = document.createElement('img')
