@@ -2,6 +2,7 @@ let displayedLikes = []
 let heartsList
 let nouveauTotalDeLikes
 
+// Ajout des likes de chaque média et incrémentation / décrémentation au clic
 function addLikeListeners() {
   const likesSpan = document.getElementById('totalLikes')
   const totalLikes = getTotalLikes(medias)
@@ -25,6 +26,7 @@ function addLikeListeners() {
   })
 }
 
+// Fonction de scan des likes affichés et calcul du nouveau total de l'encart en temps réel
 function scanActualLikes() {
   let totalDisplayedLikes = []
   heartsList = document.querySelectorAll('.red-like')
@@ -37,10 +39,12 @@ function scanActualLikes() {
   })
 }
 
+// Fonction de calcul du total de likes
 function addAllLikes(total, num) {
   return total + num
 }
 
+// Fonction de récupération des likes de chaque média des datas d'origine
 function getTotalLikes(medias) {
   let likesArray = []
   medias.forEach((eachMedia) => {

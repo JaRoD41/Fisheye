@@ -1,6 +1,6 @@
 async function displayData(photographers) {
   const photographersSection = document.querySelector('.photographer_section')
-
+  // Itère sur chaque photographe dans les données récupérées pour créer une card
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer)
     const userCardDOM = photographerModel.getUserCardDOM()

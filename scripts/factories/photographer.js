@@ -1,11 +1,11 @@
 function photographerFactory(data) {
   const { name, portrait, id, city, country, tagline, price } = data
-
+  // Destructuring de la data récupérée par le fetch dans le fichier Api.js
   const picture = `./assets/photographers/Photographers ID Photos/${portrait}`
   const cityName = `${city}, ${country}`
   const tag = tagline
   const rate = `${price}€/jour`
-
+  // Création de la section contenant les cards des photographes
   function getUserCardDOM() {
     const article = document.createElement('article')
     const anchor = document.createElement('a')
@@ -38,6 +38,7 @@ function photographerFactory(data) {
     return article
   }
 
+  // Création de la section contenant le header de la galerie avec les infos du photographe
   function getPhotographerHeader() {
     const fiche = document.querySelector('.photograph-header')
     fiche.innerHTML = `
@@ -51,7 +52,7 @@ function photographerFactory(data) {
       <button class="contact_button" onclick='displayModal()'>Contactez-moi</button>
       <img alt="portrait du photographe ${name}" src="${picture}">
 		`
-
+    // Insertion du nom du photographe dans le formulaire de contact
     const nameForm = document.querySelector('.namePhotographForm')
     nameForm.innerHTML = `${name}`
 

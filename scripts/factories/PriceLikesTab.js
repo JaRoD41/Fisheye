@@ -2,6 +2,7 @@ class PriceLikesTabFactory {
   constructor(photographerPrice) {
     this.photographerPrice = photographerPrice
   }
+  // Création de l'encart fixe contenant le nombre total de likes et le prix du photographe
   createPriceRateTab() {
     const photographerTab = document.querySelector('.ratePriceLabel')
     const container = document.createElement('div')

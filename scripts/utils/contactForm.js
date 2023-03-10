@@ -5,13 +5,17 @@ const closeBtn = document.querySelector('#contact_modal img')
 const openBtn = document.querySelector('.contact_button')
 const submitButton = document.querySelector('#contact-form')
 
+// Event listener pour envoyer le formulaire
 submitButton.addEventListener('submit', formSubmit)
+
+// Event listener pour fermer la modale
 modal.addEventListener('keyup', function (e) {
   if (e.code === 'Escape') {
     closeModal()
   }
 })
 
+// Fonction pour afficher la modale
 function displayModal() {
   modal.style.display = 'flex'
   mainWrapper.setAttribute('aria-hidden', 'true')
@@ -21,6 +25,7 @@ function displayModal() {
   closeBtn.focus()
 }
 
+// Fonction pour fermer la modale
 function closeModal() {
   modal.style.display = 'none'
   mainWrapper.setAttribute('aria-hidden', 'false')
@@ -31,6 +36,7 @@ function closeModal() {
   form.reset()
 }
 
+// Fonction pour envoyer le formulaire et fermer la modale
 function formSubmit(event) {
   const firstNameInput = document.querySelector('#first-name')
   const lastNameInput = document.querySelector('#last-name')

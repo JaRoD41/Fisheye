@@ -19,7 +19,7 @@ class LightboxFactory {
     }
   }
 
-  // création du gros plan affiché dans la lightbox
+  // Création du gros plan affiché dans la lightbox
 
   createLightboxMediaElement() {
     const displayZone = document.getElementById('lightbox-media')
@@ -32,7 +32,7 @@ class LightboxFactory {
     return mediaToCreate
   }
 
-  // création du nom du média affiché dans la lightbox
+  // Création du nom du média affiché dans la lightbox
 
   createLightboxMediaName() {
     const mediaName = document.createElement('figcaption')

@@ -5,11 +5,11 @@ let eachMedia = []
 const sortSelectors = document.querySelectorAll('.sort-selector')
 const buttonTitle = document.getElementById('sort-name')
 
-//tri par défaut -> popularité
+// Tri par défaut -> popularité
 const defaultOption = 'Popularité'
 buttonTitle.textContent = defaultOption
 
-//récupération des données du photographe pour affichage
+// Récupération des données du photographe pour affichage
 async function displayData(photographerInfos, medias) {
   const photographerPrice = photographerInfos.price
   const gallery = document.querySelector('.photograph-gallery')
@@ -20,7 +20,7 @@ async function displayData(photographerInfos, medias) {
   const filterMenu = document.getElementById('filter-menu')
   const sortSelectors = document.querySelectorAll('.sort-selector')
 
-  //event listener pour clic sur le bouton de tri
+  // Event listener pour clic sur le bouton de tri
 
   selectElement.addEventListener('click', () => {
     if (
@@ -40,7 +40,7 @@ async function displayData(photographerInfos, medias) {
       filterMenu.setAttribute('style', 'height: 159px;')
     }
 
-    //test conditions supplementaires pour le focus
+    // Test conditions supplementaires pour le focus
 
     if (selectElement.getAttribute('aria-expanded') === 'false') {
       selectElement.setAttribute('aria-expanded', 'true')
@@ -51,7 +51,7 @@ async function displayData(photographerInfos, medias) {
       filterMenu.setAttribute('aria-hidden', 'true')
     }
 
-    //event listener pour clic sur un des choix de tri
+    // Event listener pour clic sur un des choix de tri
     sortSelectors.forEach((selector) => {
       ;['click', 'keyup'].forEach((ev) => {
         selector.addEventListener(ev, function (e) {
@@ -59,11 +59,13 @@ async function displayData(photographerInfos, medias) {
             gallery.innerHTML = ''
             dropdown.setAttribute('style', '')
             arrow.classList.remove('active')
+            // Récupère la valeur du tri sélectionné
             const option = selector.getAttribute('data-filter-value')
 
-            // change les attributs aria-selected des boutons de tri pour indiquer le choix sélectionné
+            // Change les attributs aria-selected des boutons de tri pour indiquer le choix sélectionné
             sortSelectors.forEach((s) => s.setAttribute('aria-selected', 'false'))
             selector.setAttribute('aria-selected', 'true')
+            // Affiche ou masque le menu de tri en fonction de son état
             if (selector.classList.contains('selected') && dropdown.classList.contains('active')) {
               selector.classList.remove('selected')
               selector.setAttribute('aria-selected', false)
@@ -77,13 +79,13 @@ async function displayData(photographerInfos, medias) {
             filterMenu.setAttribute('style', '')
             selectElement.classList.remove('active')
 
-            // donne la valeur du tri sélectionné au bouton de tri
+            // Donne la valeur du tri sélectionné au bouton de tri
             buttonTitle.textContent = option
 
-            //tri des médias
+            // Tri des médias
             sortedMedias = sort(medias, option)
           }
-          //affichage des médias triés
+          // Affichage des médias triés
           sortedMedias.forEach((eachMedia, currentMediaIndex) => {
             eachMedia = eachMedia
             const totalLikes = getTotalLikes(medias)
@@ -93,9 +95,9 @@ async function displayData(photographerInfos, medias) {
           addLikeListeners()
         })
       })
-      //fin du deuxième event listener
+      // Fin du deuxième event listener
     })
-    //fin du premier event listener
+    // Fin du premier event listener
   })
   sortedMedias = sort(medias, defaultOption)
   sortedMedias.forEach((eachMedia, currentMediaIndex) => {
@@ -105,11 +107,11 @@ async function displayData(photographerInfos, medias) {
     gallerySection.getMediaGallery()
   })
 
-  //affichage de l'encart avec les likes et le tarif du photographe
+  // Affichage de l'encart avec les likes et le tarif du photographe
   const priceTab = new PriceLikesTabFactory(photographerPrice)
   priceTab.createPriceRateTab()
 
-  //affichage de l'encart avec les infos du photographe
+  // Affichage de l'encart avec les infos du photographe
   const photographerSection = photographerFactory(photographerInfos)
   photographerSection.getPhotographerHeader()
   addLikeListeners()

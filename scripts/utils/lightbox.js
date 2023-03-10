@@ -14,11 +14,13 @@ let currentMediaIndex
 let pickedMedia
 let length
 
+// Écoute du clic sur les flèches de navigation de la lightbox
+
 prevButton.addEventListener('click', () => showPreviousMedia(medias))
 
 nextButton.addEventListener('click', () => showNextMedia(medias))
 
-// --- écoute des flèches gauche et droite ---
+// Écoute des flèches gauche et droite et de la barre d'espace
 
 document.addEventListener('keyup', function (e) {
   if (e.code === 'ArrowLeft') {
@@ -32,29 +34,30 @@ document.addEventListener('keyup', function (e) {
   }
 })
 
-//fonction de filtrage des médias par id
+// Fonction de filtrage des médias par id
 function showMedia(id) {
   mediaId = medias.filter((m) => m.id == id)
   return mediaId
 }
 
-// ouverture de la lightbox
+// Ouverture de la lightbox
 
 function displayLightbox(mediaId) {
-  //choix du media grace à l'id passé en paramètre
+  // Choix du media grace à l'id passé en paramètre
   currentMediaIndex = mediaId
 
-  //création du média à afficher grace à la méthode createLightboxMediaElement()
+  // Création du média à afficher grace à la méthode createLightboxMediaElement()
 
   mediaToShow = new LightboxFactory(medias, currentMediaIndex)
   mediaSrc = mediaToShow.createLightboxMediaElement()
 
+  // On rend la lightbox visible et on cache la galerie au lecteur d'écran
   lightbox.style.display = 'flex'
   galleryWrapper.setAttribute('aria-hidden', 'true')
   lightbox.setAttribute('aria-hidden', 'false')
   document.body.classList.add('no-scroll')
 
-  //ajout du titre du média affiché
+  // Ajout du titre du média affiché
   displayZone.innerHTML = ''
 
   mediaName = mediaToShow.createLightboxMediaName()
@@ -66,7 +69,7 @@ function displayLightbox(mediaId) {
   lightboxCloseBtn.focus()
 }
 
-// fermeture de la lightbox
+// Fermeture de la lightbox
 
 function closeLightbox() {
   lightbox.style.display = 'none'
@@ -77,11 +80,12 @@ function closeLightbox() {
   mediaSrc.remove()
 }
 
-// navigation de la lightbox
+// Navigation de la lightbox
 
 function showPreviousMedia(medias) {
   length = medias.length
 
+  // Si on est au premier média, on revient au dernier au clic sur la flèche précédente
   if (currentMediaIndex == 0) {
     currentMediaIndex = length - 1
   } else {
@@ -96,6 +100,7 @@ function showPreviousMedia(medias) {
 function showNextMedia(medias) {
   length = medias.length
 
+  // Si on est au dernier média, on revient au premier au clic sur la flèche suivante
   if (currentMediaIndex == length - 1) {
     currentMediaIndex = 0
   } else {
