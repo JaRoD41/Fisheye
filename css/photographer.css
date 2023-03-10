@@ -22,7 +22,7 @@
     max-width: 1440px;
 }
 
-/* header */
+/* Header */
 
 .photograph-header {
     background-color: #FAFAFA;
@@ -84,7 +84,7 @@
     margin-top: 19px;
 }
 
-/* filtre */
+/* Filtre */
 
 .gallery-filter {
     margin-top: 35px;
@@ -193,14 +193,14 @@
     z-index: 1;
 }
 
-/* lignes blanches de séparation dans le menu déroulant */
+/* Lignes blanches de séparation dans le menu déroulant */
 
 .sort-selector:nth-child(2) {
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff
 }
 
-/* galerie du photographe */
+/* Galerie du photographe */
 
 .photograph-gallery {
     display: grid;
@@ -290,13 +290,13 @@
     cursor: pointer;
 }
 
-/* animation du coeur */
+/* Animation du coeur */
 
 .isLiked {
     animation: rotate-scale-up-ver 0.65s linear both;
 }
 
-/* encart de tarif et total des likes */
+/* Encart de tarif et total des likes */
 
 .ratePriceLabel {
     position: fixed;
@@ -317,7 +317,7 @@
     z-index: 5;
 }
 
-/* modale de contact */
+/* Modale de contact */
 
 .contact_button {
     font-size: 20px;
@@ -418,7 +418,7 @@ form #messageBox {
     padding: 0 0.5rem;
 }
 
-/* style de la lightbox */
+/* Style de la lightbox */
 
 #lightbox_modal {
     display: none;
@@ -484,7 +484,6 @@ form #messageBox {
 #media-name {
     position: absolute;
     top: 96%;
-    /* height: 31px; */
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -506,7 +505,7 @@ form #messageBox {
     position: fixed;
 }
 
-/* animation des coeurs */
+/* Animation des coeurs */
 
 @keyframes rotate-scale-up-ver {
     0% {
