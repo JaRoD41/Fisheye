@@ -224,6 +224,7 @@
     align-items: center;
 }
 
+/* Bouton play de la vidéo */
 .video_logo {
     display: flex;
     position: absolute;
@@ -241,11 +242,22 @@
     width: 350px;
     border-radius: 5px;
     object-fit: cover;
-    object-position: 50% 40%;
     z-index: 2;
     cursor: pointer;
     transition: transform .5s ease-in-out;
 }
+
+/* Positionnement de l'image dans le cadre selon le photographe */
+
+.centered-media-position {
+    object-position: 50% 16%;
+}
+
+.original-media-position {
+    object-position: 50% 40%;
+}
+
+/* Effet de zoom sur l'image au survol */
 
 .photograph-gallery article .single_media:hover,
 .photograph-gallery article .single_media:focus {
@@ -496,7 +508,6 @@ form #messageBox {
     height: 900px;
     border-radius: 5px;
     object-fit: cover;
-    object-position: 50% 50%;
     transition: opacity ease-in-out 0.6s
 }
 

@@ -29,6 +29,12 @@ class LightboxFactory {
     mediaToCreate.setAttribute('tabindex', '0')
     mediaToCreate.setAttribute('id', `media-${this.id}`)
     mediaToCreate.setAttribute('alt', `gros plan sur le média nommé ${this.title}`)
+    // On ajoute une classe spécifique pour les médias des photographes 82 et 925 car ils ont une position différente
+    if (this.photographerId === 82 || this.photographerId === 925) {
+      mediaToCreate.classList.add('centered-media-position')
+    } else {
+      mediaToCreate.classList.add('original-media-position')
+    }
     return mediaToCreate
   }
 

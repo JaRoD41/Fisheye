@@ -47,6 +47,12 @@ class Media {
       media.setAttribute('onclick', `displayLightbox(${this.currentMediaIndex})`)
       media.setAttribute('onkeyup', `if(event.keyCode == 13){displayLightbox(${this.currentMediaIndex})}`)
     }
+    // On ajoute une classe spécifique pour les médias des photographes 82 et 925 car ils ont une position différente
+    if (this.photographerId === 82 || this.photographerId === 925) {
+      media.classList.add('centered-media-position')
+    } else {
+      media.classList.add('original-media-position')
+    }
 
     const article = document.createElement('article')
     article.classList.add('gallery_item')
