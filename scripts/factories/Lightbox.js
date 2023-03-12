@@ -8,6 +8,7 @@ class LightboxFactory {
     this.image = data[currentMediaIndex].image
     this.video = data[currentMediaIndex].video
 
+    // On crée une variable qui va contenir le chemin et le type d'élément vers le média à afficher dans la lightbox
     if (this.data.video) {
       mediaSrc = `./assets/photographers/${this.photographerId}/${this.video}`
       mediaToCreate = document.createElement('iframe')
