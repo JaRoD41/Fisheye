@@ -84,7 +84,7 @@
     margin-top: 19px;
 }
 
-/* Filtre */
+/* Filtre de tri */
 
 .gallery-filter {
     margin-top: 35px;
@@ -224,7 +224,7 @@
     align-items: center;
 }
 
-/* Bouton play de la vidéo */
+/* Bouton play de la miniature de vidéo */
 .video_logo {
     display: flex;
     position: absolute;
@@ -343,6 +343,8 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+/* Bouton de contact effet au survol */
 
 .contact_button:hover {
     background: #DB8876;
