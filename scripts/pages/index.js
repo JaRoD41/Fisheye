@@ -9,7 +9,7 @@ async function displayData(photographers) {
 }
 
 async function init() {
-  // Récupère les datas des photographes
+  // Récupère les datas des photographes en appelant la fonction getPhotographers de Api.js
   const { photographers } = await getPhotographers()
   displayData(photographers)
 }

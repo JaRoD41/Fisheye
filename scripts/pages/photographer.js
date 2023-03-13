@@ -118,7 +118,7 @@ async function displayData(photographerInfos, medias) {
 }
 
 async function init() {
-  // Récupère les datas du photographe
+  // Récupère les datas du photographe en appelant la fonction getMedias de Api.js
   const { photographerInfos, medias } = await getMedias()
   displayData(photographerInfos, medias)
 }
