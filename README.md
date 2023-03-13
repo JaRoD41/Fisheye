@@ -28,7 +28,3 @@
 - Gérer les évènements d'un site avec JavaScript
 - Développer une application web modulaire avec des design patterns
 - Écrire du code JavaScript maintenable
-
-## Github Page
-
-https://jarod41.github.io/Fisheye/index.html
