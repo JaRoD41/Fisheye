@@ -26,7 +26,7 @@
 		
 		<section id="gallery-filter" class="gallery-filter" aria-labelledby="filter-label">
 			<div class="filter-container">
-				<h2 id="filter-label" tabindex="0">Trier par</h2>
+				<h2 id="filter-label" tabindex="-1">Trier par</h2>
 				<div class="dropdown-filter" aria-haspopup="listbox">
 					<button id="filter-button" name="filtres" type="button" aria-expanded="false"
 						aria-controls="filter-menu" aria-labelledby="sort-name">
@@ -67,7 +67,7 @@
 		<div class="modal">
 			<header>
 				<div class="formTitle">
-					<h1 id="contactMe">Contactez-moi</h1>
+					<h1 id="contactMe" aria-label="cliquer pour ouvrir le formulaire de contact">Contactez-moi</h1>
 					<span class="namePhotographForm"></span>
 				</div>
 				<img src="./assets/icons/close.svg" onclick="closeModal()" alt="X pour fermer le formulaire"
@@ -75,16 +75,16 @@
 			</header>
 			<form id="contact-form">
 				<div>
-					<label for="first-name">Prénom</label>
+					<label for="first-name" aria-label="champ prénom">Prénom</label>
 					<input id="first-name" type="text" minlength="2" name="champ prénom" aria-labelledby="first-name"
 						required />
-					<label for="last-name">Nom</label>
+					<label for="last-name" aria-label="champ nom">Nom</label>
 					<input id="last-name" type="text" minlength="2" name="champ nom" aria-labelledby="last-name"
 						required />
-					<label for="email">Email</label>
+					<label for="email" aria-label="champ email">Email</label>
 					<input id="email" type="email" name="champ email" aria-labelledby="email" required />
-					<label for="messageBox">Votre message</label>
-					<textarea id="messageBox" name="champ message" aria-labelledby="messageBox" required></textarea>
+					<label for="messageBox" aria-label="zone de message">Votre message</label>
+					<textarea id="messageBox" name="zone de message" aria-labelledby="messageBox" required></textarea>
 				</div>
 				<button class="contact_button" type="submit">
 					Envoyer
