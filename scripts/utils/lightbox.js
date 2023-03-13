@@ -5,6 +5,7 @@ let mediaName = document.getElementById('media-name')
 const lightboxCloseBtn = document.getElementById('lightbox-close')
 const prevButton = document.getElementById('lightbox-prev')
 const nextButton = document.getElementById('lightbox-next')
+const homePageLink = document.getElementById('homePageLink')
 
 let mediaId
 let mediaToShow
@@ -78,6 +79,7 @@ function closeLightbox() {
   document.body.classList.remove('no-scroll')
   mediaName.textContent = ''
   mediaSrc.remove()
+  homePageLink.focus()
 }
 
 // Navigation de la lightbox
