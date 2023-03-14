@@ -65,6 +65,8 @@ async function displayData(photographerInfos, medias) {
             // Change les attributs aria-selected des boutons de tri pour indiquer le choix sélectionné
             sortSelectors.forEach((s) => s.setAttribute('aria-selected', 'false'))
             selector.setAttribute('aria-selected', 'true')
+            selectedOptionId = selector.getAttribute('id')
+            filterMenu.setAttribute('aria-activedescendant', selectedOptionId)
             // Affiche ou masque le menu de tri en fonction de son état
             if (selector.classList.contains('selected') && dropdown.classList.contains('active')) {
               selector.classList.remove('selected')
