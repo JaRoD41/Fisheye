@@ -22,14 +22,16 @@ class PriceLikesTabFactory {
     likesSpan.textContent = this.totalLikes
     likesSpan.classList.add('totalLikes')
     likesSpan.setAttribute('id', 'totalLikes')
+    likesSpan.setAttribute('tabindex', '1')
     this.allLikes = totalLikes
-    likesImg.setAttribute('aria-label', `${this.photographerName} totalise ${this.allLikes} likes`)
+    likesSpan.setAttribute('aria-label', `${this.photographerName} totalise ${this.allLikes} likes`)
     likesImg.setAttribute('src', './assets/icons/black-heart.svg')
     priceSpan.setAttribute('id', 'priceSpan')
+    priceSpan.setAttribute('tabindex', '1')
     priceSpan.textContent = `${this.photographerPrice}€/jour`
     priceSpan.setAttribute(
       'aria-label',
-      `tarif du photographe ${this.photographerName}: ${this.photographerPrice}€/jour`
+      `tarif du photographe ${this.photographerName}: ${this.photographerPrice}€ par jour`
     )
 
     container.appendChild(likesSpan)
