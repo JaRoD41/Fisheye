@@ -13,7 +13,7 @@ class PriceLikesTabFactory {
 
     container.setAttribute('id', 'likeTab')
 
-    photographerTab.setAttribute('tabindex', '0')
+    photographerTab.setAttribute('tabindex', '1')
     photographerTab.setAttribute(
       'aria-label',
       `nombre total de likes et tarif journalier du photographe ${this.photographerName}`

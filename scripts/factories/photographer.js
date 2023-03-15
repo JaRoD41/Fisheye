@@ -42,7 +42,7 @@ function photographerFactory(data) {
   function getPhotographerHeader() {
     const fiche = document.querySelector('.photograph-header')
     fiche.innerHTML = `
-			<aside class="infos" aria-labelledby='aside-title'>
+			<aside class="infos" aria-labelledby='aside-title' tabIndex="0">
 				<div class="infos-name">
         <h1 id='aside-title'>${name}</h1>
 				</div>	
@@ -50,7 +50,7 @@ function photographerFactory(data) {
         <span class="tagline">${tagline}</span>
 			</aside>	
       <button class="contact_button" aria-label="cliquer pour ouvrir le formulaire de contact" onclick='displayModal()'>Contactez-moi</button>
-      <img alt="portrait du photographe ${name}" src="${picture}">
+      <img alt="portrait du photographe ${name}" src="${picture}" tabindex="0">
 		`
     // Insertion du nom du photographe dans le formulaire de contact
     const nameForm = document.querySelector('.namePhotographForm')
