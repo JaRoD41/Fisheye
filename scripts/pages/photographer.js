@@ -12,6 +12,7 @@ buttonTitle.textContent = defaultOption
 // Récupération des données du photographe pour affichage
 async function displayData(photographerInfos, medias) {
   const photographerPrice = photographerInfos.price
+  const photographerName = photographerInfos.name
   const gallery = document.querySelector('.photograph-gallery')
   const dropdown = document.querySelector('.dropdown-filter')
   const selectElement = document.getElementById('filter-button')
@@ -111,7 +112,7 @@ async function displayData(photographerInfos, medias) {
   })
 
   // Affichage de l'encart avec les likes et le tarif du photographe
-  const priceTab = new PriceLikesTabFactory(photographerPrice)
+  const priceTab = new PriceLikesTabFactory(photographerPrice, photographerName)
   priceTab.createPriceRateTab()
 
   // Affichage de l'encart avec les infos du photographe
