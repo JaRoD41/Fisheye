@@ -11,6 +11,7 @@ function addLikeListeners() {
   heartsList.forEach((likeIcon) => {
     likeIcon.addEventListener('click', (e) => {
       e.preventDefault()
+      // voir pour écouter la touche entrée et la barre d'espace pour ajouter un like
       const likeClick = e.currentTarget
       const amountOfLikes = likeClick.closest('.photo_likes').firstElementChild
       if (likeIcon.classList.contains('isLiked')) {
