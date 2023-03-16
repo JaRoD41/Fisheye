@@ -2,7 +2,7 @@ let displayedLikes = []
 let heartsList
 let nouveauTotalDeLikes
 
-// Ajout des likes de chaque média et incrémentation / décrémentation au clic
+// Ajout des likes de chaque média et incrémentation / décrémentation au clic et au clavier
 function addLikeListeners() {
   const likesSpan = document.getElementById('totalLikes')
   const totalLikes = getTotalLikes(medias)
