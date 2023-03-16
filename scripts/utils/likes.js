@@ -9,20 +9,24 @@ function addLikeListeners() {
   likesSpan.textContent = totalLikes
   heartsList = document.querySelectorAll('.red-like')
   heartsList.forEach((likeIcon) => {
-    likeIcon.addEventListener('click', (e) => {
-      e.preventDefault()
-      // voir pour écouter la touche entrée et la barre d'espace pour ajouter un like
-      const likeClick = e.currentTarget
-      const amountOfLikes = likeClick.closest('.photo_likes').firstElementChild
-      if (likeIcon.classList.contains('isLiked')) {
-        amountOfLikes.innerHTML = Number(amountOfLikes.innerHTML) - 1
-        likeIcon.classList.remove('isLiked')
-      } else {
-        amountOfLikes.innerHTML = Number(amountOfLikes.innerHTML) + 1
-        likeIcon.classList.add('isLiked')
-      }
-      scanActualLikes()
-      likesSpan.textContent = nouveauTotalDeLikes
+    // écoute de la touche entrée ou du clic pour ajouter un like
+    ;['click', 'keyup'].forEach((ev) => {
+      likeIcon.addEventListener(ev, function (e) {
+        if (ev === 'click' || (ev === 'keyup' && e.key === 'Enter')) {
+          e.preventDefault()
+          const likeClick = e.currentTarget
+          const amountOfLikes = likeClick.closest('.photo_likes').firstElementChild
+          if (likeIcon.classList.contains('isLiked')) {
+            amountOfLikes.innerHTML = Number(amountOfLikes.innerHTML) - 1
+            likeIcon.classList.remove('isLiked')
+          } else {
+            amountOfLikes.innerHTML = Number(amountOfLikes.innerHTML) + 1
+            likeIcon.classList.add('isLiked')
+          }
+          scanActualLikes()
+          likesSpan.textContent = nouveauTotalDeLikes
+        }
+      })
     })
   })
 }
