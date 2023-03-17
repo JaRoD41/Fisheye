@@ -344,7 +344,7 @@
     cursor: pointer;
 }
 
-/* Bouton de contact effet au survol */
+/* Bouton de contact effet au survol et au focus */
 
 .contact_button:hover, .contact_button:focus {
     background: #DB8876;
