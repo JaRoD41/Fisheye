@@ -76,7 +76,9 @@ ul, li {
     transition: transform .3s linear;
 }
 
-.photographer_section article img:hover {
+/* effet de zoom sur l'image du photographe au survol de la souris */
+.photographer_section article img:hover, .photographer_section article img:focus {
+    box-shadow: 0px 4px 12px rgba(211, 87, 60, 0.6);
     transform: scale(1.1);
 }
 
