@@ -193,6 +193,10 @@
     z-index: 1;
 }
 
+.sort-selector:hover, .sort-selector:focus {
+    background: #D3573C;
+}
+
 /* Lignes blanches de séparation dans le menu déroulant */
 
 .sort-selector:nth-child(2) {
