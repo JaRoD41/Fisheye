@@ -19,6 +19,7 @@ class PriceLikesTabFactory {
       `nombre total de likes et tarif journalier du photographe ${this.photographerName}`
     )
 
+    // Ajout du nombre total de likes et du tarif du photographe
     likesSpan.textContent = this.totalLikes
     likesSpan.classList.add('totalLikes')
     likesSpan.setAttribute('id', 'totalLikes')
