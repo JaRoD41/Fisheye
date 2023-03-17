@@ -261,7 +261,7 @@
 
 .photograph-gallery article .single_media:hover,
 .photograph-gallery article .single_media:focus {
-    box-shadow: 20px 30px 18px -5px rgba(211, 87, 60, 0.4);
+    box-shadow: rgba(219, 136, 118, 0.4) 0px 13px 27px -5px, rgba(144, 28, 28, 0.45) 0px 8px 16px -8px;
     transform: scale(1.1, 1.1);
 }
 
@@ -346,7 +346,8 @@
 
 /* Bouton de contact effet au survol et au focus */
 
-.contact_button:hover, .contact_button:focus {
+.contact_button:hover,
+.contact_button:focus {
     background: #DB8876;
     color: black;
 }
